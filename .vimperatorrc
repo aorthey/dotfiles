@@ -1,0 +1,54 @@
+"3.3 (created: 2011/11/13 17:32:12)
+source .vimperator/stumbleupon.js
+source .vimperator/stumbleupon-friends.js
+
+set complete=lSf
+
+"max items for status line pop up menu
+set maxitems=5
+set titlestring=ffox
+set visualbell
+set gui=none
+set wildmode=list:full
+
+"some useful short cuts for the daily life
+"noremap <C-n> <silent> :tabopen<Space>http://www.dict.cc/?s=
+
+"youtube convert to mp3 and replay mode
+noremap cy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
+noremap ct y:tabopen<Space>tubereplay<Space><C-v><CR>
+
+"macro a ogmx<Tab><Return>fLogin2fungel
+noremap sd :tabopen dict 
+noremap sw :tabopen mw 
+noremap sp :tabopen dictfr 
+noremap sf :tabopen dictfren 
+noremap si :tabopen gimg 
+noremap sm :tabopen gmap 
+noremap se :tabopen ebay 
+noremap sad :tabopen amazonde 
+noremap sae :tabopen amazoncom 
+noremap swd :tabopen wikigerman 
+noremap swe :tabopen wikienglish 
+noremap sgs :tabopen scholar 
+noremap sy :tabopen youtube 
+noremap <C-r> :restart<CR>
+noremap h <C-p>
+noremap l <C-n>
+noremap j 4j
+noremap k 4k
+noremap ss yt<CR>p
+
+"next and previous navigation by ctrl + l and h
+noremap <C-l> ]]
+noremap <C-h> [[
+
+"minimize
+js <<EOM
+    commands.addUserCommand(['mi[nimize]'], "minimize window",
+    function(){
+        minimize();
+    }, {}, true);
+EOM
+
+noremap zm :minimize<CR>
