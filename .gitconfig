@@ -1,5 +1,6 @@
 [user]
 	name = Andreas Orthey
+	email = andreas.orthey@gmx.de
   editor = vim
 [alias]
 	st = status --untracked-files=no
