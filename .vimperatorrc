@@ -2,7 +2,9 @@
 source .vimperator/stumbleupon.js
 source .vimperator/stumbleupon-friends.js
 
+set! browser.startup.page=1
 set complete=lSf
+set history=0
 
 "max items for status line pop up menu
 set maxitems=5
@@ -21,13 +23,14 @@ noremap ct y:tabopen<Space>tubereplay<Space><C-v><CR>
 "macro a ogmx<Tab><Return>fLogin2fungel
 noremap sd :tabopen dict 
 noremap sw :tabopen mw 
-noremap sp :tabopen dictfr 
-noremap sf :tabopen dictfren 
+noremap sf :tabopen dictfr 
+noremap sr :tabopen dictfren 
 noremap si :tabopen gimg 
 noremap sm :tabopen gmap 
 noremap se :tabopen ebay 
 noremap sad :tabopen amazonde 
 noremap sae :tabopen amazoncom 
+noremap saf :tabopen amazonfr 
 noremap swd :tabopen wikigerman 
 noremap swe :tabopen wikienglish 
 noremap sgs :tabopen scholar 
@@ -52,3 +55,4 @@ js <<EOM
 EOM
 
 noremap zm :minimize<CR>
+autocmd LocationChange .* :set editor="gnome-terminal -x vim"

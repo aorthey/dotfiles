@@ -1,0 +1,41 @@
+[user]
+	name = Andreas Orthey
+  editor = vim
+[alias]
+	st = status --untracked-files=no
+	ls = ls-files
+	hist = log --graph \
+		--pretty=format:'%C(red)%h%Creset%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset%C(green)(%ad)' \
+		--abbrev-commit --date=short --all
+	br = branch -av
+#git dm N : diff modified will show the diffs of the Nth modified file
+	dm = "!sh -c 'git ls-files -m| head -n $1 | tail -1 | xargs git diff ' -"
+[core]
+	editor = vim
+[color]
+	ui = auto
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = auto
+[color "branch"]
+  current = green bold
+  local = green
+  remote = magenta bold
+[color "diff"]
+  meta = magenta bold
+  frag = yellow bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = green bold
+  changed = yellow bold
+  untracked = magenta
+[color "sh"]
+  branch = yellow
+[push]
+  default = current
+[http]
+	postBuffer = 524288000

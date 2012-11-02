@@ -13,7 +13,7 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -77,13 +77,18 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF' #all, listing, file-indicator
-alias la='ls -A' #almost-all
-alias lt='ls -lAFrt' #listing, almost-all, file-indicator, recursive, sort-with-time
-alias l='ls -CF' #file-indicator, column-style (non-listing only)
+TS='--color=auto --time-style='"'"'+|%d-%b-%Y -- %H:%M:%S|'"'"
+alias ll='ls -alrhSF '$TS #all, listing, reverse, human-readable, sort-by-filesize, file-indicator
+alias lrl='ls -alhSF '$TS #all, listing, human-readable, sort-by-filesize, file-indicator
+alias lt='ls -lAhFrt '$TS
+alias lrt='ls -lAhFt '$TS
+alias la='ls -A '$TS #almost-all
+alias l='ls -CF '$TS #file-indicator, column-style (non-listing only)
 alias 2..="cd ../.."
 alias 3..="cd ../../.."
 alias 4..="cd ../../../.."
+
+alias ht='history|tail -n15'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -152,6 +157,9 @@ rotall(){
 }
 VISUAL=vim
 EDITOR=vim
+#android programming env
+PATH=$PATH:/home/orthez/workspace/android-sdk-linux/platform-tools:/home/orthez/workspace/android-sdk-linux/tools
+
 
 #finger `whoami`
-finger
+w
