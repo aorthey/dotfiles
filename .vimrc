@@ -99,6 +99,7 @@ nmap gc :!make clean && make && make run<CR>
 "nmap gfr :!make run FILE=%<CR>
 "nmap gfm :!make all FILE=%<CR>
 nmap gfm :!make all FILE=%<CR>
+nmap gfm :!make && make debug<CR>
 "nmap gfc :!make all FILE=% && make run FILE=%<CR>
 nmap gfb :!rm -rf *~ *.log *.aux *.dvi *.toc %:r.pdf *.bbl *.blg && pdflatex % && bibtex %:r && pdflatex % && pdflatex % && apvlv %:r.pdf&<CR><CR>
 nmap gfv :!rm -rf *~ *.log *.aux *.dvi *.toc %:r.pdf *.bbl *.blg && pdflatex % && bibtex %:r && latex % && pdflatex % && apvlv %:r.pdf<CR>

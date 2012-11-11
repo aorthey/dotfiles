@@ -159,7 +159,9 @@ VISUAL=vim
 EDITOR=vim
 #android programming env
 PATH=$PATH:/home/orthez/workspace/android-sdk-linux/platform-tools:/home/orthez/workspace/android-sdk-linux/tools
+export PATH=$PATH:/opt/openrobots/bin:/opt/openrobots/sbin
 
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/openrobots/lib/pkgconfig
 
 #finger `whoami`
 w

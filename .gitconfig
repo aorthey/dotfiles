@@ -3,14 +3,23 @@
 	email = andreas.orthey@gmx.de
   editor = vim
 [alias]
-	st = status --untracked-files=no
+	st = "!sh -c 'git status --untracked-files=no' -"
+
+#todo: add mod/del/add label to the output counter
+#todo: remove counter from commited changes
+	sl = "!sh -c 'git -c color.status=always \
+		status --untracked-files=no|awk -v count=1\
+		\"{if(gsub(/(modified:|deleted: |added:  )/ \
+		,count)) count++;};1;\"' -"
 	ls = ls-files
 	hist = log --graph \
-		--pretty=format:'%C(red)%h%Creset%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset%C(green)(%ad)' \
+		--pretty=format:'%C(red)%h%Creset%C(yellow)%d%Creset \
+		%s %C(bold blue)<%an>%Creset%C(green)(%ad)' \
 		--abbrev-commit --date=short --all
 	br = branch -av
 #git dm N : diff modified will show the diffs of the Nth modified file
-	dm = "!sh -c 'git ls-files -m| head -n $1 | tail -1 | xargs git diff ' -"
+	dm = "!sh -c 'git ls-files -m| head -n $1 \
+		| tail -1 | xargs git diff ' -"
 [core]
 	editor = vim
 [color]
