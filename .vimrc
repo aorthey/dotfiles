@@ -87,8 +87,8 @@ set number
 set autoindent
 set copyindent
 set smartindent
-set tabstop=2
-set shiftwidth=2
+set tabstop=8
+set shiftwidth=8
 "set expandtab
 
 "short cmds to quickly invoke make file commands, % displays filename,
