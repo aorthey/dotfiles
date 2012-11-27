@@ -48,10 +48,15 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# \u username 
+# \h hostname
+# \w cur dir
+# \$(date +%k:%M:%S)
+
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+	PS1='${debian_chroot:+($debian_chroot)}$(date +%k:%M) \u \w> '
 fi
 unset color_prompt force_color_prompt
 
@@ -87,6 +92,9 @@ alias l='ls -CF '$TS #file-indicator, column-style (non-listing only)
 alias 2..="cd ../.."
 alias 3..="cd ../../.."
 alias 4..="cd ../../../.."
+
+
+alias mv='mv -i'
 
 alias ht='history|tail -n15'
 
@@ -162,6 +170,7 @@ PATH=$PATH:/home/orthez/workspace/android-sdk-linux/platform-tools:/home/orthez/
 export PATH=$PATH:/opt/openrobots/bin:/opt/openrobots/sbin
 
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/openrobots/lib/pkgconfig
+source /opt/ros/fuerte/setup.bash
 
 #finger `whoami`
 w
