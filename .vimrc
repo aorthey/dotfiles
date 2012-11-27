@@ -1,5 +1,16 @@
+"path to current software project
+set path=
 ""always reload vimrc, if changed
 autocmd! bufwritepost .vimrc source %
+source ~/.vim/autoload/feraltogglecommentify.vim
+
+nmap cl :TC<CR> "toggle comment on line
+nmap cp vip:CC<CR> "comment paragraph
+nmap vp vip:UC<CR> "uncomment paragraph
+
+autocmd Filetype c,cpp,h,hpp set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+
+set timeoutlen=300 "timeout for key combinations
 
 "map hon :%d<CR>
 "ap hof :%d -r<CR>
@@ -11,16 +22,17 @@ autocmd! bufwritepost .vimrc source %
 set spell spelllang=en_us
 set clipboard="unamedplus,autoselect,exclude:cons\|linux"
 
-"swap highlighted word in visual mode (reverse letter order)
+"(reverse letter order) in visual mode
 vmap fR c<C-O>:set ri<CR><C-R>"<Esc>:set nori<CR>
+
 "restrict lines to have N letters, automatically wrap if x>N
 set textwidth=80
 set wrapmargin=80
-"change remember history to 50 cmds
-set history=500
 
-"path to current software project
-set path=/home/orthez/git/mlr/share/**
+set history=500
+set ruler
+set hidden
+runtime macros/matchit.vim
 
 "change background color for vim
 highlight Normal ctermfg=white ctermbg=white
@@ -89,6 +101,7 @@ set copyindent
 set smartindent
 set tabstop=8
 set shiftwidth=8
+set pastetoggle=<F11> 
 "set expandtab
 
 "short cmds to quickly invoke make file commands, % displays filename,
@@ -153,17 +166,17 @@ noremap  <f1> :w<return>
 inoremap <f1> <c-o>:w<return>
 
 "highlight lines, which are greater than 80 columns
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+highlight OverLength ctermbg=2 ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
 "highlight current cursor line
 set cursorline
 "add term=underline and cterm=underline for a line under the current line
-highlight CursorLine ctermbg=black ctermfg=white cterm=bold term=bold
+highlight CursorLine ctermbg=5 cterm=bold term=bold
 
 "cursor lightning specifications
-highlight Cursor ctermfg=white ctermbg=white
-highlight iCursor ctermfg=white ctermbg=white
+"highlight Cursor ctermfg=white ctermbg=white
+"highlight iCursor ctermfg=white ctermbg=white
 
 "cursor for n-v-c normal-visual-caret mode a:all modes
 set guicursor=n-v-c:block-Cursor
@@ -202,6 +215,26 @@ endfunction
 "
 "reload vimrc
 nmap <F4> :source ~/.vimrc<CR>
+
+"substitute all uml to their html code (&auml;&ouml;)
+function! UMLtoHTML(string)
+	if a:string =~# 'ä'
+		return '&auml;'
+	elseif a:string =~# 'Ä'
+		return '&auml;'
+	elseif a:string =~# 'ö'
+		return '&ouml;'
+	elseif a:string =~# 'Ö'
+		return '&Ouml;'
+	elseif a:string =~# 'ü'
+		return '&uuml;'
+	elseif a:string =~# 'Ü'
+		return 'Uuuml;'
+	else
+		return '&szlig;'
+	endif
+endfun
+nmap huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
 
 
 
