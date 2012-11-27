@@ -35,6 +35,8 @@ noremap swd :tabopen wikigerman
 noremap swe :tabopen wikienglish 
 noremap sgs :tabopen scholar 
 noremap sy :tabopen youtube 
+noremap sk :tabopen kinox 
+noremap sx :tabopen xplore 
 noremap <C-r> :restart<CR>
 noremap h <C-p>
 noremap l <C-n>
