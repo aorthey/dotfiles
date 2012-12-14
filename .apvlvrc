@@ -42,7 +42,7 @@ set commandtimeout=2000
 set defaultdir=C:\
 
 " set if use content view
-set content=yes
+set content=no
 
 " set weather use continuous view 
 " make sure the autoscrollpage is set to "yes" if you want to set this to yes
