@@ -34,6 +34,16 @@ set ruler
 set hidden
 runtime macros/matchit.vim
 
+"disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 "change background color for vim
 highlight Normal ctermfg=white ctermbg=white
 colorscheme blink
@@ -234,7 +244,7 @@ function! UMLtoHTML(string)
 		return '&szlig;'
 	endif
 endfun
-nmap huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
+command Huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
 
 
 
