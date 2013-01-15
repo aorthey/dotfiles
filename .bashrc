@@ -83,8 +83,10 @@ fi
 
 # some more ls aliases
 TS='--color=auto --time-style='"'"'+|%d-%b-%Y -- %H:%M:%S|'"'"
-alias ll='ls -alrhSF '$TS #all, listing, reverse, human-readable, sort-by-filesize, file-indicator
-alias lrl='ls -alhSF '$TS #all, listing, human-readable, sort-by-filesize, file-indicator
+alias lf='ls -alrhSF '$TS #all, listing, reverse, human-readable, sort-by-filesize, file-indicator
+alias lrf='ls -alhSF '$TS #all, listing, human-readable, sort-by-filesize, file-indicator
+alias ll='ls -alrhF '$TS #all, listing, reverse, human-readable, file-indicator
+alias lrl='ls -alhF '$TS #all, listing, human-readable, file-indicator
 alias lt='ls -lAhFrt '$TS
 alias lrt='ls -lAhFt '$TS
 alias la='ls -A '$TS #almost-all
