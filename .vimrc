@@ -12,6 +12,9 @@ autocmd Filetype c,cpp,h,hpp set tabstop=8 softtabstop=8 shiftwidth=8 noexpandta
 
 set timeoutlen=300 "timeout for key combinations
 
+let g:Tex_UseSimpleLabelSearch=1
+let g:Tex_BIBINPUTS="."
+
 "map hon :%d<CR>
 "ap hof :%d -r<CR>
 
@@ -136,11 +139,11 @@ nmap ge :!./x.exe -openHand 1 -openArm 1 -openSkin 1<CR>
 "step out of insert mode with hh instead of ESC
 
 "delete a character in insert mode
-inoremap xx <C-O>x
-inoremap xb <C-O>h<C-O>x
+"inoremap xx <C-O>x
+"inoremap xb <C-O>h<C-O>x
 
 "delete a word in insert mode
-inoremap xdw <C-O>dw
+"inoremap xdw <C-O>dw
 
 "delete/change a functionname with all its arguments and the braces
 nmap cif diwc%
