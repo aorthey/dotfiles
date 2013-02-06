@@ -213,9 +213,5 @@ cp_p()
 }
 
 #finger `whoami`
-source /opt/ros/fuerte/setup.bash
-export ROS_PACKAGE_PATH=~/ros_workspace:/opt/ros/fuerte/share:/opt/ros/fuerte/stacks:/opt/ros/fuerte/lib;
-export ROS_WORKSPACE=~/ros_workspace;
-export ROS_HOSTNAME=localhost;
-export ROS_MASTER_URI=http://localhost:11311;
+source ~/.bashrc_personal
 w
