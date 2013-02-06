@@ -1,5 +1,5 @@
 "path to current software project
-set path=
+"set path=
 ""always reload vimrc, if changed
 autocmd! bufwritepost .vimrc source %
 source ~/.vim/autoload/feraltogglecommentify.vim
@@ -206,6 +206,8 @@ nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 "nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S O<ESC>j 
 
+noremap gn :set nospell<CR>
+
 "save session (tabs and buffer) via F2, reload F3
 nmap <F2> :mksession! ~/.vim/sessions/%:t.session<CR>
 nmap <F3> :source ~/.vim/sessions/%:t.session<CR>
@@ -281,3 +283,4 @@ set statusline+=%*
 function! MyMessage()
 	return "Freeze IDE >> "
 endfunction
+map ;g é

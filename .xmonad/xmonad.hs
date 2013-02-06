@@ -3,6 +3,7 @@ import Data.Monoid
 import System.Exit
 import XMonad.Util.EZConfig
 import XMonad.Config.Gnome
+import XMonad.Hooks.SetWMName
 import XMonad.Layout.WindowNavigation
 import XMonad.Layout.Groups.Examples
 import XMonad.Layout.ZoomRow
@@ -245,7 +246,9 @@ myLayout = windowNavigation (desktopLayoutModifiers (tiled) ) ||| Full
 --
 myManageHook = composeAll
     [ manageHook gnomeConfig
-    , className =? "Unity-2d-launcher" --> doFloat
+    --, className =? "tilda"           --> doFloat
+    , className =? "Unity-2d-shell" --> doIgnore
+    , className =? "Unity-2d-launcher" --> doIgnore
     , className =? "Unity-2d-panel" --> doIgnore
     , className =? "Gimp-2.6"           --> doShift "5"
     , className =? "Qtcreator"           --> doShift "3"
@@ -322,8 +325,8 @@ main = xmonad gnomeConfig {
  
       -- hooks, layouts
         layoutHook         = myLayout,
-        manageHook         = myManageHook
+        manageHook         = myManageHook,
        -- handleEventHook    = myEventHook,
        -- logHook            = myLogHook
-       -- startupHook        = myStartupHook
+        startupHook        = setWMName "LG3D"
     }

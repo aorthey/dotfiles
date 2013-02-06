@@ -130,7 +130,7 @@ source ~/.bash/apt_tab_completion
 # 'echo "' + "'" + 'hallo' + "'" + '"'
 
 alias example='echo "'"'"'hallo'"'"'"' #will write 'hallo' to console
-alias fanwatch='watch -n 0.2 "cat /proc/acpi/ibm/fan|egrep '"'"'(status|speed|level)'"'"' && echo "" && sensors|grep "C""'
+alias fanwatch='watch -n 1 "cat /proc/acpi/ibm/fan|egrep '"'"'(status|speed|level)'"'"' && echo "" && sensors|grep "C""'
 alias fandaemon='sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi'
 alias wanip='curl -s http://whatismyip.org && echo'
 
@@ -175,5 +175,47 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/openrobots/lib/pkgconfig
 source /opt/ros/fuerte/setup.bash
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/workspace/ros-sandbox
 
+cp_pr()
+{
+   strace -q -ewrite cp -R -- "${1}" "${2}" 2>&1 \
+      | awk '{
+        count += $NF
+            if (count % 10 == 0) {
+               percent = count / total_size * 100
+               printf "%3d%% [", percent
+               for (i=0;i<=percent;i++)
+                  printf "="
+               printf ">"
+               for (i=percent;i<100;i++)
+                  printf " "
+               printf "]\r"
+            }
+         }
+         END { print "" }' total_size=$(stat -c '%s' "${1}") count=0
+}
+cp_p()
+{
+   strace -q -ewrite cp -- "${1}" "${2}" 2>&1 \
+      | awk '{
+        count += $NF
+            if (count % 10 == 0) {
+               percent = count / total_size * 100
+               printf "%3d%% [", percent
+               for (i=0;i<=percent;i++)
+                  printf "="
+               printf ">"
+               for (i=percent;i<100;i++)
+                  printf " "
+               printf "]\r"
+            }
+         }
+         END { print "" }' total_size=$(stat -c '%s' "${1}") count=0
+}
+
 #finger `whoami`
+source /opt/ros/fuerte/setup.bash
+export ROS_PACKAGE_PATH=~/ros_workspace:/opt/ros/fuerte/share:/opt/ros/fuerte/stacks:/opt/ros/fuerte/lib;
+export ROS_WORKSPACE=~/ros_workspace;
+export ROS_HOSTNAME=localhost;
+export ROS_MASTER_URI=http://localhost:11311;
 w

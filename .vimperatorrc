@@ -44,6 +44,12 @@ noremap j 4j
 noremap k 4k
 noremap ss yt<CR>p
 
+"shortcuts for most visited pages
+noremap gT :tabopen www.tagesschau.de<CR>
+noremap gt :open www.tagesschau.de<CR>
+noremap gB :tabopen www.facebook.com<CR>
+noremap gb :open www.facebook.com<CR>
+
 "next and previous navigation by ctrl + l and h
 noremap <C-l> ]]
 noremap <C-h> [[
