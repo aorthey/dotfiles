@@ -213,5 +213,11 @@ cp_p()
 }
 
 #finger `whoami`
+djvu2pdf(){
+	FILE=`basename $1 .djvu`
+	ddjvu -format=tiff $1 $FILE.tiff
+	tiff2pdf -j -o $FILE.pdf $FILE.tiff
+	rm -rf $FILE.tiff
+}
 source ~/.bashrc_personal
 w
