@@ -219,5 +219,11 @@ djvu2pdf(){
 	tiff2pdf -j -o $FILE.pdf $FILE.tiff
 	rm -rf $FILE.tiff
 }
+texgit(){
+	rm -rf util-general.tex
+	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
+}
+
+
 source ~/.bashrc_personal
 w

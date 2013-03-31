@@ -34,6 +34,7 @@ noremap saf :tabopen amazonfr
 noremap swd :tabopen wikigerman 
 noremap swe :tabopen wikienglish 
 noremap sgs :tabopen scholar 
+noremap sb :tabopen dblp 
 noremap sy :tabopen youtube 
 noremap sk :tabopen kinox 
 noremap sx :tabopen xplore 

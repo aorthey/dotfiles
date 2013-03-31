@@ -119,13 +119,14 @@ set pastetoggle=<F11>
 
 "short cmds to quickly invoke make file commands, % displays filename,
 " %:r "display filename without file extension
+nmap gff :!g++ % -o %.exe && ./%.exe<CR>
 nmap gm :!make<CR>
 nmap gc :!make clean && make && make run<CR>
 "nmap gfc :!make clean && make && gdb -ex run ./x.exe<CR>
 "nmap gfr :!make run FILE=%<CR>
 "nmap gfm :!make all FILE=%<CR>
-nmap gfm :!make all FILE=%<CR>
-nmap gfm :!make && make debug<CR>
+"nmap gfm :!make all FILE=%<CR>
+"nmap gfm :!make && make debug<CR>
 "nmap gfc :!make all FILE=% && make run FILE=%<CR>
 nmap gfb :!rm -rf *~ *.log *.aux *.dvi *.toc %:r.pdf *.bbl *.blg && pdflatex % && bibtex %:r && pdflatex % && pdflatex % && apvlv %:r.pdf&<CR><CR>
 nmap gfv :!rm -rf *~ *.log *.aux *.dvi *.toc %:r.pdf *.bbl *.blg && pdflatex % && bibtex %:r && latex % && pdflatex % && apvlv %:r.pdf<CR>
@@ -169,7 +170,6 @@ nmap <C-O> :tabe
 nnoremap <silent> <S-H> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <S-L> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
-
 "some easier folding commands
 "nmap z<C-j> zczjzo 
 "nmap z<C-k> zczkzo
@@ -205,7 +205,6 @@ endfunction
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 "nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S O<ESC>j 
-
 noremap gn :set nospell<CR>
 
 "save session (tabs and buffer) via F2, reload F3
@@ -248,8 +247,8 @@ function! UMLtoHTML(string)
 	else
 		return '&szlig;'
 	endif
-endfun
-command Huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
+endfunction
+:command! Huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
 
 
 
