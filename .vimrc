@@ -119,7 +119,10 @@ set pastetoggle=<F11>
 
 "short cmds to quickly invoke make file commands, % displays filename,
 " %:r "display filename without file extension
-nmap gm :!make<CR>
+nmap gm :!cd ~/git/feasibility/build && make<CR>
+nmap grl :!cd ~/git/fastReplanning/build && make -j5 && sudo make install<CR>
+nmap gr :!rosmake feasibility && rosrun feasibility MainProject<CR>
+nmap gdb :!rosmake feasibility && gdb -ex run ~/git/feasibility/bin/MainProject<CR>
 nmap gc :!make clean && make && make run<CR>
 "nmap gfc :!make clean && make && gdb -ex run ./x.exe<CR>
 "nmap gfr :!make run FILE=%<CR>
@@ -133,7 +136,7 @@ nmap gfc :!rm -rf *~ *.log *.aux *.dvi *.toc %:r.pdf *.bbl *.blg && pdflatex % &
 nmap gfl :!rm -rf *~ *.log *.aux *.dvi *.toc %:r.pdf *.bbl *.blg <CR>
 nmap gfr :!apvlv %:r.pdf<CR>
 nmap gl :!make clean<CR>
-nmap gr :!make run<CR>
+"nmap gr :!make run<CR>
 nmap ge :!./x.exe -openHand 1 -openArm 1 -openSkin 1<CR>
 
 "step out of insert mode with hh instead of ESC
@@ -249,7 +252,7 @@ function! UMLtoHTML(string)
 		return '&szlig;'
 	endif
 endfun
-command Huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
+command! Huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
 
 
 

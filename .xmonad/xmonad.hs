@@ -5,8 +5,8 @@ import XMonad.Util.EZConfig
 import XMonad.Config.Gnome
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.WindowNavigation
-import XMonad.Layout.Groups.Examples
-import XMonad.Layout.ZoomRow
+--import XMonad.Layout.Groups.Examples
+--import XMonad.Layout.ZoomRow
 import XMonad.Layout.ResizableTile
 import XMonad.Config.Desktop (desktopLayoutModifiers)
 import XMonad.Actions.FloatKeys 
@@ -123,7 +123,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage Shrink)
     , ((modm .|. shiftMask, xK_comma ), sendMessage MirrorExpand)
    , ((modm .|. shiftMask, xK_period), sendMessage MirrorShrink)
-   , ((modm .|. shiftMask, xK_q), spawn "gnome-session-quit --logout --force --no-prompt")
+   --, ((modm .|. shiftMask, xK_q), spawn "gnome-session-quit --logout --force --no-prompt")
    , ((modm .|. shiftMask, xK_b), spawn "gnome-session-quit --power-off --no-prompt --force")
 
    --, ((modm .|. shiftMask, xK_period), sendMessage zoomIn)
@@ -151,7 +151,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
  
     -- Restart xmonad
-    --, ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm .|. shiftMask              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
     ]
     ++
  
