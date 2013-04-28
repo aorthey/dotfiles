@@ -55,6 +55,16 @@ noremap gb :open www.facebook.com<CR>
 noremap <C-l> ]]
 noremap <C-h> [[
 
+set! browser.bookmarks.max_backups=0
+set! browser.cache.disk.parent_directory=~/.cache
+set! browser.places.createdDefaultQueries=true
+
+set! network.http.pipelining=true
+set! network.http.proxy.pipelining=true
+set! network.http.pipelining.maxrequests=8
+set! network.http.max-connections=96
+set! network.http.max-connections-per-server=32
+
 "minimize
 js <<EOM
     commands.addUserCommand(['mi[nimize]'], "minimize window",
@@ -64,4 +74,53 @@ js <<EOM
 EOM
 
 noremap zm :minimize<CR>
+
 autocmd LocationChange .* :set editor="gnome-terminal -x vim"
+js <<EOM
+
+function set_proxy(host, port){
+	liberator.execute('set! network.proxy.socks='+host);
+	liberator.execute('set! network.proxy.socks_port='+port);
+	liberator.execute('set! network.proxy.share_proxy_settings=true');
+	liberator.execute('set! network.proxy.type=1');
+        liberator.execute('!ssh -f -D '+port+' aorthey@homepages.laas.fr -N');
+}
+
+commands.addUserCommand(['proxy'],
+    'Set the proxy',
+    function (args){
+        liberator.execute('!pkill -f ssh.*9999');
+        switch (args.length) {
+            case 0:
+                liberator.echo(get_proxy_string());
+                break;
+            case 1:
+                [host] = args;
+                port = 9999;
+                set_proxy(host, port);
+                break;
+            case 2:
+                [host, port] = args;
+                set_proxy(host, port);
+                break;
+            default:
+                liberator.echo('proxy host port')
+        }
+	liberator.echo('set proxy to '+host+' '+port);
+    },
+    {}, true);
+
+commands.addUserCommand(['noproxy'],
+    'Disable all proxies',
+    function (args) {
+        liberator.execute('!pkill -f ssh.*9999');
+        liberator.execute('set! network.proxy.type=0');
+	liberator.echo("disabled proxies");
+    },
+    {},
+    true
+);
+
+EOM
+noremap sp :proxy localhost 9999<CR>
+noremap sn :noproxy<CR>

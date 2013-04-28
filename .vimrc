@@ -48,7 +48,10 @@ imap <left> <nop>
 imap <right> <nop>
 
 "change background color for vim
-highlight Normal ctermfg=white ctermbg=white
+"highlight Normal ctermfg=white ctermbg=white
+"let g:solarized_termcolors=257
+syntax enable
+set background=dark
 colorscheme blink
 
 "syntax highlighting
@@ -103,7 +106,7 @@ filetype plugin on
 filetype indent on
 
 set grepprg=grep\ -nH\ $*
-let g:tex_flavor='latex'
+"let g:tex_flavor='latex'
 
 "show linenumbers on the left
 set number
@@ -120,8 +123,8 @@ set pastetoggle=<F11>
 "short cmds to quickly invoke make file commands, % displays filename,
 " %:r "display filename without file extension
 nmap gff :!g++ % -o %.exe && ./%.exe<CR>
-nmap gm :!make<CR>
-nmap gc :!make clean && make && make run<CR>
+nmap gm :!make -j5<CR>
+nmap gc :!make clean && make -j5 && make run<CR>
 "nmap gfc :!make clean && make && gdb -ex run ./x.exe<CR>
 "nmap gfr :!make run FILE=%<CR>
 "nmap gfm :!make all FILE=%<CR>
@@ -179,8 +182,8 @@ noremap  <f1> :w<return>
 inoremap <f1> <c-o>:w<return>
 
 "highlight lines, which are greater than 80 columns
-highlight OverLength ctermbg=2 ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=2 ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
 
 "highlight current cursor line
 set cursorline
@@ -283,3 +286,7 @@ function! MyMessage()
 	return "Freeze IDE >> "
 endfunction
 map ;g é
+
+"open link under line in firefox
+nnoremap gl :silent !firefox <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR><CR>
+

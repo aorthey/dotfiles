@@ -97,6 +97,7 @@ alias 4..="cd ../../../.."
 
 
 alias mv='mv -i'
+alias px='ps aux|grep '
 
 alias ht='history|tail -n15'
 
@@ -223,6 +224,7 @@ texgit(){
 	rm -rf util-general.tex
 	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
 }
+alias cwd='printf "%q\n" "$(pwd)"'
 
 
 source ~/.bashrc_personal

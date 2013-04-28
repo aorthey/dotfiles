@@ -1,27 +1,20 @@
-" some map
+"move around tabs with ctrl+H/L
+map <C-h> gT
+map <C-l> gt
 
-" map n to <C-f> to goto next page
-"map n <C-f>
-
-" and p to prepage
-"map p <C-b>
-
-" map I to zi, and O to zo
-"map I zi
-"map O zo
-
-map j jj
-map k k
-map h h
-map l ll
-map <C-h> 40h
-map <C-l> 40l
+"map <s-h> 40h
+"map <s-l> 40l
 map <C-i> zizizizizizi
 map <C-o> zozozozozozo
 
+"copy current pdf file to a folder called 'important'
+"map zg :!ps ax &&cp `ps ax|sed -n 's/.*apvlv \(.*\.pdf\)/\1/p'|head -n1` important/<CR>
+
+" script, installed in /usr/local/bin, which copies current file to lower subdir
+map zg :!echorize pwd<CR>
 
 " if start apvlv as fullscreen mode, default is no
-set fullscreen=no
+set fullscreen=yes
 
 " zoom value, default is fitwidth
 " zoom has 4 styles
@@ -29,17 +22,17 @@ set fullscreen=no
 " fitwidth
 " fitheight
 " normal
-"set zoom=fitwidth
+set zoom=fitwidth
 
 " set window size
 set width=800
 set height=600
 
 " set command timeout between two key press 
-set commandtimeout=2000
+" set commandtimeout=2000
 
 " set default dir
-set defaultdir=C:\
+" set defaultdir=/home
 
 " set if use content view
 set content=no
@@ -49,7 +42,7 @@ set content=no
 set continuous=yes
 
 " set a pad to continuous page
-set continuouspad=2
+"set continuouspad=2
 
 " set if auto scroll page when at the end or begin of one pdf page
 set autoscrollpage=yes
@@ -78,7 +71,7 @@ set doubleclick = page
 
 " set GUI options
 " m means menu, T means toolbar
-" set guioptions = 
+set guioptions = T
 
 " set if use auto reload document
 " > 0 means auto reload after some seconds. = 0 means not auto reload
