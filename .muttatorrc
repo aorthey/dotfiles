@@ -1,4 +1,7 @@
-map l gt
-map h gT
+map L gt
+map H gT
+map l <C-n>
+map h <C-p>
+map H 2gi
 map gf mgf<ESC>g$
 
