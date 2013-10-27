@@ -83,8 +83,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
  
     ,  ((modm .|. shiftMask, xK_f), spawn "firefox")
+    ,  ((modm .|. shiftMask, xK_v), spawn "vlc")
     ,  ((modm .|. shiftMask, xK_n), spawn "nautilus")
     ,  ((modm .|. shiftMask, xK_t), spawn "thunderbird")
+    ,  ((modm .|. shiftMask, xK_s), spawn "skype")
 		--,	((modm .|. shiftMask, xK_p     ), spawn "gmrun")
  
     , ((modm .|. shiftMask, xK_c     ), kill)

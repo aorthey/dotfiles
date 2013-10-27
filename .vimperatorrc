@@ -18,6 +18,9 @@ set wildmode=list:full
 noremap cy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
 noremap ct y:tabopen<Space>tubereplay<Space><C-v><CR>
 
+:qmark f facebook.com
+:qmark t tagesschau.de
+
 "macro a ogmx<Tab><Return>fLogin2fungel
 noremap sw :tabopen mw 
 noremap sl :tabopen laasannuaire 
