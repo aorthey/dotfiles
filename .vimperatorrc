@@ -1,6 +1,4 @@
 "3.3 (created: 2011/11/13 17:32:12)
-source .vimperator/stumbleupon.js
-source .vimperator/stumbleupon-friends.js
 
 set! browser.startup.page=1
 set complete=lSf
@@ -46,12 +44,6 @@ noremap j 4j
 noremap k 4k
 noremap ss yt<CR>p
 
-"shortcuts for most visited pages
-noremap gT :tabopen www.tagesschau.de<CR>
-noremap gt :open www.tagesschau.de<CR>
-noremap gB :tabopen www.facebook.com<CR>
-noremap gb :open www.facebook.com<CR>
-
 "next and previous navigation by ctrl + l and h
 noremap <C-l> ]]
 noremap <C-h> [[
@@ -65,6 +57,13 @@ set! network.http.proxy.pipelining=true
 set! network.http.pipelining.maxrequests=8
 set! network.http.max-connections=96
 set! network.http.max-connections-per-server=32
+
+source .vimperator/stumbleupon.js
+source .vimperator/stumbleupon-friends.js
+noremap st :stumble<CR>
+noremap sT :tabstumble<CR>
+noremap stl :thumbup<CR>
+noremap stn :thumbdown<CR>
 
 "minimize
 js <<EOM
