@@ -21,10 +21,11 @@ noremap cy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
 noremap ct y:tabopen<Space>tubereplay<Space><C-v><CR>
 
 "macro a ogmx<Tab><Return>fLogin2fungel
-noremap sd :tabopen dict 
 noremap sw :tabopen mw 
-noremap sf :tabopen dictfr 
-noremap sr :tabopen dictfren 
+noremap sl :tabopen laasannuaire 
+noremap sdd :tabopen dict 
+noremap sdf :tabopen dictfr 
+noremap sdr :tabopen dictfren 
 noremap si :tabopen gimg 
 noremap sm :tabopen gmap 
 noremap se :tabopen ebay 

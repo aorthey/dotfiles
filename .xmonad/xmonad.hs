@@ -5,8 +5,6 @@ import XMonad.Util.EZConfig
 import XMonad.Config.Gnome
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.WindowNavigation
---import XMonad.Layout.Groups.Examples
---import XMonad.Layout.ZoomRow
 import XMonad.Layout.ResizableTile
 import XMonad.Config.Desktop (desktopLayoutModifiers)
 import XMonad.Actions.FloatKeys 
@@ -16,7 +14,8 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
--- myTerminal      = "xterm"
+--myTerminal      = "xterm"
+myTerminal      = "gnome-terminal"
  
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -24,7 +23,7 @@ myFocusFollowsMouse = False
  
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 8
+myBorderWidth   = 6
  
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -85,6 +84,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     ,  ((modm .|. shiftMask, xK_f), spawn "firefox")
     ,  ((modm .|. shiftMask, xK_n), spawn "nautilus")
+    ,  ((modm .|. shiftMask, xK_t), spawn "thunderbird")
 		--,	((modm .|. shiftMask, xK_p     ), spawn "gmrun")
  
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -127,7 +127,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
    , ((modm .|. shiftMask, xK_b), spawn "gnome-session-quit --power-off --no-prompt --force")
 
    --, ((modm .|. shiftMask, xK_period), sendMessage zoomIn)
-    --
     -- , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
     -- , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
  
@@ -136,10 +135,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Deincrement the number of windows in the master area
     -- , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
  
-
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
- 
  
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
@@ -148,8 +145,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
  
     -- Quit xmonad
-    --, ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
- 
+    --, ((modm .|. shiftMask, xK_w     ), io (exitWith ExitSuccess))
     -- Restart xmonad
     , ((modm .|. shiftMask              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
     ]
@@ -179,21 +175,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
 --
-myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
- 
-    -- mod-button1, Set the window to floating mode and move by dragging
-    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
-                                       >> windows W.shiftMaster))
- 
-    -- mod-button2, Raise the window to the top of the stack
-    , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
- 
-    -- mod-button3, Set the window to floating mode and resize by dragging
-    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
-                                       >> windows W.shiftMaster))
- 
-    -- you may also bind events to the mouse scroll wheel (button4 and button5)
-    ]
+--myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
+-- 
+--    -- mod-button1, Set the window to floating mode and move by dragging
+--    [ 
+--    ((modm, button1), (\w -> focus w >> mouseMoveWindow w
+--                                       >> windows W.shiftMaster))
+-- 
+--    -- mod-button2, Raise the window to the top of the stack
+--    , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
+-- 
+--    -- mod-button3, Set the window to floating mode and resize by dragging
+--    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
+--                                       >> windows W.shiftMaster))
+-- 
+--    -- you may also bind events to the mouse scroll wheel (button4 and button5)
+--    ]
  
 ------------------------------------------------------------------------
 -- Layouts:
@@ -309,7 +306,7 @@ myManageHook = composeAll
 --
 main = xmonad gnomeConfig {
       -- simple stuff
-      --  terminal           = myTerminal,
+        terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         borderWidth        = myBorderWidth,
       --  modMask            = myModMask,
@@ -321,7 +318,6 @@ main = xmonad gnomeConfig {
  
       -- key bindings
         keys               = myKeys,
-        mouseBindings      = myMouseBindings,
  
       -- hooks, layouts
         layoutHook         = myLayout,
@@ -329,4 +325,4 @@ main = xmonad gnomeConfig {
        -- handleEventHook    = myEventHook,
        -- logHook            = myLogHook
         startupHook        = setWMName "LG3D"
-    }
+}
