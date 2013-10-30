@@ -1,7 +1,14 @@
-map L gt
-map H gT
-map l <C-n>
-map h <C-p>
-map H 2gi
+map t l
+map <C-l> <C-n>
+map <C-h> <C-p>
+
+"map h <C-p>
+"map l <C-n>
+
+map l gt
+map h gT
+map d D
+
 map gf mgf<ESC>g$
 
+map <F4> :source .muttatorrc<CR>
