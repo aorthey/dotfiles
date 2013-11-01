@@ -2,6 +2,7 @@ import XMonad
 import Data.Monoid
 import System.Exit
 import XMonad.Util.EZConfig
+--import XMonad.Hooks.ManageHelpers
 import XMonad.Config.Gnome
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.WindowNavigation
@@ -77,82 +78,7 @@ myFocusedBorderColor = "#ff0000"
 --
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
-    -- launch a terminal
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
- 
-    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
- 
-    ,  ((modm .|. shiftMask, xK_f), spawn "firefox")
-    ,  ((modm .|. shiftMask, xK_v), spawn "vlc")
-    ,  ((modm .|. shiftMask, xK_n), spawn "nautilus")
-    ,  ((modm .|. shiftMask, xK_t), spawn "thunderbird")
-    ,  ((modm .|. shiftMask, xK_s), spawn "skype")
-		--,	((modm .|. shiftMask, xK_p     ), spawn "gmrun")
- 
-    , ((modm .|. shiftMask, xK_c     ), kill)
-    , ((modm , xK_d     ), kill)
- 
-     -- Rotate through the available layout algorithms
-    , ((modm,               xK_space ), sendMessage NextLayout)
- 
-    --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
-    , ((modm,               xK_n     ), refresh)
- 
-    -- Move focus to the next window
-    , ((modm,               xK_Tab   ), windows W.focusDown)
- 
- 
-    -- Move focus to the master window
-    , ((modm,               xK_m     ), windows W.focusMaster  )
- 
-    -- Swap the focused window and the master window
-    , ((modm,               xK_Return), windows W.swapMaster)
- 
-    -- focus right
-    --, ((modm,               xK_h), sendMessage $ Swap R)
-    
-    , ((modm,               xK_h     ), sendMessage $ Go L)
-    , ((modm,               xK_l     ), sendMessage $ Go R)
-    , ((modm,               xK_j     ), sendMessage $ Go D)
-    , ((modm,               xK_k     ), sendMessage $ Go U)
 
-    , ((modm .|. shiftMask, xK_h     ), sendMessage $ Swap L)
-    , ((modm .|. shiftMask, xK_l     ), sendMessage $ Swap R)
-    , ((modm .|. shiftMask, xK_j     ), sendMessage $ Swap D)
-    , ((modm .|. shiftMask, xK_k     ), sendMessage $ Swap U)
-    , ((modm              , xK_comma ), sendMessage Expand)
-    , ((modm              , xK_period), sendMessage Shrink)
-    , ((modm .|. shiftMask, xK_comma ), sendMessage MirrorExpand)
-   , ((modm .|. shiftMask, xK_period), sendMessage MirrorShrink)
-   --, ((modm .|. shiftMask, xK_q), spawn "gnome-session-quit --logout --force --no-prompt")
-   , ((modm .|. shiftMask, xK_b), spawn "gnome-session-quit --power-off --no-prompt --force")
-
-   --, ((modm .|. shiftMask, xK_period), sendMessage zoomIn)
-    -- , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
-    -- , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
- 
-    -- Increment the number of windows in the master area
-    -- , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
-    -- Deincrement the number of windows in the master area
-    -- , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
- 
-    -- Push window back into tiling
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
- 
-    -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    --
-    -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
- 
-    -- Quit xmonad
-    --, ((modm .|. shiftMask, xK_w     ), io (exitWith ExitSuccess))
-    -- Restart xmonad
-    , ((modm .|. shiftMask              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
-    ]
-    ++
- 
     --
     -- mod-[1..9], Switch to workspace N
     --
@@ -171,28 +97,126 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
          | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+
+    ++
+    -- launch a terminal
+    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+ 
+    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
+ 
+    ,  ((modm .|. shiftMask, xK_f), spawn "firefox")
+    ,  ((modm .|. shiftMask, xK_v), spawn "vlc")
+    ,  ((modm .|. shiftMask, xK_n), spawn "nautilus")
+    ,  ((modm .|. shiftMask, xK_t), spawn "thunderbird")
+    ,  ((modm .|. shiftMask, xK_s), spawn "skype")
+    ,  ((modm .|. shiftMask, xK_g), spawn "gimp")
+		--,	((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+ 
+    , ((modm , xK_d     ), kill)
+ 
+     -- Rotate through the available layout algorithms
+    , ((modm,               xK_space ), sendMessage NextLayout)
+ 
+    --  Reset the layouts on the current workspace to default
+    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+    , ((modm,               xK_n     ), refresh)
+ 
+    , ((modm,               xK_Tab   ), windows W.focusDown)
+    , ((modm,               xK_m     ), windows W.focusMaster  )
+    , ((modm,               xK_Return), windows W.swapMaster)
+    
+
+    , ((modm              , xK_comma ), sendMessage Expand)
+    , ((modm              , xK_period), sendMessage Shrink)
+    , ((modm .|. shiftMask, xK_comma ), sendMessage MirrorExpand)
+   , ((modm .|. shiftMask, xK_period), sendMessage MirrorShrink)
+   , ((modm .|. shiftMask, xK_b), spawn "gnome-session-quit --power-off --no-prompt --force")
+
+    -- Push window back into tiling
+    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+    , ((modm,               xK_h     ), hKeyWindowBehaviour)
+    , ((modm,               xK_l     ), lKeyWindowBehaviour)
+    , ((modm,               xK_j     ), jKeyWindowBehaviour)
+    , ((modm,               xK_k     ), kKeyWindowBehaviour)
+    , ((modm .|. shiftMask, xK_h     ), hShiftKeyWindowBehaviour)
+    , ((modm .|. shiftMask, xK_l     ), lShiftKeyWindowBehaviour)
+    , ((modm .|. shiftMask, xK_j     ), jShiftKeyWindowBehaviour)
+    , ((modm .|. shiftMask, xK_k     ), kShiftKeyWindowBehaviour)
+
+    -- Quit xmonad
+    --, ((modm .|. shiftMask, xK_w     ), io (exitWith ExitSuccess))
+    -- Restart xmonad
+    , ((modm .|. shiftMask              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    ]where
+	hKeyWindowBehaviour = withFocused (\w -> do
+                              { floats <- gets (W.floating . windowset);
+                                if w `M.member` floats
+                                then withFocused (keysMoveWindow (-10,0))
+                                else do sendMessage $ Go L
+                              }) 
+	lKeyWindowBehaviour = withFocused (\w -> do
+                              { floats <- gets (W.floating . windowset);
+                                if w `M.member` floats
+                                then withFocused (keysMoveWindow (10,0))
+                                else do sendMessage $ Go R
+                              }) 
+	jKeyWindowBehaviour = withFocused (\w -> do
+                              { floats <- gets (W.floating . windowset);
+                                if w `M.member` floats
+                                then withFocused (keysMoveWindow (0,10))
+                                else do sendMessage $ Go D
+                              }) 
+	kKeyWindowBehaviour = withFocused (\w -> do
+                              { floats <- gets (W.floating . windowset);
+                                if w `M.member` floats
+                                then withFocused (keysMoveWindow (0,-10))
+                                else do sendMessage $ Go U
+                              }) 
+-- Shift + Key Behaviours for floating and sinked windows
+	hShiftKeyWindowBehaviour = withFocused (\w -> do
+                              { floats <- gets (W.floating . windowset);
+                                if w `M.member` floats
+                                then withFocused (keysResizeWindow (10,0) (1,1))
+                                else do sendMessage $ Swap L
+                              }) 
+	lShiftKeyWindowBehaviour = withFocused (\w -> do
+                              { floats <- gets (W.floating . windowset);
+                                if w `M.member` floats
+                                then withFocused (keysResizeWindow (-10,0) (1,1))
+                                else do sendMessage $ Swap R
+                              }) 
+	jShiftKeyWindowBehaviour = withFocused (\w -> do
+                              { floats <- gets (W.floating . windowset);
+                                if w `M.member` floats
+                                then withFocused (keysResizeWindow (0,-10) (1,1))
+                                else do sendMessage $ Swap D
+                              }) 
+	kShiftKeyWindowBehaviour = withFocused (\w -> do
+                              { floats <- gets (W.floating . windowset);
+                                if w `M.member` floats
+                                then withFocused (keysResizeWindow (0,10) (1,1))
+                                else do sendMessage $ Swap U
+                              }) 
  
 --
 --
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
 --
---myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
--- 
---    -- mod-button1, Set the window to floating mode and move by dragging
---    [ 
---    ((modm, button1), (\w -> focus w >> mouseMoveWindow w
---                                       >> windows W.shiftMaster))
--- 
---    -- mod-button2, Raise the window to the top of the stack
---    , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
--- 
---    -- mod-button3, Set the window to floating mode and resize by dragging
---    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
---                                       >> windows W.shiftMaster))
--- 
---    -- you may also bind events to the mouse scroll wheel (button4 and button5)
---    ]
+myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
+ 
+    -- mod-button1, Set the window to floating mode and move by dragging
+    [ 
+    --((modm, button1), (\w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster))
+ 
+    -- mod-button2, Raise the window to the top of the stack
+    --, ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
+ 
+    -- mod-button3, Set the window to floating mode and resize by dragging
+    --, ((modm, button3), (\w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster))
+ 
+    -- you may also bind events to the mouse scroll wheel (button4 and button5)
+    ]
  
 ------------------------------------------------------------------------
 -- Layouts:
@@ -243,18 +267,50 @@ myLayout = windowNavigation (desktopLayoutModifiers (tiled) ) ||| Full
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
+--myManageHook = composeAll . concat $
+--	[ [ resource  =? r --> doIgnore                    | r <- myIgnores ]
+--	, [ className =? c --> doShift (myWorkspaces !! 1) | c <- myWebS    ]
+--	, [ className =? c --> doShift (myWorkspaces !! 2) | c <- myCodeS   ]
+--	, [ className =? c --> doShift (myWorkspaces !! 3) | c <- myGfxS    ]
+--	, [ className =? c --> doShift (myWorkspaces !! 4) | c <- myChatS   ]
+--	, [ className =? c --> doShift (myWorkspaces !! 9) | c <- myAlt3S   ]
+--	, [ className =? c --> doCenterFloat               | c <- myFloatCC ]
+--	, [ name      =? n --> doCenterFloat               | n <- myFloatCN ]
+--	] where
+--		name      = stringProperty "WM_NAME"
+--		myIgnores = []
+--		myWebS    = ["Chromium", "Firefox", "Opera"]
+--		myCodeS   = ["NetBeans IDE 7.3"]
+--		myChatS   = ["Pidgin", "Skype"]
+--		myGfxS    = ["Gimp", "gimp", "GIMP"]
+--		myAlt3S   = ["Amule", "Transmission-gtk"]
+--		myFloatCC = ["MPlayer", "mplayer2", "File-roller", "zsnes", "Gcalctool", "Exo-helper-1"
+--			    , "Gksu", "Galculator", "Nvidia-settings", "XFontSel", "XCalc", "XClock"
+--			    , "Ossxmix", "Xvidcap", "Wicd-client.py"]
+--		myFloatCN = ["Choose a file", "Open Image", "File Operation Progress", "Firefox Preferences"
+--			    , "Preferences", "Search Engines", "Set up sync", "Passwords and Exceptions"
+--			    , "Autofill Options", "Rename File", "Copying files", "Moving files"
+--			    , "File Properties", "Replace", "Quit GIMP", "Change Foreground Color"
+--			    , "Change Background Color", ""]
+--		myFloatSN = ["Event Tester"]
+--		myFocusDC = ["Event Tester", "Notify-osd"]
+--		keepMaster c = assertSlave <+> assertMaster where
+--			assertSlave = fmap (/= c) className --> doF W.swapDown
+--			assertMaster = className =? c --> doF W.swapMaster
 myManageHook = composeAll
     [ manageHook gnomeConfig
     --, className =? "tilda"           --> doFloat
     , className =? "Unity-2d-shell" --> doIgnore
     , className =? "Unity-2d-launcher" --> doIgnore
     , className =? "Unity-2d-panel" --> doIgnore
+    , (role =? "gimp-toolbox" <||> role =? "gimp-image-window") --> (ask >>= doF . W.sink)
     , className =? "Gimp-2.6"           --> doShift "5"
     , className =? "Qtcreator"           --> doShift "3"
     , className =? "Inkscape"           --> doShift "5"
     , className =? "Thunderbird"           --> doShift "4"
     --, className =? "emulator-arm" --> doFloat
     ]
+      where role = stringProperty "WM_WINDOW_ROLE"
 --
 ------------------------------------------------------------------------
 -- Event handling
@@ -317,6 +373,7 @@ main = xmonad gnomeConfig {
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
+        mouseBindings = myMouseBindings,
  
       -- key bindings
         keys               = myKeys,
