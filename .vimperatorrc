@@ -18,8 +18,11 @@ set wildmode=list:full
 noremap cy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
 noremap ct y:tabopen<Space>tubereplay<Space><C-v><CR>
 
+"quickmarks
 :qmark f facebook.com
+:qmark z zeit.de
 :qmark t tagesschau.de
+:qmark g google.com
 
 "macro a ogmx<Tab><Return>fLogin2fungel
 noremap sw :tabopen mw 
@@ -30,6 +33,7 @@ noremap sdr :tabopen dictfren
 noremap si :tabopen gimg 
 noremap sm :tabopen gmap 
 noremap se :tabopen ebay 
+noremap sde :tabopen etymology 
 noremap sad :tabopen amazonde 
 noremap sae :tabopen amazoncom 
 noremap saf :tabopen amazonfr 

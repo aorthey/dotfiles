@@ -6,25 +6,25 @@ map <C-k> <C-p>
 
 map l gt
 map h gT
-map d D
 
 map ga :goto gmx.de/Inbox<CR>G
 map gs :goto laas.fr/Inbox<CR>G
 
 "important
-map li g1
+map ti g1
 "work
-map lw g2
+map tw g2
 "personal
-map lp g3
+map tp g3
 "to do
-map ld g4
+map td g4
 "later
-map ll g5
-
-"also use tag
-map t l
+map tl g5
 
 map gf mgf<ESC>g$
 
 map <F4> :source .muttatorrc<CR>
+
+map <C-u> zbzbzbzbzb
+map <C-d> zfzfzfzfzf
+
