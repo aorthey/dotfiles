@@ -133,6 +133,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
    , ((modm .|. shiftMask, xK_b), spawn "gnome-session-quit --power-off --no-prompt --force")
 
     -- Push window back into tiling
+    --, ((modm, xK_f), withFocused $ windows . W.shiftMaster)
+    , ((modm,               xK_f     ), windows W.shiftMaster)
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
     , ((modm,               xK_h     ), hKeyWindowBehaviour)
     , ((modm,               xK_l     ), lKeyWindowBehaviour)
@@ -304,7 +306,7 @@ myManageHook = composeAll
     , className =? "Unity-2d-launcher" --> doIgnore
     , className =? "Unity-2d-panel" --> doIgnore
     , (role =? "gimp-toolbox" <||> role =? "gimp-image-window") --> (ask >>= doF . W.sink)
-    , className =? "Gimp-2.6"           --> doShift "5"
+    , className =? "Gimp"           --> doShift "5"
     , className =? "Qtcreator"           --> doShift "3"
     , className =? "Inkscape"           --> doShift "5"
     , className =? "Thunderbird"           --> doShift "4"

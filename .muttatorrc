@@ -1,15 +1,3 @@
-map <C-j> <C-n>
-map <C-k> <C-p>
-
-"map h <C-p>
-"map l <C-n>
-
-map l gt
-map h gT
-
-map ga :goto gmx.de/Inbox<CR>G
-map gs :goto laas.fr/Inbox<CR>G
-
 "important
 map ti g1
 "work
@@ -20,11 +8,22 @@ map tp g3
 map td g4
 "later
 map tl g5
+"read/unread
+map tr lr
 
 map gf mgf<ESC>g$
-
 map <F4> :source .muttatorrc<CR>
 
 map <C-u> zbzbzbzbzb
 map <C-d> zfzfzfzfzf
 
+map <C-j> <C-n>
+map <C-k> <C-p>
+
+map <C-l> gt
+map <C-h> gT
+
+map ga :goto gmx.de/Inbox<CR>G
+map gs :goto laas.fr/Inbox<CR>G
+
+map <C-r> :restart<CR>
