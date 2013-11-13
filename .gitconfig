@@ -20,7 +20,7 @@
 #git dm N : diff modified will show the diffs of the Nth modified file
 	dm = "!sh -c 'git ls-files -m| head -n $1 \
 		| tail -1 | xargs git diff ' -"
-	adddeleted = "git ls-files --deleted -z| xargs -0 git rm"
+	adddeleted = "!sh -c 'git ls-files --deleted -z| xargs -0 git rm' -"
 [core]
 	editor = vim
 [color]
