@@ -21,6 +21,9 @@
 	dm = "!sh -c 'git ls-files -m| head -n $1 \
 		| tail -1 | xargs git diff ' -"
 	adddeleted = "!sh -c 'git ls-files --deleted -z| xargs -0 git rm' -"
+	last = "!sh -c 'git show --summary --name-status' -"
+	lastdm = "!sh -c 'git show --summary --name-status| grep -e "^M.*" \
+		| head -n $1 | tail -1 | sed \"s/M[ \t]*//g\" | xargs git diff HEAD^..HEAD' -"
 [core]
 	editor = vim
 [color]
