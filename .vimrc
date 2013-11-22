@@ -115,8 +115,6 @@ set number
 set autoindent
 set copyindent
 set smartindent
-set tabstop=8
-set shiftwidth=8
 set pastetoggle=<F11> 
 "set expandtab
 
