@@ -21,6 +21,8 @@
 #commited)
 	dm = "!sh -c 'git ls-files -m| head -n $1 \
 		| tail -1 | xargs git diff ' -"
+	addm = "!sh -c 'git ls-files -m| head -n $1 \
+		| tail -1 | xargs git add ' -"
 #add all deleted files to the commit 
 	adddeleted = "!sh -c 'git ls-files --deleted -z| xargs -0 git rm' -"
 #git last: show all files which were commited in the last commit

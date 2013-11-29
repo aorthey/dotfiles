@@ -8,7 +8,8 @@ nmap cl :TC<CR> "toggle comment on line
 nmap cp vip:CC<CR> "comment paragraph
 nmap vp vip:UC<CR> "uncomment paragraph
 
-autocmd Filetype c,cpp,h,hpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype c,cpp,h,hh,hpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 set timeoutlen=300 "timeout for key combinations
 
