@@ -26,8 +26,10 @@
 #git last: show all files which were commited in the last commit
 	last = "!sh -c 'git show --summary --name-status' -"
 #git lastdm N: show what was changed in file number N in the last commit
-	lastdm = "!sh -c 'git show --summary --name-status| grep -e "^M.*" \
-		| head -n $1 | tail -1 | sed \"s/M[ \t]*//g\" | xargs git diff HEAD^..HEAD' -"
+	lastdm = "!sh -c 'git show --summary --name-status \
+		| grep -E \"^(M|A|D)M?(\\s| )+\" \
+		| head -n $1 | tail -1 | sed -r \"s/(M|A|D)M?\\s+//g\" \
+		| xargs git diff HEAD^..HEAD' -"
 [core]
 	editor = vim
 [color]
