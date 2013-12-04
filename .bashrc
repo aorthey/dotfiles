@@ -222,3 +222,4 @@ alias cwd='printf "%q\n" "$(pwd)"'
 
 source ~/.bashrc_personal
 w
+source /opt/ros/hydro/setup.bash
