@@ -30,9 +30,10 @@ noremap sl :tabopen laasannuaire
 noremap sdd :tabopen dict 
 noremap sdf :tabopen dictfr 
 noremap sdr :tabopen dictfren 
-noremap sf :tabopen lingueedf 
-noremap si :tabopen gimg 
-noremap sm :tabopen gmap 
+"noremap sf :tabopen lingueedf 
+noremap sf :tabopen lingueefe 
+noremap gi :tabopen gimg 
+noremap gm :tabopen gmap 
 noremap se :tabopen ebay 
 noremap sde :tabopen etymology 
 noremap sad :tabopen amazonde 
