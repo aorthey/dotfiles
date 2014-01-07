@@ -36,6 +36,7 @@ noremap gi :tabopen gimg
 noremap gm :tabopen gmap 
 noremap si :tabopen gimg 
 noremap sm :tabopen gmap 
+noremap sgl :tabopen libgen 
 noremap se :tabopen ebay 
 noremap sde :tabopen etymology 
 noremap sad :tabopen amazonde 
