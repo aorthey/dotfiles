@@ -26,12 +26,12 @@
 #add all deleted files to the commit 
 	adddeleted = "!sh -c 'git ls-files --deleted -z| xargs -0 git rm' -"
 #git last: show all files which were commited in the last commit
-	last = "!sh -c 'git show --summary --name-status' -"
+	last = "!sh -c 'git show HEAD^$1 --summary --name-status' -"
 #git lastdm N: show what was changed in file number N in the last commit
-	lastdm = "!sh -c 'git show --summary --name-status \
+	lastdm = "!sh -c 'git show HEAD^0 --summary --name-status \
 		| grep -E \"^(M|A|D)M?(\\s| )+\" \
 		| head -n $1 | tail -1 | sed -r \"s/(M|A|D)M?\\s+//g\" \
-		| xargs git diff HEAD^..HEAD' -"
+		| xargs git diff HEAD^0..HEAD' -"
 [core]
 	editor = vim
 [color]
