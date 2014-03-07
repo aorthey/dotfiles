@@ -219,7 +219,6 @@ texgit(){
 }
 alias cwd='printf "%q\n" "$(pwd)"'
 
-
+export PYTHONSTARTUP="/home/orthez/.python.py"
 source ~/.bashrc_personal
 w
-source /opt/ros/hydro/setup.bash

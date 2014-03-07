@@ -293,3 +293,8 @@ map ;g é
 "open link under line in firefox
 nnoremap gl :silent !firefox <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR><CR>
 
+"push current absolute filepath into clipboard
+nmap cf :call system("xclip -i -selection clipboard", expand("%:p"))<CR>
+"push current line content into clipboard
+nmap cl :call system("xclip -i -selection clipboard", getline("."))<CR>
+

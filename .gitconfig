@@ -32,6 +32,9 @@
 		| grep -E \"^(M|A|D)M?(\\s| )+\" \
 		| head -n $1 | tail -1 | sed -r \"s/(M|A|D)M?\\s+//g\" \
 		| xargs git diff HEAD^0..HEAD' -"
+  laas = "!sh -c 'git submodule init git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake  \
+      && git submodule update git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
+  laascmakeremove = "!sh -c 'git submodule remove git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
 [core]
 	editor = vim
 [color]
