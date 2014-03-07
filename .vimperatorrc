@@ -4,6 +4,9 @@ set! browser.startup.page=1
 set complete=lSf
 set history=0
 
+"stay in normal mode after changing webpage
+set focuscontent
+
 "max items for status line pop up menu
 set maxitems=5
 set titlestring=ffox
@@ -30,15 +33,16 @@ noremap sl :tabopen laasannuaire
 noremap sdd :tabopen dict 
 noremap sdf :tabopen dictfr 
 noremap sdr :tabopen dictfren 
-"noremap sf :tabopen lingueedf 
-noremap sf :tabopen lingueefe 
+noremap sds :tabopen dictes 
+noremap sdl :tabopen lingueefe 
+noremap sde :tabopen etymology 
+noremap sf :tabopen solarmovie 
 noremap gi :tabopen gimg 
 noremap gm :tabopen gmap 
 noremap si :tabopen gimg 
 noremap sm :tabopen gmap 
 noremap sgl :tabopen libgen 
 noremap se :tabopen ebay 
-noremap sde :tabopen etymology 
 noremap sad :tabopen amazonde 
 noremap sae :tabopen amazoncom 
 noremap saf :tabopen amazonfr 
@@ -50,11 +54,30 @@ noremap sy :tabopen youtube
 noremap sk :tabopen kinox 
 noremap sx :tabopen xplore 
 noremap <C-r> :restart<CR>
-noremap h <C-p>
-noremap l <C-n>
+noremap h <Esc><C-p>
+noremap l <Esc><C-n>
 noremap j 4j
 noremap k 4k
 noremap ss yt<CR>p
+
+js <<EOM
+commands.addUserCommand(
+	['wait'],
+	'wait for N seconds',
+	function(args){
+		var i=0;
+                [N] = args;
+		liberator.echo('N='+N);
+		for(i=0;i<=N;i++){
+			liberator.sleep(1000);
+		}
+	},
+	{},
+	true
+);
+EOM
+noremap vv /vodlocker<CR><Tab><CR><Esc>:wait 1<CR>fClick<Esc>:wait 5<CR><Esc>fProceed
+
 
 map <C-+> zz
 
