@@ -297,4 +297,6 @@ nnoremap gl :silent !firefox <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR><CR>
 nmap cf :call system("xclip -i -selection clipboard", expand("%:p"))<CR>
 "push current line content into clipboard
 nmap cl :call system("xclip -i -selection clipboard", getline("."))<CR>
+vnoremap <c-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>
+nmap yip vip<c-c>
 
