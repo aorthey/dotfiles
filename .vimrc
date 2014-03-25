@@ -4,9 +4,9 @@
 autocmd! bufwritepost .vimrc source %
 source ~/.vim/autoload/feraltogglecommentify.vim
 
-nmap cl :TC<CR> "toggle comment on line
-nmap cp vip:CC<CR> "comment paragraph
-nmap vp vip:UC<CR> "uncomment paragraph
+"nmap cl :TC<CR> "toggle comment on line
+"nmap cp vip:CC<CR> "comment paragraph
+"nmap vp vip:UC<CR> "uncomment paragraph
 
 autocmd Filetype c,cpp,h,hh,hpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -293,8 +293,10 @@ map ;g é
 "open link under line in firefox
 nnoremap gl :silent !firefox <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR><CR>
 
+set clipboard+=unnamed
+set clipboard+=unnamedplus
 "push current absolute filepath into clipboard
 nmap cf :call system("xclip -i -selection clipboard", expand("%:p"))<CR>
 "push current line content into clipboard
 nmap cl :call system("xclip -i -selection clipboard", getline("."))<CR>
-
+nnoremap yw yw:call system("xclip -i -selection clipboard", expand('<cword>'))<CR>

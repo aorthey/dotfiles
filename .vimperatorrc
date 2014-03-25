@@ -34,6 +34,7 @@ noremap sdd :tabopen dict
 noremap sdf :tabopen dictfr 
 noremap sdr :tabopen dictfren 
 noremap sds :tabopen dictes 
+noremap sdi :tabopen dictit 
 noremap sdl :tabopen lingueefe 
 noremap sde :tabopen etymology 
 noremap sf :tabopen solarmovie 
