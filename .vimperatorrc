@@ -1,9 +1,9 @@
-"3.3 (created: 2011/11/13 17:32:12)
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vimperator Config File 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set! browser.startup.page=1
 set complete=lSf
 set history=0
-
 "stay in normal mode after changing webpage
 set focuscontent
 
@@ -27,9 +27,15 @@ noremap ct y:tabopen<Space>tubereplay<Space><C-v><CR>
 :qmark t tagesschau.de
 :qmark g google.com
 
-"macro a ogmx<Tab><Return>fLogin2fungel
-noremap sw :tabopen mw 
-noremap sl :tabopen laasannuaire 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Language Tools
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap sti :tabopen http://translate.google.com/#auto/it/
+noremap ste :tabopen http://translate.google.com/#auto/es/
+noremap stf :tabopen http://translate.google.com/#auto/fr/
+noremap sci :tabopen conjugateit 
+noremap sce :tabopen conjugatees 
+noremap scf :tabopen conjugatefr 
 noremap sdd :tabopen dict 
 noremap sdf :tabopen dictfr 
 noremap sdr :tabopen dictfren 
@@ -37,6 +43,11 @@ noremap sds :tabopen dictes
 noremap sdi :tabopen dictit 
 noremap sdl :tabopen lingueefe 
 noremap sde :tabopen etymology 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"macro a ogmx<Tab><Return>fLogin2fungel
+noremap sw :tabopen mw 
+noremap sl :tabopen laasannuaire 
 noremap sf :tabopen solarmovie 
 noremap gi :tabopen gimg 
 noremap gm :tabopen gmap 
