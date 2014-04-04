@@ -37,15 +37,13 @@ set height=600
 " set if use content view
 set content=no
 
+" set if auto scroll page when at the end or begin of one pdf page
+set autoscrollpage=yes
 " set weather use continuous view 
-" make sure the autoscrollpage is set to "yes" if you want to set this to yes
 set continuous=yes
 
 " set a pad to continuous page
-"set continuouspad=2
-
-" set if auto scroll page when at the end or begin of one pdf page
-set autoscrollpage=yes
+"set continuouspad=4
 
 " set if auto scroll doc from 1st page when goto the last page
 set autoscrolldoc=yes
@@ -54,7 +52,7 @@ set autoscrolldoc=yes
 set noinfo=no
 
 " set pdf object cache size
-set pdfcache = 4
+set pdfcache = 8
 
 " set if use right and bottom scrollbar
 set scrollbar = no

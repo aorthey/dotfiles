@@ -219,6 +219,8 @@ texgit(){
 }
 alias cwd='printf "%q\n" "$(pwd)"'
 
+alias ccbuild='mkdir _build && cd _build && cmake ..'
+
 export PYTHONSTARTUP="/home/orthez/.python.py"
 source ~/.bashrc_personal
 w

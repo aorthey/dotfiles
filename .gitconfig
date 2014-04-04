@@ -36,6 +36,11 @@
   laas = "!sh -c 'git submodule init git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake  \
       && git submodule update git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
   laascmakeremove = "!sh -c 'git submodule remove git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
+
+[url "git://roboptim.git.sourceforge.net/gitroot/roboptim/"]
+     insteadOf = roboptim:
+[url "ssh://softs.laas.fr/git/"] 
+     insteadOf = git-laas:
 [core]
 	editor = vim
 [color]
