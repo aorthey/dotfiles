@@ -8,8 +8,13 @@ source ~/.vim/autoload/feraltogglecommentify.vim
 "nmap cp vip:CC<CR> "comment paragraph
 "nmap vp vip:UC<CR> "uncomment paragraph
 
-autocmd Filetype c,cpp,h,hh,hpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set expandtab
+autocmd Filetype c,cc,cpp,h,hh,hpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+set autoindent
+set expandtab
+set softtabstop=2
+set shiftwidth=2
 
 set timeoutlen=300 "timeout for key combinations
 
@@ -296,7 +301,10 @@ nnoremap gl :silent !firefox <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR><CR>
 set clipboard+=unnamed
 set clipboard+=unnamedplus
 "push current absolute filepath into clipboard
-nmap cf :call system("xclip -i -selection clipboard", expand("%:p"))<CR>
+nmap yng :call system("xclip -i -selection clipboard", expand("%:p"))<CR>
+nmap ynl :call system("xclip -i -selection clipboard", expand("%"))<CR>
 "push current line content into clipboard
-nmap cl :call system("xclip -i -selection clipboard", getline("."))<CR>
-nnoremap yw yw:call system("xclip -i -selection clipboard", expand('<cword>'))<CR>
+nmap yl :call system("xclip -i -selection clipboard", getline("."))<CR>
+vnoremap <c-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>
+nmap yip vip<c-c>
+vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>

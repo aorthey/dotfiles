@@ -54,6 +54,7 @@ noremap gm :tabopen gmap
 noremap si :tabopen gimg 
 noremap sm :tabopen gmap 
 noremap sgl :tabopen libgen 
+noremap sgg :tabopen google 
 noremap se :tabopen ebay 
 noremap sad :tabopen amazonde 
 noremap sae :tabopen amazoncom 
