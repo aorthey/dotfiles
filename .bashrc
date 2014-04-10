@@ -133,7 +133,7 @@ source ~/.bash/apt_tab_completion
 alias example='echo "'"'"'hallo'"'"'"' #will write 'hallo' to console
 alias fanwatch='watch -n 1 "cat /proc/acpi/ibm/fan|egrep '"'"'(status|speed|level)'"'"' && echo "" && sensors|grep "C""'
 alias fandaemon='sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi'
-alias wanip='curl -s http://whatismyip.org && echo'
+alias wanip='lynx --dump http://ipecho.net/plain'
 
 #find all files which have ?wx permission for others and change them to ?-x
 #this should add more security to the system, because you need root access
