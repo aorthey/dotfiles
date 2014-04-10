@@ -298,6 +298,9 @@ map ;g é
 "open link under line in firefox
 nnoremap gl :silent !firefox <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR><CR>
 
+"search /i
+set ignorecase
+
 set clipboard+=unnamed
 set clipboard+=unnamedplus
 "push current absolute filepath into clipboard
