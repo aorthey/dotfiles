@@ -17,9 +17,31 @@ set wildmode=list:full
 "some useful short cuts for the daily life
 "noremap <C-n> <silent> :tabopen<Space>http://www.dict.cc/?s=
 
-"youtube convert to mp3 and replay mode
-noremap cy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Youtube Direct Download
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"youtube replay mode
 noremap ct y:tabopen<Space>tubereplay<Space><C-v><CR>
+
+js <<EOM
+commands.addUserCommand(['youtubedl'],
+    'Youtube 2 MP3',
+    function (args){
+          [url] = args;
+          liberator.execute('!cd ~/Music');
+          liberator.execute('!youtube-dl --extract-audio --audio-format mp3 '+url);
+          liberator.execute('!mv *.mp3 ~/Music/youtube-dl');
+    },
+    {}, 
+    true
+);
+EOM
+
+noremap cy <silent> y:youtubedl <C-v><CR>
+
+"deprecated: dl via v2mp3
+"noremap cy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
+
 
 "quickmarks
 :qmark f facebook.com
@@ -91,7 +113,6 @@ commands.addUserCommand(
 EOM
 noremap vv /vodlocker<CR><Tab><CR><Esc>:wait 1<CR>fClick<Esc>:wait 5<CR><Esc>fProceed
 
-
 map <C-+> zz
 
 "next and previous navigation by ctrl + l and h
@@ -116,16 +137,6 @@ noremap st :stumble<CR>
 noremap sT :tabstumble<CR>
 noremap stl :thumbup<CR>
 noremap stn :thumbdown<CR>
-
-"minimize
-js <<EOM
-    commands.addUserCommand(['mi[nimize]'], "minimize window",
-    function(){
-        minimize();
-    }, {}, true);
-EOM
-
-noremap zm :minimize<CR>
 
 autocmd LocationChange .* :set editor="gnome-terminal -x vim"
 js <<EOM
