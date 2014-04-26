@@ -14,9 +14,6 @@ set visualbell
 set gui=none
 set wildmode=list:full
 
-"some useful short cuts for the daily life
-"noremap <C-n> <silent> :tabopen<Space>http://www.dict.cc/?s=
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Youtube Direct Download
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -38,10 +35,8 @@ commands.addUserCommand(['youtubedl'],
 EOM
 
 noremap cy <silent> y:youtubedl <C-v><CR>
-
 "deprecated: dl via v2mp3
 "noremap cy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
-
 
 "quickmarks
 :qmark f facebook.com
@@ -52,6 +47,10 @@ noremap cy <silent> y:youtubedl <C-v><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language Tools
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap sde :tabopen etymology 
+noremap sdy :tabopen synonym 
+
+"translations, dictionaries
 noremap sti :tabopen http://translate.google.com/#auto/it/
 noremap ste :tabopen http://translate.google.com/#auto/es/
 noremap stf :tabopen http://translate.google.com/#auto/fr/
@@ -64,11 +63,10 @@ noremap sdr :tabopen dictfren
 noremap sds :tabopen dictes 
 noremap sdi :tabopen dictit 
 noremap sdl :tabopen lingueefe 
-noremap sde :tabopen etymology 
+noremap sw :tabopen mw 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "macro a ogmx<Tab><Return>fLogin2fungel
-noremap sw :tabopen mw 
 noremap sl :tabopen laasannuaire 
 noremap sf :tabopen solarmovie 
 noremap gi :tabopen gimg 
@@ -137,6 +135,7 @@ noremap st :stumble<CR>
 noremap sT :tabstumble<CR>
 noremap stl :thumbup<CR>
 noremap stn :thumbdown<CR>
+noremap sts :stumblesend 
 
 autocmd LocationChange .* :set editor="gnome-terminal -x vim"
 js <<EOM
