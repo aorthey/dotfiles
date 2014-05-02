@@ -1,8 +1,25 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'rking/ag.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 "path to current software project
 "set path=
 ""always reload vimrc, if changed
 autocmd! bufwritepost .vimrc source %
-source ~/.vim/autoload/feraltogglecommentify.vim
+"source ~/.vim/autoload/feraltogglecommentify.vim
 
 "nmap cl :TC<CR> "toggle comment on line
 "nmap cp vip:CC<CR> "comment paragraph
@@ -56,9 +73,9 @@ imap <right> <nop>
 "change background color for vim
 "highlight Normal ctermfg=white ctermbg=white
 "let g:solarized_termcolors=257
-syntax enable
-set background=dark
-colorscheme blink
+""syntax enable
+"set background=dark
+"colorscheme blink
 
 "syntax highlighting
 syntax on
@@ -176,7 +193,6 @@ nmap <C-K> <C-W>k
 nmap <C-L> :tabn<CR>
 nmap <C-H> :tabp<CR>
 nmap <C-A> :buffers<CR>
-nmap <C-O> :tabe 
 
 nnoremap <silent> <S-H> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <S-L> :execute 'silent! tabmove ' . tabpagenr()<CR>
@@ -261,8 +277,6 @@ function! UMLtoHTML(string)
 endfunction
 :command! Huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
 
-
-
 "hi User1 ctermbg=lightred ctermfg=DarkMagenta guibg=black guifg=yellow
 hi User1 ctermbg=white ctermfg=black guibg=black guifg=yellow
 hi User2 ctermbg=white ctermfg=black guibg=black guifg=green
@@ -311,3 +325,34 @@ nmap yl :call system("xclip -i -selection clipboard", getline("."))<CR>
 vnoremap <c-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>
 nmap yip vip<c-c>
 vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>
+
+if filereadable(glob("~/.vimrc.nerdtree")) 
+  source ~/.vimrc.nerdtree
+endif
+"
+"##############################################################################
+"Ag silver_searcher : Grep replacement 
+"##############################################################################
+"copy pasted taiansu/nerdtree-ag forked from tyok/nerdtree-ack
+" don't load multiple times
+if exists("g:loaded_nerdtree_ag")
+    finish
+endif
+
+"let g:loaded_nerdtree_ag = 1
+
+" add the new menu item via NERD_Tree's API
+call NERDTreeAddMenuItem({
+    \ 'text': '(s)earch directory',
+    \ 'shortcut': 's',
+    \ 'callback': 'NERDTreeAg' })
+
+function! NERDTreeAg()
+    let cd = g:NERDTreeDirNode.GetSelected().path.str()
+    let pattern = input(">>> ")
+    if pattern == ''
+        return
+    endif
+    exec "Ag! -i -G cc ".pattern." ".cd
+endfunction
+
