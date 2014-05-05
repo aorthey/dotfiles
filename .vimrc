@@ -11,7 +11,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'rking/ag.vim'
-
+Bundle 'orthez/nerdtree-ag'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -28,11 +28,10 @@ autocmd! bufwritepost .vimrc source %
 set expandtab
 autocmd Filetype c,cc,cpp,h,hh,hpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd Filetype * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-set autoindent
-set expandtab
+"set autoindent
+"set expandtab
 set softtabstop=2
 set shiftwidth=2
-
 set timeoutlen=300 "timeout for key combinations
 
 let g:Tex_UseSimpleLabelSearch=1
@@ -54,7 +53,6 @@ vmap fR c<C-O>:set ri<CR><C-R>"<Esc>:set nori<CR>
 "restrict lines to have N letters, automatically wrap if x>N
 set textwidth=80
 set wrapmargin=80
-
 set history=500
 set ruler
 set hidden
@@ -69,16 +67,6 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-"change background color for vim
-"highlight Normal ctermfg=white ctermbg=white
-"let g:solarized_termcolors=257
-""syntax enable
-"set background=dark
-"colorscheme blink
-
-"syntax highlighting
-syntax on
 
 " auto-completion
 "set completeopt=menu
@@ -126,7 +114,7 @@ command! WS :execute ':silent w !sudo tee %' | :edit!
 
 "enable filetype detection
 filetype plugin on
-filetype indent on
+filetype indent off
 
 set grepprg=grep\ -nH\ $*
 "let g:tex_flavor='latex'
@@ -135,10 +123,10 @@ set grepprg=grep\ -nH\ $*
 set number
 
 "settings for tabs 
-set autoindent
-set copyindent
-set smartindent
-set pastetoggle=<F11> 
+"set autoindent
+"set copyindent
+"set smartindent
+"set pastetoggle=<F11> 
 "set expandtab
 
 "short cmds to quickly invoke make file commands, % displays filename,
@@ -232,7 +220,18 @@ endfunction
 nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 "nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S O<ESC>j 
-noremap gn :set nospell<CR>
+
+let g:SpellCheckingIsOn=1
+function! ToggleSpellChecking()
+  if g:SpellCheckingIsOn 
+    set nospell
+    let g:SpellCheckingIsOn=0
+  else
+    set spell
+    let g:SpellCheckingIsOn=1
+  endif
+endfunction
+noremap gn :call ToggleSpellChecking()<CR>
 
 "save session (tabs and buffer) via F2, reload F3
 nmap <F2> :mksession! ~/.vim/sessions/%:t.session<CR>
@@ -329,30 +328,10 @@ vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>
 if filereadable(glob("~/.vimrc.nerdtree")) 
   source ~/.vimrc.nerdtree
 endif
-"
-"##############################################################################
-"Ag silver_searcher : Grep replacement 
-"##############################################################################
-"copy pasted taiansu/nerdtree-ag forked from tyok/nerdtree-ack
-" don't load multiple times
-if exists("g:loaded_nerdtree_ag")
-    finish
-endif
 
-"let g:loaded_nerdtree_ag = 1
-
-" add the new menu item via NERD_Tree's API
-call NERDTreeAddMenuItem({
-    \ 'text': '(s)earch directory',
-    \ 'shortcut': 's',
-    \ 'callback': 'NERDTreeAg' })
-
-function! NERDTreeAg()
-    let cd = g:NERDTreeDirNode.GetSelected().path.str()
-    let pattern = input(">>> ")
-    if pattern == ''
-        return
-    endif
-    exec "Ag! -i -G cc ".pattern." ".cd
-endfunction
-
+"change background color for vim
+syntax on
+let g:zenburn_high_Contrast=1
+set t_Co=256
+colors zenburn
+colorscheme zenburn

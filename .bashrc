@@ -233,3 +233,4 @@ alias ccbuild='mkdir _build && cd _build && cmake ..'
 export PYTHONSTARTUP="/home/orthez/.python.py"
 source ~/.bashrc_personal
 w
+export TERM=xterm-256color
