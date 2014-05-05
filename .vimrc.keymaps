@@ -6,6 +6,7 @@
 "NERDTree keymaps
 "##############################################################################
 let g:nerdtree_tabs_meaningful_tab_names=0
+let g:nerdtree_tabs_open_on_console_startup=1
 nmap <silent> <C-E> :NERDTreeFocusToggle<CR>
 nmap <silent> <F3> :NERDTreeTabsToggle<CR>
 let NERDTreeMapActivateNode='l'

@@ -26,7 +26,7 @@ autocmd! bufwritepost .vimrc source %
 "nmap vp vip:UC<CR> "uncomment paragraph
 
 autocmd Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
-autocmd Filetype * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 "set autoindent
 set timeoutlen=300 "timeout for key combinations
 
@@ -303,13 +303,24 @@ function! Load(file)
   endif
 endfunction
 
-
 "change background color for vim
 syntax on
 let g:zenburn_high_Contrast=1
 set t_Co=256
 colors zenburn
 colorscheme zenburn
+
+function! SaveSess()
+  execute 'mksession! ~/.vim/session.vim'
+  echo "saved session"
+endfunction
+
+inoremap <C-s> :call SaveSess()<CR>
+
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
 
 call Load("~/.vimrc.keymaps")
 call Load("~/.vimrc.statusline")
