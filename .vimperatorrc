@@ -20,6 +20,7 @@ set wildmode=list:full
 "youtube replay mode
 noremap ct y:tabopen<Space>tubereplay<Space><C-v><CR>
 
+"sagi youtube-dl libavcodec-extra-53
 js <<EOM
 commands.addUserCommand(['youtubedl'],
     'Youtube 2 MP3',
