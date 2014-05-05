@@ -1,0 +1,30 @@
+"hi User1 ctermbg=lightred ctermfg=DarkMagenta guibg=black guifg=yellow
+hi User1 ctermbg=white ctermfg=black guibg=black guifg=yellow
+hi User2 ctermbg=white ctermfg=black guibg=black guifg=green
+hi UserError ctermbg=white ctermfg=red guibg=black guifg=red
+"andreas statusline style
+"%L:total lines,%l:current line,%c:current column,%v columns total in this line
+"%F: filename, %1*: choose color User1, %* default color
+"%=:right align, %m: display [+] if buffer is modified
+set laststatus=2
+set statusline=
+set statusline+=%<
+set statusline+=%1*
+set statusline+=%#UserError#%h%m%r%1*
+set statusline+=[
+set statusline+=%2*%l%1*
+set statusline+=/
+set statusline+=%L
+set statusline+=\ --\ 
+set statusline+=%2*%c%1*]\ 
+set statusline+=[%2*%P%1*]
+set statusline+=\ \ %b,0x%-8B
+set statusline+=%=
+set statusline+=%{MyMessage()}
+set statusline+=%20.F
+set statusline+=%10.y
+set statusline+=%*
+
+function! MyMessage()
+	return "<<< VIMERIZE >>> "
+endfunction

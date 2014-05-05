@@ -5,12 +5,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'rking/ag.vim'
+Bundle 'orthez/vim-nerdtree-tabs'
 Bundle 'orthez/nerdtree-ag'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -25,13 +25,9 @@ autocmd! bufwritepost .vimrc source %
 "nmap cp vip:CC<CR> "comment paragraph
 "nmap vp vip:UC<CR> "uncomment paragraph
 
-set expandtab
-autocmd Filetype c,cc,cpp,h,hh,hpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 autocmd Filetype * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 "set autoindent
-"set expandtab
-set softtabstop=2
-set shiftwidth=2
 set timeoutlen=300 "timeout for key combinations
 
 let g:Tex_UseSimpleLabelSearch=1
@@ -251,8 +247,14 @@ function! RenameText(lhs, rhs) range
 endfunction
 :command! -nargs=* Rename 1,$call RenameText(<f-args>)
 
+function! CopyFile()
+  let g:Newfile = expand("%:p:h")."/".input(expand("%:p:h")."/")
+  let g:Oldfile = expand("%")
+  exec ':silent !cp '.g:Oldfile.' '.g:Newfile
+  exec ':tabedit '.g:Newfile
+endfunction
+map cf :call CopyFile()<CR>
 
-"
 "reload vimrc
 nmap <F4> :source ~/.vimrc<CR>
 
@@ -276,36 +278,6 @@ function! UMLtoHTML(string)
 endfunction
 :command! Huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
 
-"hi User1 ctermbg=lightred ctermfg=DarkMagenta guibg=black guifg=yellow
-hi User1 ctermbg=white ctermfg=black guibg=black guifg=yellow
-hi User2 ctermbg=white ctermfg=black guibg=black guifg=green
-hi UserError ctermbg=white ctermfg=red guibg=black guifg=red
-"andreas statusline style
-"%L:total lines,%l:current line,%c:current column,%v columns total in this line
-"%F: filename, %1*: choose color User1, %* default color
-"%=:right align, %m: display [+] if buffer is modified
-set laststatus=2
-set statusline=
-set statusline+=%<
-set statusline+=%1*
-set statusline+=%#UserError#%h%m%r%1*
-set statusline+=[
-set statusline+=%2*%l%1*
-set statusline+=/
-set statusline+=%L
-set statusline+=\ --\ 
-set statusline+=%2*%c%1*]\ 
-set statusline+=[%2*%P%1*]
-set statusline+=\ \ %b,0x%-8B
-set statusline+=%=
-set statusline+=%{MyMessage()}
-set statusline+=%20.F
-set statusline+=%10.y
-set statusline+=%*
-
-function! MyMessage()
-	return "Freeze IDE >> "
-endfunction
 map ;g é
 
 "open link under line in firefox
@@ -325,9 +297,12 @@ vnoremap <c-c> y:call system("xclip -i -selection clipboard", getreg("\""))<CR>
 nmap yip vip<c-c>
 vnoremap y y:call system("xclip -i -selection clipboard", getreg("\""))<CR>
 
-if filereadable(glob("~/.vimrc.nerdtree")) 
-  source ~/.vimrc.nerdtree
-endif
+function! Load(file)
+  if filereadable(glob(a:file)) 
+    exec ':source '.a:file
+  endif
+endfunction
+
 
 "change background color for vim
 syntax on
@@ -335,3 +310,6 @@ let g:zenburn_high_Contrast=1
 set t_Co=256
 colors zenburn
 colorscheme zenburn
+
+call Load("~/.vimrc.keymaps")
+call Load("~/.vimrc.statusline")
