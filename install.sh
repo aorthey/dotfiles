@@ -11,5 +11,6 @@ sudo cp ~/.bash/apt_tab_completion /root/.bash
 echo "Installing VLC|DROPBOX..."
 sudo apt-get install nautilus-dropbox vlc 
 echo "Installing MISC programs..."
-sudo apt-get install htop nautilus-open-terminal
+sudo apt-get install htop nautilus-open-terminal texlive-full curl libmp3lame0 cmake-curses-gui silversearcher-ag youtube-dl 
+echo "disabling keypad"
 echo "run xinput list; xinput set-prop 12 "Device Enabled" 0"
