@@ -55,6 +55,7 @@ noremap sdy :tabopen synonym
 noremap sti :tabopen http://translate.google.com/#auto/it/
 noremap ste :tabopen http://translate.google.com/#auto/es/
 noremap stf :tabopen http://translate.google.com/#auto/fr/
+noremap str :tabopen http://translate.google.com/#auto/sr/
 noremap sci :tabopen conjugateit 
 noremap sce :tabopen conjugatees 
 noremap scf :tabopen conjugatefr 
