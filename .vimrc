@@ -322,5 +322,5 @@ filetype plugin on
 filetype indent on
 syntax on
 
-call Load("~/.vimrc.keymaps")
-call Load("~/.vimrc.statusline")
+call Load("~/.vim/keymaps")
+call Load("~/.vim/statusline")
