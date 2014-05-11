@@ -306,6 +306,7 @@ endfunction
 "change background color for vim
 syntax on
 let g:zenburn_high_Contrast=1
+let g:zenburn_old_Visual = 1
 set t_Co=256
 colors zenburn
 colorscheme zenburn
