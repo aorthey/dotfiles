@@ -12,6 +12,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'rking/ag.vim'
 Bundle 'orthez/vim-nerdtree-tabs'
 Bundle 'orthez/nerdtree-ag'
+Bundle 'Lokaltog/vim-easymotion'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -70,7 +71,6 @@ set completeopt=menuone,longest
 set wildmenu
 set wildmode=list:longest
 
-
 "forward tab completion
 function! TabComplete(dir)
 	if pumvisible()
@@ -95,7 +95,6 @@ endfunction
 inoremap <S-Tab> <C-R>=TabComplete("up")<CR>
 inoremap <Tab> <C-R>=TabComplete("down")<CR>
 
-
 "jump directly to search result, as you type!
 set incsearch
 
@@ -107,7 +106,6 @@ command! W :w
 command! Wq :wq
 command! WS :execute ':silent w !sudo tee %' | :edit!
 
-
 "enable filetype detection
 filetype plugin on
 filetype indent off
@@ -117,13 +115,7 @@ set grepprg=grep\ -nH\ $*
 
 "show linenumbers on the left
 set number
-
-"settings for tabs 
-"set autoindent
-"set copyindent
-"set smartindent
-"set pastetoggle=<F11> 
-"set expandtab
+set pastetoggle=<F11> 
 
 "short cmds to quickly invoke make file commands, % displays filename,
 " %:r "display filename without file extension
@@ -148,15 +140,6 @@ nmap gfr :!apvlv %:r.pdf<CR>
 nmap gl :!make clean<CR>
 "nmap gr :!make run<CR>
 nmap ge :!./x.exe -openHand 1 -openArm 1 -openSkin 1<CR>
-
-"step out of insert mode with hh instead of ESC
-
-"delete a character in insert mode
-"inoremap xx <C-O>x
-"inoremap xb <C-O>h<C-O>x
-
-"delete a word in insert mode
-"inoremap xdw <C-O>dw
 
 "delete/change a functionname with all its arguments and the braces
 nmap cif diwc%
@@ -217,7 +200,9 @@ nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 "nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap S O<ESC>j 
 
-let g:SpellCheckingIsOn=1
+"default: no spell checking
+let g:SpellCheckingIsOn=0
+set nospell
 function! ToggleSpellChecking()
   if g:SpellCheckingIsOn 
     set nospell
@@ -228,10 +213,6 @@ function! ToggleSpellChecking()
   endif
 endfunction
 noremap gn :call ToggleSpellChecking()<CR>
-
-"save session (tabs and buffer) via F2, reload F3
-nmap <F2> :mksession! ~/.vim/sessions/%:t.session<CR>
-nmap <F3> :source ~/.vim/sessions/%:t.session<CR>
 
 "Experimental stuff which does not work yet
 nnoremap :rename :echo "RENAME"

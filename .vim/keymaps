@@ -59,6 +59,21 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "##############################################################################
-"Fugitive Git Integration
+" Easymotion
 "##############################################################################
+let g:EasyMotion_smartcase = 1
+nmap f <Plug>(easymotion-w)
+nmap s <Plug>(easymotion-s)
+nmap <S-F> <Plug>(easymotion-bd-w)
+"##############################################################################
+" Misc
+"##############################################################################
+function! Close_tab_nerdtree()
+        exec 'NERDTreeClose'
+        exec 'tabclose'
+endfunction
+nmap <S-Q> :call Close_tab_nerdtree()<CR>
+
+
+
 

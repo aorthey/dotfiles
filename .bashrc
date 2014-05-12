@@ -215,15 +215,25 @@ djvu2pdf(){
 }
 #dependencies: sudo apt-get install librsvg2-bin
 svg2pdf(){
-	FILE=`basename $1 .svg`
-  rsvg-convert -f pdf -o $FILE.pdf $1
+        FILE=`basename $1 .svg`
+        rsvg-convert -f pdf -o $FILE.pdf $1
 }
 pts2mm(){
-  echo "$1*0.3528" | bc -l
+        echo "$1*0.3528" | bc -l
 }
 texgit(){
 	rm -rf util-general.tex
 	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
+}
+umake(){
+        cd $1
+        cd build && cmake .. && make && make install
+        cd ../..
+}
+uremake(){
+        cd $1
+        cd build && cmake .. && make clean && make && make install
+        cd ../..
 }
 alias cwd='printf "%q\n" "$(pwd)"'
 
