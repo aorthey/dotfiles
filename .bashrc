@@ -226,14 +226,18 @@ texgit(){
 	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
 }
 umake(){
-        cd $1
-        cd build && cmake .. && make && make install
-        cd ../..
+        if [ -d $1 ]; then
+                cd $1 
+                cd build && cmake .. && make && make install
+                cd ../..
+        fi
 }
 uremake(){
-        cd $1
-        cd build && cmake .. && make clean && make && make install
-        cd ../..
+        if [ -d $1 ]; then
+                cd $1
+                cd build && cmake .. && make clean && make && make install
+                cd ../..
+        fi 
 }
 alias cwd='printf "%q\n" "$(pwd)"'
 
