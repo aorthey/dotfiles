@@ -1,12 +1,12 @@
 [user]
 	name = Andreas Orthey
 	email = andreas.orthey@gmx.de
-  editor = vim
+        editor = vim
 [alias]
 	st = "!sh -c 'git status --untracked-files=no' -"
 
-#todo: add mod/del/add label to the output counter
-#todo: remove counter from commited changes
+        #todo: add mod/del/add label to the output counter
+        #todo: remove counter from commited changes
 	sl = "!sh -c 'git -c color.status=always \
 		status --untracked-files=no|awk -v count=1\
 		\"{if(gsub(/(modified:|deleted: |added:  )/ \
@@ -17,56 +17,57 @@
 		%s %C(bold blue)<%an>%Creset%C(green)(%ad)' \
 		--abbrev-commit --date=short --all
 	br = branch -av
-#git dm N : diff modified will show the diffs of the Nth modified file (not yet
-#commited)
+        #git dm N : diff modified will show the diffs of the Nth modified file (not yet
+        #commited)
 	dm = "!sh -c 'git ls-files -m| head -n $1 \
 		| tail -1 | xargs git diff ' -"
 	addm = "!sh -c 'git ls-files -m| head -n $1 \
 		| tail -1 | xargs git add ' -"
-#add all deleted files to the commit 
+        #add all deleted files to the commit 
 	adddeleted = "!sh -c 'git ls-files --deleted -z| xargs -0 git rm' -"
-#git last: show all files which were commited in the last commit
+        #git last: show all files which were commited in the last commit
 	last = "!sh -c 'git show HEAD^0 --summary --name-status' -"
-#git lastdm N: show what was changed in file number N in the last commit
+        #git lastdm N: show what was changed in file number N in the last commit
 	lastdm = "!sh -c 'git show HEAD^0 --summary --name-status \
 		| grep -E \"^(M|A|D)M?(\\s| )+\" \
 		| head -n $1 | tail -1 | sed -r \"s/(M|A|D)M?\\s+//g\" \
 		| xargs git diff HEAD^0..HEAD^1' -"
 
-  laas = "!sh -c 'git submodule init git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake  \
-      && git submodule update git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
-  laascmakeremove = "!sh -c 'git submodule remove git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
+        laas = "!sh -c 'git submodule init git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake  \
+                && git submodule update git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
+        laascmakeremove = "!sh -c 'git submodule remove git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
+        rs = "!sh -c 'git remote -v show' -"
 
 [url "git://roboptim.git.sourceforge.net/gitroot/roboptim/"]
-     insteadOf = roboptim:
+        insteadOf = roboptim:
 [url "ssh://softs.laas.fr/git/"] 
-     insteadOf = git-laas:
+        insteadOf = git-laas:
 [core]
 	editor = vim
 [color]
 	ui = auto
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
-  ui = auto
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        ui = auto
 [color "branch"]
-  current = green bold
-  local = green
-  remote = magenta bold
+        current = green bold
+        local = green
+        remote = magenta bold
 [color "diff"]
-  meta = magenta bold
-  frag = yellow bold
-  old = red bold
-  new = green bold
+        meta = magenta bold
+        frag = yellow bold
+        old = red bold
+        new = green bold
 [color "status"]
-  added = green bold
-  changed = yellow bold
-  untracked = magenta
+        added = green bold
+        changed = yellow bold
+        untracked = magenta
 [color "sh"]
-  branch = yellow
+        branch = yellow
 [push]
-  default = current
+        default = current
 [http]
-	postBuffer = 524288000
+        postBuffer = 524288000
