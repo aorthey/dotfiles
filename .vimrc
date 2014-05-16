@@ -13,6 +13,8 @@ Bundle 'rking/ag.vim'
 Bundle 'orthez/vim-nerdtree-tabs'
 Bundle 'orthez/nerdtree-ag'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -30,6 +32,12 @@ autocmd Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expa
 autocmd Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 "set autoindent
 set timeoutlen=300 "timeout for key combinations
+
+
+" in makefiles, don't expand tabs to spaces, since actual tab characters are
+" needed, and have indentation at 8 chars to be sure that all indents are tabs
+" (despite the mappings later):
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 let g:Tex_UseSimpleLabelSearch=1
 let g:Tex_BIBINPUTS="."

@@ -75,5 +75,5 @@ endfunction
 nmap <S-Q> :call Close_tab_nerdtree()<CR>
 
 
-
-
+"repeat commands on visual block
+vnoremap . :normal .<CR>

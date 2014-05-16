@@ -338,7 +338,7 @@ if &t_Co > 255
         endif
 
         " hc mode, darker CursorLine, default 236
-        hi CursorLine      ctermbg=233   cterm=none
+        hi CursorLine      ctermbg=236   cterm=none
 
         if exists("g:zenburn_unified_CursorColumn") && g:zenburn_unified_CursorColumn
             hi CursorColumn      ctermbg=233   cterm=none
