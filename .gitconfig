@@ -33,9 +33,9 @@
 		| head -n $1 | tail -1 | sed -r \"s/(M|A|D)M?\\s+//g\" \
 		| xargs git diff HEAD^0..HEAD^1' -"
 
-        laas = "!sh -c 'git submodule init git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake  \
+        submodule-laas-add = "!sh -c 'git submodule init git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake  \
                 && git submodule update git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
-        laascmakeremove = "!sh -c 'git submodule remove git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
+        submodule-laas-remove = "!sh -c 'git submodule remove git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
         rs = "!sh -c 'git remote -v show' -"
 
 [url "git://roboptim.git.sourceforge.net/gitroot/roboptim/"]
