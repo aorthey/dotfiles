@@ -254,3 +254,5 @@ gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#
 export PYTHONSTARTUP="/home/orthez/.python.py"
 source ~/.bashrc_personal
 w
+
+alias cdHpp='cd ~/devel/hpp-experimental/src/hpp-corbaserver'

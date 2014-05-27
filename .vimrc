@@ -7,7 +7,11 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/neocomplcache.vim'
+
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet-snippets'
+
 Bundle 'tpope/vim-fugitive'
 Bundle 'rking/ag.vim'
 Bundle 'orthez/vim-nerdtree-tabs'
