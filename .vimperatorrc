@@ -26,7 +26,6 @@ commands.addUserCommand(['youtubedl'],
     'Youtube 2 MP3',
     function (args){
           [url] = args;
-          liberator.execute('!cd ~/Music');
           liberator.execute('!youtube-dl --extract-audio --audio-format mp3 '+url);
           liberator.execute('!mv *.mp3 ~/Music/youtube-dl');
     },
@@ -131,6 +130,9 @@ set! network.http.max-connections-per-server=32
 
 noremap <F4> :source .vimperatorrc<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source .vimperator/stumbleupon.js
 source .vimperator/stumbleupon-friends.js
 noremap st :stumble<CR>
@@ -138,6 +140,8 @@ noremap sT :tabstumble<CR>
 noremap stl :thumbup<CR>
 noremap stn :thumbdown<CR>
 noremap sts :stumblesend 
+
+source .vimperator/stella.js
 
 autocmd LocationChange .* :set editor="gnome-terminal -x vim"
 js <<EOM
