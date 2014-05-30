@@ -256,3 +256,6 @@ source ~/.bashrc_personal
 w
 
 alias cdHpp='cd ~/devel/hpp-experimental/src/hpp-corbaserver'
+alias hppRosLaunch='roslaunch hpp_ros hpp_ros.launch'
+alias cdIcs='cd ~/git/irreducible-configuration-space/'
+alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
