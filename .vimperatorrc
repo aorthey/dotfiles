@@ -39,10 +39,14 @@ noremap cy <silent> y:youtubedl <C-v><CR>
 "noremap cy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
 
 "quickmarks
-:qmark f facebook.com
+:qmark b bbc.co.uk/news
+:qmark m lemonde.fr
+:qmark c foxnews.com
 :qmark z zeit.de
+:qmark f facebook.com
 :qmark t tagesschau.de
 :qmark g google.com
+:qmark n lemonde.fr|bbc.co.uk|foxnews.com
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language Tools
@@ -192,3 +196,4 @@ commands.addUserCommand(['noproxy'],
 EOM
 noremap sp :proxy localhost 9999<CR>
 noremap sn :noproxy<CR>
+noremap zI 10zi
