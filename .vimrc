@@ -16,6 +16,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'rking/ag.vim'
 Bundle 'orthez/vim-nerdtree-tabs'
 Bundle 'orthez/nerdtree-ag'
+Bundle 'orthez/vim-snippets-additional'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 

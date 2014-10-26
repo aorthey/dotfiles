@@ -18,4 +18,9 @@ echo "disabling keypad"
 echo "run xinput list; xinput set-prop 12 "Device Enabled" 0"
 
 echo "Installing LATEX essentials"
-sudo apt-get install texlive-full
+sudo apt-get install texlive-full etoolbox
+echo "Displaying date in time indicator"
+gsettings set com.canonical.indicator.datetime show-clock true
+gsettings set com.canonical.indicator.datetime show-day true
+gsettings set com.canonical.indicator.datetime show-date true
+

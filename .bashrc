@@ -255,7 +255,7 @@ export PYTHONSTARTUP="/home/orthez/.python.py"
 source ~/.bashrc_personal
 w
 
-alias cdHpp='cd ~/devel/hpp-experimental/src/hpp-motion-prior'
-alias hppRosLaunch='roslaunch hpp_ros hpp_ros.launch'
-alias cdIcs='cd ~/git/irreducible-configuration-space/'
+alias cdHpp='cd ~/devel/hpp-stable/src/hpp-motion-prior'
+alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
+alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
 alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
