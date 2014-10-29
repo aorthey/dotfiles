@@ -7,6 +7,7 @@ Plugin 'gmarik/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'ivanov/vim-ipython'
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
@@ -153,6 +154,7 @@ nmap gfr :!apvlv %:r.pdf<CR>
 nmap gl :!make clean<CR>
 "nmap gr :!make run<CR>
 nmap ge :!./x.exe -openHand 1 -openArm 1 -openSkin 1<CR>
+nmap gp :!ipython -i -c "\%run %:p"<CR>
 
 "delete/change a functionname with all its arguments and the braces
 nmap cif diwc%

@@ -26,7 +26,7 @@ commands.addUserCommand(['youtubedl'],
     'Youtube 2 MP3',
     function (args){
           [url] = args;
-          liberator.execute('!youtube-dl --extract-audio --audio-format mp3 '+url);
+          liberator.execute('!youtube-dl --extract-audio --audio-format mp3 \''+url+'\'');
           liberator.execute('!mv *.mp3 ~/Music/youtube-dl');
     },
     {}, 
@@ -34,9 +34,11 @@ commands.addUserCommand(['youtubedl'],
 );
 EOM
 
-noremap cy <silent> y:youtubedl <C-v><CR>
-"deprecated: dl via v2mp3
-"noremap cy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
+""""deprecated: dl via v2mp3
+""""noremap cyy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
+
+noremap cyy <silent> y:youtubedl <C-v><CR>
+noremap cym
 
 "quickmarks
 :qmark b bbc.co.uk/news
@@ -144,8 +146,6 @@ noremap sT :tabstumble<CR>
 noremap stl :thumbup<CR>
 noremap stn :thumbdown<CR>
 noremap sts :stumblesend 
-
-source .vimperator/stella.js
 
 autocmd LocationChange .* :set editor="gnome-terminal -x vim"
 js <<EOM

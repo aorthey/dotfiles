@@ -259,3 +259,15 @@ alias cdHpp='cd ~/devel/hpp-stable/src/hpp-motion-prior'
 alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
 alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
 alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
+
+# added by Anaconda 2.0.1 installer
+export PATH="/home/aorthey/anaconda/bin:$PATH"
+
+export BLAS="/home/aorthey/git/blas-src/"
+export LAPACK="/home/aorthey/git/lapack-src/lapack-3.5.0/liblapack.a"
+export PATH="/usr/local/MATLAB/R2013a/bin:$PATH"
+
+alias undounzip='zipinfo -1 $1 | xargs rm '
+
+
+
