@@ -323,3 +323,4 @@ call Load("~/.vim/keymaps")
 call Load("~/.vim/statusline")
 
 let g:tex_conceal = ""
+nmap <C-O> :tabnew 

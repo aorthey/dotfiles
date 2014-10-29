@@ -62,7 +62,7 @@ noremap ste :tabopen http://translate.google.com/#auto/es/
 noremap stf :tabopen http://translate.google.com/#auto/fr/
 noremap str :tabopen http://translate.google.com/#auto/sr/
 noremap sci :tabopen conjugateit 
-noremap sce :tabopen conjugatees 
+noremap sce :tabopen http://www.spanishdict.com/conjugate/
 noremap scf :tabopen conjugatefr 
 noremap sdd :tabopen dict 
 noremap sdf :tabopen dictfr 
@@ -146,6 +146,7 @@ noremap sT :tabstumble<CR>
 noremap stl :thumbup<CR>
 noremap stn :thumbdown<CR>
 noremap sts :stumblesend 
+noremap zI zizizizizizizizizizizizizizi
 
 autocmd LocationChange .* :set editor="gnome-terminal -x vim"
 js <<EOM

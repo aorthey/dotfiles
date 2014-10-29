@@ -17,10 +17,10 @@ let NERDTreeShowBookmarks = 1
 "CTRLP Bundle
 "##############################################################################
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_map = '<C-O>'
+let g:ctrlp_map = '<C-P>'
 let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-nmap <C-O> :CtrlP<CR>
+nmap <C-P> :CtrlP<CR>
 "open files in tab automatically
 let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("e")': [],
