@@ -48,11 +48,11 @@ autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 let g:Tex_UseSimpleLabelSearch=1
 let g:Tex_BIBINPUTS="."
 
-"map hon :%d<CR>
-"ap hof :%d -r<CR>
-
-"ap hon :%!xxd<CR>
-"ap hof :%!xxd -r<CR>
+noremap mm M
+noremap mh H
+noremap ml L
+noremap mk $
+noremap mj 0
 
 "turn on spell checking
 set spell spelllang=en_us
