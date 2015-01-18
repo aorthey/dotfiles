@@ -12,6 +12,20 @@
 		\"{if(gsub(/(modified:|deleted: |added:  )/ \
 		,count)) count++;};1;\"' -"
 	ls = ls-files
+        mppst = "!sh -c 'cd /home/aorthey/devel/mpp/mpp-environment \
+                && echo \"--------------------------\nmpp-environment\n--------------------------\n\" \
+                && git status --untracked-files=no \
+                && cd /home/aorthey/devel/mpp/mpp-robot \
+                && echo \"--------------------------\nmpp-robot\n--------------------------\n\" \
+                && git status --untracked-files=no \
+                && cd /home/aorthey/devel/mpp/mpp-mathtools \
+                && echo \"--------------------------\nmpp-mathtools\n--------------------------\n\" \
+                && git status --untracked-files=no \
+                && cd /home/aorthey/devel/mpp/mpp-path-planner \
+                && echo \"--------------------------\nmpp-path-planner\n--------------------------\n\" \
+                && git status --untracked-files=no \
+                ' -"
+
 	hist = log --graph \
 		--pretty=format:'%C(red)%h%Creset%C(yellow)%d%Creset \
 		%s %C(bold blue)<%an>%Creset%C(green)(%ad)' \
@@ -38,6 +52,11 @@
         submodule-laas-remove = "!sh -c 'git submodule remove git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
         rs = "!sh -c 'git remote -v show' -"
 
+        upload-nongit-folder-to-laas-server = "!sh -c 'cd /home/aorthey/git/$1 && git init --shared && \
+                git add * && git commit -am \"initial commit of $1\" && \
+                cp -r /home/aorthey/git/$1/.git /home/aorthey/git/$1.git && scp -r /home/aorthey/git/$1.git aorthey@trac.laas.fr:/git/jrl/paper/ && \
+                rm -rf /home/aorthey/git/$1.git && cd /home/aorthey/git/$1 && git remote add origin aorthey@trac.laas.fr:/git/jrl/paper/$1.git' -"
+
 [url "git://roboptim.git.sourceforge.net/gitroot/roboptim/"]
         insteadOf = roboptim:
 [url "ssh://softs.laas.fr/git/"] 
@@ -51,7 +70,7 @@
         status = auto
         branch = auto
         interactive = auto
-        ui = auto
+         i = auto
 [color "branch"]
         current = green bold
         local = green
