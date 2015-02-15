@@ -239,6 +239,17 @@ uremake(){
                 cd ../..
         fi 
 }
+
+converttrim(){
+        for file in "$@"
+        do
+                extension="${file##*.}"
+                filename=$(basename "$file" .$extension)
+                convert $file -trim $filename"-trim."$extension
+                echo "$file -> $filename-trim.$extension"
+        done
+}
+
 alias cwd='printf "%q\n" "$(pwd)"'
 
 
@@ -252,22 +263,29 @@ gconftool-2 --set /apps/gnome-terminal/profiles/Default/bold_color --type string
 gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#000B13:#E89393:#4E4E4E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#EFEFEF:#000B13:#E89393:#9ECE9E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#FFFFFF"
 
 export PYTHONSTARTUP="/home/orthez/.python.py"
-source ~/.bashrc_personal
 w
 
 alias cdHpp='cd ~/devel/hpp-stable/src/hpp-motion-prior'
+alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
 alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
 alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
 alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
 
 # added by Anaconda 2.0.1 installer
 export PATH="/home/aorthey/anaconda/bin:$PATH"
-
 export BLAS="/home/aorthey/git/blas-src/"
 export LAPACK="/home/aorthey/git/lapack-src/lapack-3.5.0/liblapack.a"
 export PATH="/usr/local/MATLAB/R2013a/bin:$PATH"
 
 alias undounzip='zipinfo -1 $1 | xargs rm '
 
+export MPP_PATH="/home/aorthey/devel/mpp/"
 
+#source /opt/ros/hydro/setup.bash
+#source /opt/ros/hydro/setup.bash
+source /opt/ros/fuerte/setup.bash
+source ~/.bashrc_personal
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+alias dishwasher="mplayer `locate DishWasher.mp3`"
+export PYTHONPATH=${PYTHONPATH}:"/home/aorthey/git/persistent-homology/Dionysus/build/bindings/python/"

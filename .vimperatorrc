@@ -37,8 +37,7 @@ EOM
 """"deprecated: dl via v2mp3
 """"noremap cyy y:tabopen<Space>http://www.video2mp3.net/index.php?hq=1&url=<C-v><CR>
 
-noremap cyy <silent> y:youtubedl <C-v><CR>
-noremap cym
+noremap cy <silent> y:youtubedl <C-v><CR>
 
 "quickmarks
 :qmark b bbc.co.uk/news
@@ -70,7 +69,8 @@ noremap sdr :tabopen dictfren
 noremap sds :tabopen dictes 
 noremap sdi :tabopen dictit 
 noremap sdl :tabopen lingueefe 
-noremap sw :tabopen mw 
+noremap swa :tabopen wolfram 
+noremap sww :tabopen mw 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "macro a ogmx<Tab><Return>fLogin2fungel
@@ -198,3 +198,12 @@ EOM
 noremap sp :proxy localhost 9999<CR>
 noremap sn :noproxy<CR>
 noremap zI 10zi
+
+"commands.addUserCommand(['bahnSearch'], 
+"	'Deutsche Bahn Search',
+"	function(args) { 
+"		let title = args.shift(); 
+"		liberator.execute('tabopen http://www.google.fr/search?tbs=bks:1&tbo=p&q=' + args.join(' ') + '+intitle:"' + title + '"'); 
+"	}, 
+"	{ argCount: '+'}); 
+"
