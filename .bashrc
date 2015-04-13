@@ -13,7 +13,8 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
+HISTSIZE=50000
+HISTFILESIZE=500000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -216,7 +217,7 @@ djvu2pdf(){
 #dependencies: sudo apt-get install librsvg2-bin
 svg2pdf(){
         FILE=`basename $1 .svg`
-        rsvg-convert -f pdf -o $FILE.pdf $1
+        rsvg-convert -f pdf -o $FILE.pdf $1 && pdftrimwhite $FILE.pdf $FILE-trim.pdf
 }
 pts2mm(){
         echo "$1*0.3528" | bc -l
@@ -281,11 +282,12 @@ alias undounzip='zipinfo -1 $1 | xargs rm '
 
 export MPP_PATH="/home/aorthey/devel/mpp/"
 
-#source /opt/ros/hydro/setup.bash
-#source /opt/ros/hydro/setup.bash
 source /opt/ros/fuerte/setup.bash
 source ~/.bashrc_personal
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 alias dishwasher="mplayer `locate DishWasher.mp3`"
 export PYTHONPATH=${PYTHONPATH}:"/home/aorthey/git/persistent-homology/Dionysus/build/bindings/python/"
+alias cdOpenHRP='cd /opt/grx/HRP2LAAS/bin/'
+export MPP_PATH="/home/`whoami`/devel/mpp/"
+export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"

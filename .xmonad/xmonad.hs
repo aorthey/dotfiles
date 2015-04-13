@@ -110,6 +110,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ,  ((modm .|. shiftMask, xK_t), spawn "thunderbird")
     ,  ((modm .|. shiftMask, xK_s), spawn "skype")
     ,  ((modm .|. shiftMask, xK_g), spawn "gimp")
+    ,  ((modm .|. shiftMask, xK_w), spawn "gksudo virtualbox")
 		--,	((modm .|. shiftMask, xK_p     ), spawn "gmrun")
  
     , ((modm , xK_d     ), kill)
@@ -310,6 +311,7 @@ myManageHook = composeAll
     , className =? "Qtcreator"           --> doShift "3"
     , className =? "Inkscape"           --> doShift "5"
     , className =? "Thunderbird"           --> doShift "4"
+    , className =? "Virtualbox"           --> doShift "5"
     --, className =? "emulator-arm" --> doFloat
     ]
       where role = stringProperty "WM_WINDOW_ROLE"

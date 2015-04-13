@@ -13,6 +13,8 @@ let NERDTreeMapActivateNode='l'
 let NERDTreeMapCloseDir='h'
 let NERDTreeShowBookmarks = 1
 
+let NERDTreeIgnore = ['\.pyc$','\.aux$','\.out$','\.pdf$','\.log$']
+
 "##############################################################################
 "CTRLP Bundle
 "##############################################################################

@@ -139,6 +139,7 @@ noremap <F4> :source .vimperatorrc<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+source .vimperator/zoterator.js
 source .vimperator/stumbleupon.js
 source .vimperator/stumbleupon-friends.js
 noremap st :stumble<CR>
