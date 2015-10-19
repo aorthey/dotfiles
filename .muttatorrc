@@ -23,7 +23,8 @@ map <C-k> <C-p>
 map <C-l> gt
 map <C-h> gT
 
-map ga :goto gmx.de/Inbox<CR>G
+map gx :goto gmx.de/Inbox<CR>G
 map gs :goto laas.fr/Inbox<CR>G
+map ga :goto gmail.com/Inbox<CR>G
 
 map <C-r> :restart<CR>
