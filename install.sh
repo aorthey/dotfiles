@@ -13,7 +13,9 @@ sudo apt-get install vlc vim htop nautilus-open-terminal curl libmp3lame0 \
 cmake-curses-gui silversearcher-ag youtube-dl xmonad libghc-xmonad-dev \
 libghc-xmonad-contrib-dev xmobar xcompmgr nitrogen stalonetray moreutils \
 consolekit ssh-askpass-gnome thunar terminator remmina gnome-panel \
-nautilus-open-terminal nautilus-dropbox
+nautilus-open-terminal nautilus-dropbox \
+libc-ares2 libcrypto++-dev libcrypto++9
+
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "disabling keypad"
@@ -26,3 +28,8 @@ gsettings set com.canonical.indicator.datetime show-clock true
 gsettings set com.canonical.indicator.datetime show-day true
 gsettings set com.canonical.indicator.datetime show-date true
 echo "FIREFOX: install vimperator | noscript | adblockplus"
+cd ~/Downloads
+wget https://mega.nz/linux/MEGAsync/xUbuntu_14.04/amd64/megasync-xUbuntu_14.04_amd64.deb
+sudo dpkg -i megasync-xUbuntu_14.04_amd64.deb
+dropbox start
+megasync

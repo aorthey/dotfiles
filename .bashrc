@@ -291,3 +291,4 @@ export PYTHONPATH=${PYTHONPATH}:"/home/aorthey/git/persistent-homology/Dionysus/
 alias cdOpenHRP='cd /opt/grx/HRP2LAAS/bin/'
 export MPP_PATH="/home/`whoami`/devel/mpp/"
 export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"
+export PYTHONPATH=$PYTHONPATH:`openrave-config --python-dir`
