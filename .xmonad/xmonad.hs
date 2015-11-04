@@ -367,25 +367,15 @@ myManageHook = composeAll
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = xmonad gnomeConfig {
-      -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         borderWidth        = myBorderWidth,
-      --  modMask            = myModMask,
-        -- numlockMask deprecated in 0.9.1
-        -- numlockMask        = myNumlockMask,
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
         mouseBindings = myMouseBindings,
- 
-      -- key bindings
         keys               = myKeys,
- 
-      -- hooks, layouts
         layoutHook         = myLayout,
         manageHook         = myManageHook,
-       -- handleEventHook    = myEventHook,
-       -- logHook            = myLogHook
         startupHook        = setWMName "LG3D"
 }
