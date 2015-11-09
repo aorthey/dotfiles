@@ -5,6 +5,7 @@ import XMonad.Util.EZConfig
 --import XMonad.Hooks.ManageHelpers
 import XMonad.Config.Gnome
 import XMonad.Hooks.SetWMName
+import XMonad.Layout.IndependentScreens
 import XMonad.Layout.WindowNavigation
 import XMonad.Layout.ResizableTile
 import XMonad.Config.Desktop (desktopLayoutModifiers)
@@ -54,7 +55,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
          | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-
     ++
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
@@ -211,7 +211,8 @@ myManageHook = composeAll
  
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad gnomeConfig {
+main = do
+    xmonad $ gnomeConfig {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         borderWidth        = myBorderWidth,

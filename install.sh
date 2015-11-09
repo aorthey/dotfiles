@@ -13,7 +13,7 @@ sudo apt-get install vlc vim htop nautilus-open-terminal curl libmp3lame0 \
 cmake-curses-gui silversearcher-ag youtube-dl xmonad libghc-xmonad-dev \
 libghc-xmonad-contrib-dev xmobar xcompmgr nitrogen stalonetray moreutils \
 consolekit ssh-askpass-gnome thunar terminator remmina gnome-panel \
-nautilus-open-terminal nautilus-dropbox \
+nautilus-open-terminal nautilus-dropbox xclip\
 libc-ares2 libcrypto++-dev libcrypto++9
 
 
