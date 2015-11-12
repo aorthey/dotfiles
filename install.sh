@@ -14,8 +14,8 @@ cmake-curses-gui silversearcher-ag youtube-dl xmonad libghc-xmonad-dev \
 libghc-xmonad-contrib-dev xmobar xcompmgr nitrogen stalonetray moreutils \
 consolekit ssh-askpass-gnome thunar terminator remmina gnome-panel \
 nautilus-open-terminal nautilus-dropbox xclip\
-libc-ares2 libcrypto++-dev libcrypto++9
-
+libc-ares2 libcrypto++-dev libcrypto++9 \
+gimp inkscape
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "disabling keypad"

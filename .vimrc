@@ -34,8 +34,11 @@ autocmd! bufwritepost .vimrc source %
 "nmap cp vip:CC<CR> "comment paragraph
 "nmap vp vip:UC<CR> "uncomment paragraph
 
-autocmd Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 autocmd Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
+
+autocmd Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
+autocmd Filetype py,xml set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
 "set autoindent
 set timeoutlen=300 "timeout for key combinations
 
