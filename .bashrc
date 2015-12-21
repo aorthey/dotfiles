@@ -264,7 +264,6 @@ gconftool-2 --set /apps/gnome-terminal/profiles/Default/bold_color --type string
 gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#000B13:#E89393:#4E4E4E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#EFEFEF:#000B13:#E89393:#9ECE9E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#FFFFFF"
 
 export PYTHONSTARTUP="/home/orthez/.python.py"
-w
 
 alias cdHpp='cd ~/devel/hpp-stable/src/hpp-motion-prior'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
@@ -293,3 +292,7 @@ export MPP_PATH="/home/`whoami`/devel/mpp/"
 export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"
 export PYTHONPATH=$PYTHONPATH:`openrave-config --python-dir`
 export MPP_PATH="/home/`whoami`/devel/mpp/"
+
+#### display in shell
+w
+lsb_release -dc
