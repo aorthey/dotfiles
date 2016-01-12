@@ -271,6 +271,7 @@ alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
 alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
 alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
 alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
+alias cdwpi='cd ~/git/openrave/sandbox/WPI/'
 
 # added by Anaconda 2.0.1 installer
 export PATH="/home/aorthey/anaconda/bin:$PATH"
@@ -293,3 +294,5 @@ export MPP_PATH="/home/`whoami`/devel/mpp/"
 export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"
 export PYTHONPATH=$PYTHONPATH:`openrave-config --python-dir`
 export MPP_PATH="/home/`whoami`/devel/mpp/"
+export COIN_FULL_INDIRECT_RENDERING=1
+source `openrave-config --share-dir`/openrave_completion.bash

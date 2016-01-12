@@ -18,6 +18,8 @@ libc-ares2 libcrypto++-dev libcrypto++9 \
 gimp inkscape
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/AGWA/git-crypt.git
+make && sudo make install
 echo "disabling keypad"
 echo "run xinput list; xinput set-prop 12 "Device Enabled" 0"
 
