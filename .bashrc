@@ -278,13 +278,13 @@ gconftool-2 --set /apps/gnome-terminal/profiles/Default/bold_color --type string
 gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#000B13:#E89393:#4E4E4E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#EFEFEF:#000B13:#E89393:#9ECE9E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#FFFFFF"
 
 export PYTHONSTARTUP="/home/orthez/.python.py"
-w
 
 alias cdHpp='cd ~/devel/hpp-stable/src/hpp-motion-prior'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
 alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
 alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
 alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
+alias cdwpi='cd ~/git/openrave/sandbox/WPI/'
 
 
 # added by Anaconda 2.0.1 installer
@@ -307,4 +307,12 @@ alias cdOpenHRP='cd /opt/grx/HRP2LAAS/bin/'
 export MPP_PATH="/home/`whoami`/devel/mpp/"
 export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"
 source `openrave-config --share-dir`/openravebash
+source `openrave-config --share-dir`/openrave_completion.bash
 
+export PYTHONPATH=$PYTHONPATH:`openrave-config --python-dir`
+export MPP_PATH="/home/`whoami`/devel/mpp/"
+export COIN_FULL_INDIRECT_RENDERING=1
+
+#### display in shell
+w
+lsb_release -dc
