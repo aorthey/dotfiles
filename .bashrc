@@ -136,6 +136,8 @@ alias fanwatch='watch -n 1 "cat /proc/acpi/ibm/fan|egrep '"'"'(status|speed|leve
 alias fandaemon='sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi'
 alias wanip='lynx --dump http://ipecho.net/plain'
 
+alias ifprograms='socklist|sort -u -k7,7 -r'
+
 #find all files which have ?wx permission for others and change them to ?-x
 #this should add more security to the system, because you need root access
 #to insert malicious code into an executable
@@ -165,8 +167,20 @@ rotall(){
 		SET2=${SET1:$N:26-$N}${SET1:0:$N}${SET1:26+$N:54-$N}${SET1:26:$N};
 		echo "ROT[${N}]="`echo $1 | tr ${SET1} ${SET2}`;
 	done;
-
 }
+rotback(){
+	SET1=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+        SET2=$(echo ${SET1:0:26}|rev)$(echo ${SET1:26:26}|rev)
+	echo "-----------------------------------"
+	echo "Backward"
+	echo "-----------------------------------"
+	echo ${SET1}
+	echo ${SET2}
+	echo "-----------------------------------"
+	echo "BACK="`echo $1 | tr ${SET1} ${SET2}`
+}
+
+
 VISUAL=vim
 EDITOR=vim
 
@@ -272,6 +286,7 @@ alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
 alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
 alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
 
+
 # added by Anaconda 2.0.1 installer
 export PATH="/home/aorthey/anaconda/bin:$PATH"
 export BLAS="/home/aorthey/git/blas-src/"
@@ -291,3 +306,5 @@ export PYTHONPATH=${PYTHONPATH}:"/home/aorthey/git/persistent-homology/Dionysus/
 alias cdOpenHRP='cd /opt/grx/HRP2LAAS/bin/'
 export MPP_PATH="/home/`whoami`/devel/mpp/"
 export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"
+source `openrave-config --share-dir`/openravebash
+
