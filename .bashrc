@@ -96,6 +96,9 @@ alias 2..="cd ../.."
 alias 3..="cd ../../.."
 alias 4..="cd ../../../.."
 
+alias printline='cat <(printf "%.0s-" {1..80}) <(echo)'
+alias ds='cat <(printline) <(du -sh *| sort -h) <(printline) <(du -sh `pwd`)'
+
 
 alias mv='mv -i'
 alias px='ps aux|grep '
@@ -313,6 +316,10 @@ export PYTHONPATH=$PYTHONPATH:`openrave-config --python-dir`
 export MPP_PATH="/home/`whoami`/devel/mpp/"
 export COIN_FULL_INDIRECT_RENDERING=1
 
+### set current working directories
+alias cdpub='cd ~/git/15-orthey-ijrr/'
+alias cdwork='cd ~/git/openrave/sandbox/WPI/'
+source /opt/ros/indigo/setup.bash
 #### display in shell
 w
 lsb_release -dc
