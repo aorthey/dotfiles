@@ -17,8 +17,12 @@ consolekit ssh-askpass-gnome thunar terminator remmina gnome-panel \
 nautilus-open-terminal nautilus-dropbox xclip \
 libc-ares2 libcrypto++-dev libcrypto++9 \
 gimp inkscape libssl-dev openssl \
-texlive-full etoolbox
+texlive-full etoolbox python-pip gfortran
 ################################################################
+
+echo "Installing Python packages"
+sudo pip install networkx
+sudo pip install cvxpy
 
 mkdir -p ~/git/
 cd ~/git

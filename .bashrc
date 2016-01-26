@@ -322,4 +322,8 @@ alias cdwork='cd ~/git/openrave/sandbox/WPI/'
 source /opt/ros/indigo/setup.bash
 #### display in shell
 w
+printline
 lsb_release -dc
+printline
+gcc --version|head -n1
+printline
