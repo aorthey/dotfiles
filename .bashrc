@@ -324,6 +324,8 @@ source /opt/ros/indigo/setup.bash
 w
 printline
 lsb_release -dc
-printline
-gcc --version|head -n1
+echo 'System      : '`uname -s`
+echo 'Kernel      : '`uname -r`
+echo 'Processor   : '`uname -p`
+echo 'GCC         : '`gcc --version|head -n1`
 printline
