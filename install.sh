@@ -17,12 +17,16 @@ consolekit ssh-askpass-gnome thunar terminator remmina gnome-panel \
 nautilus-open-terminal nautilus-dropbox xclip \
 libc-ares2 libcrypto++-dev libcrypto++9 \
 gimp inkscape libssl-dev openssl libx11-dev \
-texlive-full etoolbox python-pip gfortran
+texlive-full etoolbox python-pip gfortran \
+python-matplotlib python-pip 
 ################################################################
 
 echo "Installing Python packages"
 sudo pip install networkx
 sudo pip install cvxpy
+echo 'import numpy as np' >> $(ipython locate profile default)/startup/00_imports.py
+echo 'import matplotlib.pyplot as plt' >> $(ipython locate profile default)/startup/00_imports.py
+
 
 mkdir -p ~/git/
 cd ~/git
