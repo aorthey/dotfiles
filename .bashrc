@@ -98,6 +98,7 @@ alias 4..="cd ../../../.."
 
 alias printline='cat <(printf "%.0s-" {1..80}) <(echo)'
 alias ds='cat <(printline) <(du -sh *| sort -h) <(printline) <(du -sh `pwd`)'
+alias dustats='ds'
 
 
 alias mv='mv -i'
@@ -243,6 +244,13 @@ texgit(){
 	rm -rf util-general.tex
 	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
 }
+bmake(){
+        mkdir -p build
+        cd build 
+        cmake .. 
+        make -j5
+        sudo make install
+}
 umake(){
         if [ -d $1 ]; then
                 cd $1 
@@ -317,7 +325,8 @@ export MPP_PATH="/home/`whoami`/devel/mpp/"
 export COIN_FULL_INDIRECT_RENDERING=1
 
 ### set current working directories
-alias cdpub='cd ~/git/15-orthey-ijrr/'
+#alias cdpaper='cd ~/git/15-orthey-ijrr/'
+alias cdpaper='cd ~/git/papers/'
 alias cdwork='cd ~/git/openrave/sandbox/WPI/'
 source /opt/ros/indigo/setup.bash
 #### display in shell

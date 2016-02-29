@@ -4,10 +4,18 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+"Bundle 'vim-scripts/ctags.vim'
+
 Bundle 'scrooloose/nerdtree'
+Bundle 'vim-scripts/taglist.vim'
+
+Bundle 'wesleyche/SrcExpl'
+"Bundle 'wesleyche/Trinity'
+
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'ivanov/vim-ipython'
+"Bundle 'ivanov/vim-ipython'
+
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
@@ -40,6 +48,7 @@ set timeoutlen=300 "timeout for key combinations
 
 let g:Tex_UseSimpleLabelSearch=1
 let g:Tex_BIBINPUTS="."
+let g:tex_flavor='latex'
 
 noremap mm M
 noremap mh H
@@ -114,7 +123,6 @@ command! Wq :wq
 command! WS :execute ':silent w !sudo tee %' | :edit!
 
 set grepprg=grep\ -nH\ $*
-"let g:tex_flavor='latex'
 
 "show linenumbers on the left
 set number
@@ -144,11 +152,14 @@ nmap gl :!make clean<CR>
 "nmap gr :!make run<CR>
 nmap ge :!./x.exe -openHand 1 -openArm 1 -openSkin 1<CR>
 
-
 "delete/change a functionname with all its arguments and the braces
 nmap cif diwc%
 nmap dif diwd%
 nmap vif viww%
+
+nmap gk O<Esc>j
+nmap gj o<Esc>k
+
 
 "reload vimrc
 nmap <S-A-r> :source $MYVIMRC<CR>
@@ -303,7 +314,7 @@ function! SaveSess()
   echo "saved session"
 endfunction
 
-inoremap <C-s> :call SaveSess()<CR>
+"inoremap <C-s> :call SaveSess()<CR>
 
 call Load("~/.vim/keymaps")
 call Load("~/.vim/statusline")
@@ -317,6 +328,8 @@ nmap gp :!cd %:p:h && ipython -i -c "\%run %:p"<CR>
 autocmd! Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 autocmd! Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 autocmd! Filetype py,xml setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
+
 
 "autocmd! FileType javascript nnoremap <buffer> <S-T> I//<esc>
 "autocmd! FileType python     nnoremap <buffer> <S-T> I#<esc>

@@ -16,7 +16,7 @@ libghc-xmonad-contrib-dev xmobar xcompmgr nitrogen stalonetray moreutils \
 consolekit ssh-askpass-gnome thunar terminator remmina gnome-panel \
 nautilus-open-terminal nautilus-dropbox xclip \
 libc-ares2 libcrypto++-dev libcrypto++9 \
-gimp inkscape libssl-dev openssl \
+gimp inkscape libssl-dev openssl libx11-dev \
 texlive-full etoolbox python-pip gfortran
 ################################################################
 
@@ -42,3 +42,13 @@ wget https://mega.nz/linux/MEGAsync/xUbuntu_14.04/amd64/megasync-xUbuntu_14.04_a
 sudo dpkg -i megasync-xUbuntu_14.04_amd64.deb
 dropbox start
 megasync
+
+
+#cd ~/git/
+
+#git clone --recursive https://github.com/lolilolicon/FFcast.git
+#cd FFcast
+#./bootstrap
+#./configure --prefix /usr --libexecdir /usr/lib --sysconfdir /etc --enable-xrectsel
+#make
+#sudo make install
