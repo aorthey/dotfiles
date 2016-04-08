@@ -6,7 +6,7 @@
 "NERDTree keymaps
 "##############################################################################
 let g:nerdtree_tabs_meaningful_tab_names=0
-let g:nerdtree_tabs_open_on_console_startup=0
+let g:ierdtree_tabs_open_on_console_startup=0
 nmap <silent> <C-E> :NERDTreeFocusToggle<CR>
 
 let NERDTreeMapActivateNode='l'
@@ -93,7 +93,12 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 "##############################################################################
 let g:EasyMotion_smartcase = 1
 nmap f <Plug>(easymotion-w)
-nmap s <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 nmap <S-F> <Plug>(easymotion-bd-w)
 
 "##############################################################################
@@ -121,9 +126,6 @@ nmap <S-Q> :call Close_tab_nerdtree()<CR>
 
 "repeat commands on visual block
 vnoremap . :normal .<CR>
-
-
-
 
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k<C-W>l

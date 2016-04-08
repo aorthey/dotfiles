@@ -16,7 +16,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 "Bundle 'ivanov/vim-ipython'
 
-
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
@@ -329,9 +328,12 @@ autocmd! Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 autocmd! Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 autocmd! Filetype py,xml setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
-
-
 "autocmd! FileType javascript nnoremap <buffer> <S-T> I//<esc>
 "autocmd! FileType python     nnoremap <buffer> <S-T> I#<esc>
 "autocmd! FileType c,cc,cpp,h,hh,hpp     nnoremap <buffer> <S-T> I//<esc>
 "autocmd! FileType make set noexpandtab shiftwidth=8 softtabstop=0
+"
+nmap k kzz
+nmap j jzz
+nmap <C-D> <C-D>zz
+nmap <C-U> <C-U>zz
