@@ -348,6 +348,7 @@ export COIN_FULL_INDIRECT_RENDERING=1
 alias cdpaper='cd ~/git/papers/'
 alias cdwork='cd ~/git/openrave/sandbox/WPI/'
 source /opt/ros/indigo/setup.bash
+source /usr/local/setup.bash
 #### display in shell
 w
 printline
