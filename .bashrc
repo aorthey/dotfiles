@@ -183,6 +183,18 @@ rotback(){
 	echo "-----------------------------------"
 	echo "BACK="`echo $1 | tr ${SET1} ${SET2}`
 }
+tablenumerical(){
+	SET1=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+	echo "-----------------------------------"
+	echo "TABLE LETTER - NUMERICAL"
+	echo "-----------------------------------"
+	echo ${SET1}
+        for ((i=0;i<26;i++));
+        do
+            printf "%1s %3d %3d\n" ${SET1:$i:1} $i 
+        done
+	echo "-----------------------------------"
+}
 
 
 VISUAL=vim
@@ -266,6 +278,14 @@ uremake(){
         fi 
 }
 
+ipstat(){
+        printline
+        echo 'TCP CONNECTIONS'
+        printline
+        netstat -anpt 2>&1 | tail -n +5 | awk '{print $7}' | sort -k1,1 -k3,3 | sed 's#/# #' | column -t | uniq
+        printline
+}
+
 converttrim(){
         for file in "$@"
         do
@@ -277,7 +297,6 @@ converttrim(){
 }
 
 alias cwd='printf "%q\n" "$(pwd)"'
-
 
 alias ccbuild='mkdir _build && cd _build && cmake ..'
 
