@@ -278,12 +278,22 @@ uremake(){
         fi 
 }
 
-ipstat(){
+ipstats(){
         printline
-        echo 'TCP CONNECTIONS'
+        echo 'TCP/UDP CONNECTIONS'
         printline
-        netstat -anpt 2>&1 | tail -n +5 | awk '{print $7}' | sort -k1,1 -k3,3 | sed 's#/# #' | column -t | uniq
+        netstat -anput 2>&1 | tail -n +5 | awk '{print $7}' | sort -k1,1 -k3,3 | sed 's#/# #' | column -t | uniq
+}
+
+systemstats(){
         printline
+        echo 'SYSTEM STATUS'
+        printline
+        lsb_release -dc
+        echo 'System      : '`uname -s`
+        echo 'Kernel      : '`uname -r`
+        echo 'Processor   : '`uname -p`
+        echo 'GCC         : '`gcc --version|head -n1`
 }
 
 converttrim(){
@@ -352,12 +362,9 @@ source /opt/ros/indigo/setup.bash
 source /usr/local/setup.bash
 #### display in shell
 w
-printline
-lsb_release -dc
-echo 'System      : '`uname -s`
-echo 'Kernel      : '`uname -r`
-echo 'Processor   : '`uname -p`
-echo 'GCC         : '`gcc --version|head -n1`
+cat /etc/issue
+systemstats
+ipstats
 printline
 
 
