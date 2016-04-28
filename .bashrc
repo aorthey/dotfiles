@@ -321,6 +321,7 @@ source `openrave-config --share-dir`/openravebash
 source `openrave-config --share-dir`/openrave_completion.bash
 
 export PYTHONPATH=$PYTHONPATH:`openrave-config --python-dir`
+export PYTHONPATH=$PYTHONPATH:"/home/aorthey/catkin/install/lib/python2.7/dist-packages/"
 export MPP_PATH="/home/`whoami`/devel/mpp/"
 export COIN_FULL_INDIRECT_RENDERING=1
 
@@ -339,3 +340,6 @@ echo 'Kernel      : '`uname -r`
 echo 'Processor   : '`uname -p`
 echo 'GCC         : '`gcc --version|head -n1`
 printline
+
+
+export OPENRAVE_PLUGINS=$OPENRAVE_PLUGINS:"/home/aorthey/catkin/install/share/openrave-0.9/plugins/"
