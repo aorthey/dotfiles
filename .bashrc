@@ -369,6 +369,7 @@ printline
 
 
 export OPENRAVE_PLUGINS=$OPENRAVE_PLUGINS:"/home/aorthey/catkin/install/share/openrave-0.9/plugins/"
+source /opt/ros/indigo/setup.bash
 export PROJECT_DIR="/home/`whoami`/git/asgard/"
 export VIGIR_ROOT_DIR=/home/aorthey/flor_repo
 source /home/aorthey/git/asgard/Scripts/setup.bash
