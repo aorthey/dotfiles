@@ -337,7 +337,6 @@ alias undounzip='zipinfo -1 $1 | xargs rm '
 
 export MPP_PATH="/home/aorthey/devel/mpp/"
 
-source /opt/ros/fuerte/setup.bash
 source ~/.bashrc_personal
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
@@ -358,7 +357,6 @@ export COIN_FULL_INDIRECT_RENDERING=1
 #alias cdpaper='cd ~/git/15-orthey-ijrr/'
 alias cdpaper='cd ~/git/papers/'
 alias cdwork='cd ~/git/openrave/sandbox/WPI/'
-source /opt/ros/indigo/setup.bash
 source /usr/local/setup.bash
 #### display in shell
 w
@@ -370,6 +368,7 @@ printline
 
 export OPENRAVE_PLUGINS=$OPENRAVE_PLUGINS:"/home/aorthey/catkin/install/share/openrave-0.9/plugins/"
 source /opt/ros/indigo/setup.bash
-export PROJECT_DIR="/home/`whoami`/git/asgard/"
-export VIGIR_ROOT_DIR=/home/aorthey/flor_repo
-source /home/aorthey/git/asgard/Scripts/setup.bash
+export ROS_DISTRO=indigo
+#export PROJECT_DIR="/home/`whoami`/git/asgard/"
+#export VIGIR_ROOT_DIR=/home/aorthey/flor_repo
+#source /home/aorthey/git/asgard/Scripts/setup.bash
