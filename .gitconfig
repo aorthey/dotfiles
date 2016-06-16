@@ -12,6 +12,7 @@
 		\"{if(gsub(/(modified:|deleted: |added:  )/ \
 		,count)) count++;};1;\"' -"
 	ls = ls-files
+	lso = ls-files --others --exclude-standard
         mppst = "!sh -c 'cd /home/aorthey/devel/mpp/mpp-environment \
                 && echo \"--------------------------\nmpp-environment\n--------------------------\n\" \
                 && git status --untracked-files=no \
