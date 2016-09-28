@@ -4,10 +4,17 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+"Bundle 'vim-scripts/ctags.vim'
+
 Bundle 'scrooloose/nerdtree'
+Bundle 'vim-scripts/taglist.vim'
+
+Bundle 'wesleyche/SrcExpl'
+"Bundle 'wesleyche/Trinity'
+
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'ivanov/vim-ipython'
+"Bundle 'ivanov/vim-ipython'
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
@@ -34,19 +41,13 @@ autocmd! bufwritepost .vimrc source %
 "nmap cp vip:CC<CR> "comment paragraph
 "nmap vp vip:UC<CR> "uncomment paragraph
 
-autocmd Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
-autocmd Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 "set autoindent
 set timeoutlen=300 "timeout for key combinations
 
 
-" in makefiles, don't expand tabs to spaces, since actual tab characters are
-" needed, and have indentation at 8 chars to be sure that all indents are tabs
-" (despite the mappings later):
-autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
-
 let g:Tex_UseSimpleLabelSearch=1
 let g:Tex_BIBINPUTS="."
+let g:tex_flavor='latex'
 
 noremap mm M
 noremap mh H
@@ -120,12 +121,7 @@ command! W :w
 command! Wq :wq
 command! WS :execute ':silent w !sudo tee %' | :edit!
 
-"enable filetype detection
-filetype plugin on
-filetype indent off
-
 set grepprg=grep\ -nH\ $*
-"let g:tex_flavor='latex'
 
 "show linenumbers on the left
 set number
@@ -154,12 +150,15 @@ nmap gfr :!apvlv %:r.pdf<CR>
 nmap gl :!make clean<CR>
 "nmap gr :!make run<CR>
 nmap ge :!./x.exe -openHand 1 -openArm 1 -openSkin 1<CR>
-nmap gp :!cd %:p:h && ipython -i -c "\%run %:p"<CR>
 
 "delete/change a functionname with all its arguments and the braces
 nmap cif diwc%
 nmap dif diwd%
 nmap vif viww%
+
+nmap gk O<Esc>j
+nmap gj o<Esc>k
+
 
 "reload vimrc
 nmap <S-A-r> :source $MYVIMRC<CR>
@@ -299,7 +298,9 @@ function! Load(file)
   endif
 endfunction
 
-"change background color for vim
+filetype plugin on
+filetype plugin indent on
+
 syntax on
 let g:zenburn_high_Contrast=1
 let g:zenburn_old_Visual = 1
@@ -312,12 +313,7 @@ function! SaveSess()
   echo "saved session"
 endfunction
 
-inoremap <C-s> :call SaveSess()<CR>
-
-filetype on
-filetype plugin on
-filetype indent on
-syntax on
+"inoremap <C-s> :call SaveSess()<CR>
 
 call Load("~/.vim/keymaps")
 call Load("~/.vim/statusline")
@@ -326,3 +322,18 @@ let g:tex_conceal = ""
 nmap <C-O> :tabnew 
 
 nmap gw :!pdftotext %:p:r.pdf -enc UTF-8 - \| wc -m<CR>
+nmap gp :!cd %:p:h && ipython -i -c "\%run %:p"<CR>
+
+autocmd! Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
+autocmd! Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
+autocmd! Filetype py,xml setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
+"autocmd! FileType javascript nnoremap <buffer> <S-T> I//<esc>
+"autocmd! FileType python     nnoremap <buffer> <S-T> I#<esc>
+"autocmd! FileType c,cc,cpp,h,hh,hpp     nnoremap <buffer> <S-T> I//<esc>
+"autocmd! FileType make set noexpandtab shiftwidth=8 softtabstop=0
+"
+nmap k kzz
+nmap j jzz
+nmap <C-D> <C-D>zz
+nmap <C-U> <C-U>zz

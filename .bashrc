@@ -96,6 +96,10 @@ alias 2..="cd ../.."
 alias 3..="cd ../../.."
 alias 4..="cd ../../../.."
 
+alias printline='cat <(printf "%.0s-" {1..80}) <(echo)'
+alias ds='cat <(printline) <(du -sh *| sort -h) <(printline) <(du -sh `pwd`)'
+alias dustats='ds'
+
 
 alias mv='mv -i'
 alias px='ps aux|grep '
@@ -136,6 +140,8 @@ alias fanwatch='watch -n 1 "cat /proc/acpi/ibm/fan|egrep '"'"'(status|speed|leve
 alias fandaemon='sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi'
 alias wanip='lynx --dump http://ipecho.net/plain'
 
+alias ifprograms='socklist|sort -u -k7,7 -r'
+
 #find all files which have ?wx permission for others and change them to ?-x
 #this should add more security to the system, because you need root access
 #to insert malicious code into an executable
@@ -165,8 +171,32 @@ rotall(){
 		SET2=${SET1:$N:26-$N}${SET1:0:$N}${SET1:26+$N:54-$N}${SET1:26:$N};
 		echo "ROT[${N}]="`echo $1 | tr ${SET1} ${SET2}`;
 	done;
-
 }
+rotback(){
+	SET1=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+        SET2=$(echo ${SET1:0:26}|rev)$(echo ${SET1:26:26}|rev)
+	echo "-----------------------------------"
+	echo "Backward"
+	echo "-----------------------------------"
+	echo ${SET1}
+	echo ${SET2}
+	echo "-----------------------------------"
+	echo "BACK="`echo $1 | tr ${SET1} ${SET2}`
+}
+tablenumerical(){
+	SET1=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+	echo "-----------------------------------"
+	echo "TABLE LETTER - NUMERICAL"
+	echo "-----------------------------------"
+	echo ${SET1}
+        for ((i=0;i<26;i++));
+        do
+            printf "%1s %3d %3d\n" ${SET1:$i:1} $i 
+        done
+	echo "-----------------------------------"
+}
+
+
 VISUAL=vim
 EDITOR=vim
 
@@ -226,6 +256,13 @@ texgit(){
 	rm -rf util-general.tex
 	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
 }
+bmake(){
+        mkdir -p build
+        cd build 
+        cmake .. 
+        make -j5
+        sudo make install
+}
 umake(){
         if [ -d $1 ]; then
                 cd $1 
@@ -241,6 +278,24 @@ uremake(){
         fi 
 }
 
+ipstats(){
+        printline
+        echo 'TCP/UDP CONNECTIONS'
+        printline
+        netstat -anput 2>&1 | tail -n +5 | awk '{print $7}' | sort -k1,1 -k3,3 | sed 's#/# #' | column -t | uniq
+}
+
+systemstats(){
+        printline
+        echo 'SYSTEM STATUS'
+        printline
+        lsb_release -dc
+        echo 'System      : '`uname -s`
+        echo 'Kernel      : '`uname -r`
+        echo 'Processor   : '`uname -p`
+        echo 'GCC         : '`gcc --version|head -n1`
+}
+
 converttrim(){
         for file in "$@"
         do
@@ -253,7 +308,6 @@ converttrim(){
 
 alias cwd='printf "%q\n" "$(pwd)"'
 
-
 alias ccbuild='mkdir _build && cd _build && cmake ..'
 
 #ZENBURN COLOR SCHEME FOR GNOME TERMINAL
@@ -264,13 +318,14 @@ gconftool-2 --set /apps/gnome-terminal/profiles/Default/bold_color --type string
 gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#000B13:#E89393:#4E4E4E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#EFEFEF:#000B13:#E89393:#9ECE9E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#FFFFFF"
 
 export PYTHONSTARTUP="/home/orthez/.python.py"
-w
 
 alias cdHpp='cd ~/devel/hpp-stable/src/hpp-motion-prior'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
 alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
 alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
 alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
+alias cdwpi='cd ~/git/openrave/sandbox/WPI/'
+
 
 # added by Anaconda 2.0.1 installer
 export PATH="/home/aorthey/anaconda/bin:$PATH"
@@ -282,7 +337,6 @@ alias undounzip='zipinfo -1 $1 | xargs rm '
 
 export MPP_PATH="/home/aorthey/devel/mpp/"
 
-source /opt/ros/fuerte/setup.bash
 source ~/.bashrc_personal
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
@@ -291,3 +345,35 @@ export PYTHONPATH=${PYTHONPATH}:"/home/aorthey/git/persistent-homology/Dionysus/
 alias cdOpenHRP='cd /opt/grx/HRP2LAAS/bin/'
 export MPP_PATH="/home/`whoami`/devel/mpp/"
 export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"
+source `openrave-config --share-dir`/openrave.bash
+source `openrave-config --share-dir`/openrave_completion.bash
+
+export PYTHONPATH=$PYTHONPATH:`openrave-config --python-dir`
+export PYTHONPATH=$PYTHONPATH:"/home/aorthey/catkin/install/lib/python2.7/dist-packages/"
+export MPP_PATH="/home/`whoami`/devel/mpp/"
+export COIN_FULL_INDIRECT_RENDERING=1
+export PATH="/usr/local/bin:$PATH"
+
+### set current working directories
+#alias cdpaper='cd ~/git/15-orthey-ijrr/'
+alias cdpaper='cd ~/git/papers/'
+alias cdwork='cd ~/git/openrave/sandbox/WPI/'
+source /usr/local/setup.bash
+#### display in shell
+w
+cat /etc/issue
+systemstats
+ipstats
+printline
+
+
+export OPENRAVE_PLUGINS=$OPENRAVE_PLUGINS:"/home/aorthey/catkin/install/share/openrave-0.9/plugins/"
+#export PROJECT_DIR="/home/`whoami`/git/asgard/"
+#export VIGIR_ROOT_DIR=/home/aorthey/flor_repo
+#source /home/aorthey/git/asgard/Scripts/setup.bash
+export OPENRAVE_WPI_PATH="/home/`whoami`/git/openrave/sandbox/WPI/"
+source /opt/ros/indigo/setup.bash
+export ROS_DISTRO=indigo
+#export PROJECT_DIR="/home/`whoami`/git/asgard/"
+#export VIGIR_ROOT_DIR=/home/aorthey/flor_repo
+#source /home/aorthey/git/asgard/Scripts/setup.bash
