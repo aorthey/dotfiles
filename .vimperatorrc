@@ -56,10 +56,10 @@ noremap sde :tabopen etymology
 noremap sdy :tabopen synonym 
 
 "translations, dictionaries
-noremap sti :tabopen http://translate.google.com/#auto/it/
-noremap ste :tabopen http://translate.google.com/#auto/es/
-noremap stf :tabopen http://translate.google.com/#auto/fr/
-noremap str :tabopen http://translate.google.com/#auto/sr/
+noremap sti :tabopen http://translate.google.com/#it/en/
+noremap stf :tabopen http://translate.google.com/#fr/en/
+noremap stj :tabopen http://translate.google.com/#ja/en/
+noremap ste :tabopen http://translate.google.com/#en/ja/
 noremap sci :tabopen conjugateit 
 noremap sce :tabopen http://www.spanishdict.com/conjugate/
 noremap scf :tabopen conjugatefr 
