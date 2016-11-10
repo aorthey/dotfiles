@@ -377,3 +377,10 @@ export ROS_DISTRO=indigo
 #export PROJECT_DIR="/home/`whoami`/git/asgard/"
 #export VIGIR_ROOT_DIR=/home/aorthey/flor_repo
 #source /home/aorthey/git/asgard/Scripts/setup.bash
+###AIST
+export PATH=/tmp/bin:$PATH
+LD_LIBRARY_PATH=/tmp/lib:$LD_LIBRARY_PATH
+PKG_CONFIG_PATH=/tmp/lib/pkgconfig:$PKG_CONFIG_PATH
+PYTHONPATH=/tmp/lib/python2.7/site-packages:$PYTHONPATH
+####KLAMPT
+LD_LIBRARY_PATH=/home/aorthey/git/Klampt/Library/ode-0.11.1/ode/src/.libs/:$LD_LIBRARY_PATH

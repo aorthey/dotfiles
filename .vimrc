@@ -337,3 +337,11 @@ nmap k kzz
 nmap j jzz
 nmap <C-D> <C-D>zz
 nmap <C-U> <C-U>zz
+
+nnoremap gp :BlogSave publish<CR>
+nnoremap gbp :BlogSave publish<CR>
+nnoremap gbn :BlogNew<CR>
+nnoremap gbx :BlogSave publish<CR>:BlogList<CR>
+nnoremap <C-s> :BlogSave publish<CR>
+nnoremap gbl :BlogList<CR>
+
