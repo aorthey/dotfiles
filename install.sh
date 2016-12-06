@@ -18,6 +18,7 @@ nautilus-open-terminal nautilus-dropbox xclip \
 libc-ares2 libcrypto++-dev libcrypto++9 \
 gimp inkscape libssl-dev openssl libx11-dev \
 texlive-full etoolbox python-pip gfortran \
+exuberant-ctags \
 python-matplotlib python-pip 
 ################################################################
 

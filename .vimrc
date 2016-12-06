@@ -3,25 +3,23 @@ filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
 "Bundle 'vim-scripts/ctags.vim'
-
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-scripts/taglist.vim'
-
-Bundle 'wesleyche/SrcExpl'
-"Bundle 'wesleyche/Trinity'
-
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
 "Bundle 'ivanov/vim-ipython'
 
+Plugin 'gmarik/Vundle.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'wesleyche/SrcExpl'
+Bundle 'PotHix/Vimpress'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
-
-Bundle 'tpope/vim-fugitive'
 Bundle 'rking/ag.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-commentary'
 Bundle 'orthez/vim-nerdtree-tabs'
 Bundle 'orthez/nerdtree-ag'
 Bundle 'orthez/vim-snippets-additional'
@@ -135,7 +133,7 @@ nmap gr :!rosmake feasibility && rosrun feasibility MainProject<CR>
 nmap gdb :!rosmake feasibility && gdb -ex run ~/git/feasibility/bin/MainProject<CR>
 nmap gff :!g++ % -o %.exe && ./%.exe<CR>
 nmap gm :!make -j5<CR>
-nmap gc :!make clean && make -j5 && make run<CR>
+"nmap gc :!make clean && make -j5 && make run<CR>
 "nmap gfc :!make clean && make && gdb -ex run ./x.exe<CR>
 "nmap gfr :!make run FILE=%<CR>
 "nmap gfm :!make all FILE=%<CR>
@@ -210,9 +208,9 @@ set guicursor+=i:blinkwait10
 function! RepeatChar(char, count)
    return repeat(a:char, a:count)
 endfunction
-nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
+"nnoremap s :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 "nnoremap S :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
-nnoremap S O<ESC>j 
+"nnoremap S O<ESC>j 
 
 "default: no spell checking
 let g:SpellCheckingIsOn=0

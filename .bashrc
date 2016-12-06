@@ -325,6 +325,7 @@ alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
 alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
 alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
 alias cdwpi='cd ~/git/openrave/sandbox/WPI/'
+alias youtube2mp3="youtube-dl --extract-audio --audio-format mp3"
 
 
 # added by Anaconda 2.0.1 installer
@@ -372,15 +373,18 @@ export OPENRAVE_PLUGINS=$OPENRAVE_PLUGINS:"/home/aorthey/catkin/install/share/op
 #export VIGIR_ROOT_DIR=/home/aorthey/flor_repo
 #source /home/aorthey/git/asgard/Scripts/setup.bash
 export OPENRAVE_WPI_PATH="/home/`whoami`/git/openrave/sandbox/WPI/"
-source /opt/ros/indigo/setup.bash
 export ROS_DISTRO=indigo
+source /home/aorthey/catkin_ws/devel/setup.bash
+source /opt/ros/indigo/setup.bash
 #export PROJECT_DIR="/home/`whoami`/git/asgard/"
 #export VIGIR_ROOT_DIR=/home/aorthey/flor_repo
 #source /home/aorthey/git/asgard/Scripts/setup.bash
 ###AIST
-export PATH=/tmp/bin:$PATH
-LD_LIBRARY_PATH=/tmp/lib:$LD_LIBRARY_PATH
-PKG_CONFIG_PATH=/tmp/lib/pkgconfig:$PKG_CONFIG_PATH
-PYTHONPATH=/tmp/lib/python2.7/site-packages:$PYTHONPATH
-####KLAMPT
-LD_LIBRARY_PATH=/home/aorthey/git/Klampt/Library/ode-0.11.1/ode/src/.libs/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/aorthey/git/Klampt/Library/ode-0.11.1/ode/src/.libs/:$LD_LIBRARY_PATH
+export PATH=/home/aorthey/workspace//bin:$PATH
+export LD_LIBRARY_PATH=/home/aorthey/workspace//lib:$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=/home/aorthey/workspace//lib/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/home/aorthey/git/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH
+export PYTHONPATH=/home/aorthey/workspace//lib/python2.7/site-packages:$PYTHONPATH
+
+alias aistBuild="cd ~/git/mc_myfirst_controller/build/ && make && sudo make install && cd ~/git/mc_vrep/build/ && ./src/mc_vrep ../etc/mc_vrep.conf"
