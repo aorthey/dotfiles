@@ -34,6 +34,7 @@ filetype plugin indent on    " required
 ""always reload vimrc, if changed
 autocmd! bufwritepost .vimrc source %
 "source ~/.vim/autoload/feraltogglecommentify.vim
+"
 
 "nmap cl :TC<CR> "toggle comment on line
 "nmap cp vip:CC<CR> "comment paragraph
@@ -133,7 +134,6 @@ nmap gr :!rosmake feasibility && rosrun feasibility MainProject<CR>
 nmap gdb :!rosmake feasibility && gdb -ex run ~/git/feasibility/bin/MainProject<CR>
 nmap gff :!g++ % -o %.exe && ./%.exe<CR>
 nmap gm :!make -j5<CR>
-"nmap gc :!make clean && make -j5 && make run<CR>
 "nmap gfc :!make clean && make && gdb -ex run ./x.exe<CR>
 "nmap gfr :!make run FILE=%<CR>
 "nmap gfm :!make all FILE=%<CR>
@@ -320,7 +320,7 @@ let g:tex_conceal = ""
 nmap <C-O> :tabnew 
 
 nmap gw :!pdftotext %:p:r.pdf -enc UTF-8 - \| wc -m<CR>
-nmap gp :!cd %:p:h && ipython -i -c "\%run %:p"<CR>
+nmap <buffer> gp :!cd %:p:h && ipython -i -c "\%run %:p"<CR>
 
 autocmd! Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 autocmd! Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
@@ -343,3 +343,4 @@ nnoremap gbx :BlogSave publish<CR>:BlogList<CR>
 nnoremap <C-s> :BlogSave publish<CR>
 nnoremap gbl :BlogList<CR>
 
+autocmd FileType c,cc,cpp,h,hh,hpp setlocal commentstring=//%s
