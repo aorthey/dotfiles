@@ -81,12 +81,16 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
+
 if !exists('g:neocomplcache_omni_patterns')
 let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+
+
 
 "##############################################################################
 " Easymotion
@@ -153,4 +157,3 @@ let g:SrcExpl_updateTagsKey = "<F12>"
 " // Set "<F3>" key for displaying the previous definition in the jump list 
 let g:SrcExpl_prevDefKey = "<F5>" 
 let g:SrcExpl_nextDefKey = "<F6>" 
-

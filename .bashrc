@@ -387,4 +387,4 @@ export PKG_CONFIG_PATH=/home/aorthey/workspace//lib/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH=/home/aorthey/git/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH
 export PYTHONPATH=/home/aorthey/workspace//lib/python2.7/site-packages:$PYTHONPATH
 
-alias aistBuild="cd ~/git/mc_myfirst_controller/build/ && make && sudo make install && cd ~/git/mc_vrep/build/ && ./src/mc_vrep ../etc/mc_vrep.conf"
+alias aistBuild="cd ~/git/mc_contact_controller/build/ && make && sudo make install && cd ~/git/mc_vrep/build/ && ./src/mc_vrep ../etc/mc_vrep.conf"

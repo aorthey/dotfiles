@@ -9,19 +9,17 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/taglist.vim'
-Bundle 'wesleyche/SrcExpl'
 Bundle 'PotHix/Vimpress'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplcache' 
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
-Bundle 'rking/ag.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-commentary'
+
 Bundle 'orthez/vim-nerdtree-tabs'
 Bundle 'orthez/nerdtree-ag'
+Bundle 'rking/ag.vim'
+
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-commentary'
 Bundle 'orthez/vim-snippets-additional'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -320,7 +318,6 @@ let g:tex_conceal = ""
 nmap <C-O> :tabnew 
 
 nmap gw :!pdftotext %:p:r.pdf -enc UTF-8 - \| wc -m<CR>
-nmap <buffer> gp :!cd %:p:h && ipython -i -c "\%run %:p"<CR>
 
 autocmd! Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
 autocmd! Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
@@ -336,11 +333,11 @@ nmap j jzz
 nmap <C-D> <C-D>zz
 nmap <C-U> <C-U>zz
 
+autocmd FileType c,cc,cpp,h,hh,hpp setlocal commentstring=//%s
+
 nnoremap gp :BlogSave publish<CR>
 nnoremap gbp :BlogSave publish<CR>
 nnoremap gbn :BlogNew<CR>
 nnoremap gbx :BlogSave publish<CR>:BlogList<CR>
 nnoremap <C-s> :BlogSave publish<CR>
 nnoremap gbl :BlogList<CR>
-
-autocmd FileType c,cc,cpp,h,hh,hpp setlocal commentstring=//%s
