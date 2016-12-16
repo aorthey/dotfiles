@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+VISUAL=vim
+EDITOR=vim
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -97,7 +100,6 @@ alias 3..="cd ../../.."
 alias 4..="cd ../../../.."
 
 alias printline='cat <(printf "%.0s-" {1..80}) <(echo)'
-alias ds='cat <(printline) <(du -sh *| sort -h) <(printline) <(du -sh `pwd`)'
 alias dustats='ds'
 
 
@@ -196,9 +198,6 @@ tablenumerical(){
 	echo "-----------------------------------"
 }
 
-
-VISUAL=vim
-EDITOR=vim
 
 cp_pr()
 {
@@ -306,6 +305,14 @@ converttrim(){
         done
 }
 
+ds(){
+        if [ -d $1 ]; then
+                printline
+                du -sh $1*|sort -h
+                printline
+                du -sh $1
+        fi 
+}
 alias cwd='printf "%q\n" "$(pwd)"'
 
 alias ccbuild='mkdir _build && cd _build && cmake ..'
