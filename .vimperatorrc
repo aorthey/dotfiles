@@ -65,6 +65,7 @@ noremap sce :tabopen http://www.spanishdict.com/conjugate/
 noremap scf :tabopen conjugatefr 
 noremap sdd :tabopen dict 
 noremap sdf :tabopen dictfr 
+noremap sdj :tabopen dictjaen 
 noremap sdr :tabopen dictfren 
 noremap sds :tabopen dictes 
 noremap sdi :tabopen dictit 
@@ -75,7 +76,7 @@ noremap sww :tabopen mw
 
 "macro a ogmx<Tab><Return>fLogin2fungel
 noremap sl :tabopen laasannuaire 
-noremap sf :tabopen solarmovie 
+noremap sf :tabopen http://solarmovie.sc/search/
 noremap gi :tabopen gimg 
 noremap gm :tabopen gmap 
 noremap si :tabopen gimg 

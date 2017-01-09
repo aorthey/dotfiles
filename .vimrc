@@ -1,6 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set ft=txt
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 "Bundle 'vim-scripts/ctags.vim'
@@ -319,9 +320,9 @@ nmap <C-O> :tabnew
 
 nmap gw :!pdftotext %:p:r.pdf -enc UTF-8 - \| wc -m<CR>
 
-autocmd! Filetype * set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
-autocmd! Filetype c,cc,cpp,h,hh,hpp set tabstop=8 softtabstop=8 shiftwidth=8 expandtab
-autocmd! Filetype py,xml setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd! Filetype * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd! Filetype c,cc,cpp,h,hh,hpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd! Filetype py,xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 
 "autocmd! FileType javascript nnoremap <buffer> <S-T> I//<esc>
 "autocmd! FileType python     nnoremap <buffer> <S-T> I#<esc>
