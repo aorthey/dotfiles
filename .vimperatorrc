@@ -72,6 +72,8 @@ noremap sdi :tabopen dictit
 noremap sdl :tabopen lingueefe 
 noremap swa :tabopen wolfram 
 noremap sww :tabopen mw 
+"translate website
+noremap sta <silent> y:open https://translate.google.com/translate?&u=<C-v><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "macro a ogmx<Tab><Return>fLogin2fungel
@@ -212,3 +214,4 @@ noremap zI 10zi
 "	}, 
 "	{ argCount: '+'}); 
 "
+

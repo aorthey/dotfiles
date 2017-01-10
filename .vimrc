@@ -18,6 +18,7 @@ Bundle 'Shougo/neosnippet-snippets'
 Bundle 'orthez/vim-nerdtree-tabs'
 Bundle 'orthez/nerdtree-ag'
 Bundle 'rking/ag.vim'
+Bundle 'Yggdroot/indentLine'
 
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
@@ -127,10 +128,10 @@ set pastetoggle=<F11>
 
 "short cmds to quickly invoke make file commands, % displays filename,
 " %:r "display filename without file extension
-nmap gm :!cd ~/git/feasibility/build && make<CR>
-nmap grl :!cd ~/git/fastReplanning/build && make -j5 && sudo make install<CR>
-nmap gr :!rosmake feasibility && rosrun feasibility MainProject<CR>
-nmap gdb :!rosmake feasibility && gdb -ex run ~/git/feasibility/bin/MainProject<CR>
+nmap gm :!cd ~/git/KlamptTests/build && make<CR>
+"nmap grl :!cd ~/git/fastReplanning/build && make -j5 && sudo make install<CR>
+"nmap gr :!rosmake feasibility && rosrun feasibility MainProject<CR>
+"nmap gdb :!rosmake feasibility && gdb -ex run ~/git/feasibility/bin/MainProject<CR>
 nmap gff :!g++ % -o %.exe && ./%.exe<CR>
 nmap gm :!make -j5<CR>
 "nmap gfc :!make clean && make && gdb -ex run ./x.exe<CR>
@@ -342,3 +343,6 @@ nnoremap gbn :BlogNew<CR>
 nnoremap gbx :BlogSave publish<CR>:BlogList<CR>
 nnoremap <C-s> :BlogSave publish<CR>
 nnoremap gbl :BlogList<CR>
+
+let g:indentLine_char = '|'
+let g:indentLine_color_term = 239

@@ -326,7 +326,7 @@ gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#
 
 export PYTHONSTARTUP="/home/orthez/.python.py"
 
-alias cdHpp='cd ~/devel/hpp-stable/src/hpp-motion-prior'
+alias cdHpp='cd ~/devel/hpp-stable/src/hpp_tutorial/script/'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
 alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
 alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
@@ -395,3 +395,12 @@ export PKG_CONFIG_PATH=/home/aorthey/git/catkin_ws/devel/lib/pkgconfig:$PKG_CONF
 export PYTHONPATH=/home/aorthey/workspace//lib/python2.7/site-packages:$PYTHONPATH
 
 alias aistBuild="cd ~/git/mc_contact_controller/build/ && make && sudo make install && cd ~/git/mc_vrep/build/ && ./src/mc_vrep ../etc/mc_vrep.conf"
+alias buildOrthoklampt="cd ~/git/orthoklampt/build/ && make -j5 && ./main"
+source $DEVEL_DIR/config.sh
+export ROS_PACKAGE_PATH=/home/`whoami`/git/hrp2/:$ROS_PACKAGE_PATH
+export ROS_PACKAGE_PATH=/home/`whoami`/devel/hpp-stable/src:$ROS_PACKAGE_PATH
+export DISPLAY=':0.0'
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/:/usr/local/lib64/:/usr/lib/:/home/aorthey/devel/hpp-stable/install/lib/
+#export OSG_FILE_PATH=/home/aorthey/devel/hpp-stable/src/OpenSceneGraph-Data/Images/:/home/aorthey/devel/hpp-stable/src/OpenSceneGraph-Data/
+
