@@ -4,7 +4,7 @@
         editor = vim
 [alias]
 	st = "!sh -c 'git status --untracked-files=no' -"
-
+  brname = "!sh -c 'git rev-parse --abbrev-ref HEAD' -"
         #todo: add mod/del/add label to the output counter
         #todo: remove counter from commited changes
 	sl = "!sh -c 'git -c color.status=always \
@@ -48,15 +48,15 @@
 		| head -n $1 | tail -1 | sed -r \"s/(M|A|D)M?\\s+//g\" \
 		| xargs git diff HEAD^0..HEAD^1' -"
 
-        submodule-laas-add = "!sh -c 'git submodule init git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake  \
-                && git submodule update git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
-        submodule-laas-remove = "!sh -c 'git submodule remove git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
-        rs = "!sh -c 'git remote -v show' -"
+  submodule-laas-add = "!sh -c 'git submodule init git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake  \
+          && git submodule update git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
+  submodule-laas-remove = "!sh -c 'git submodule remove git://github.com/jrl-umi3218/jrl-cmakemodules.git cmake' -"
+  rs = "!sh -c 'git remote -v show' -"
 
-        upload-nongit-folder-to-laas-server = "!sh -c 'cd /home/aorthey/git/$1 && git init --shared && \
-                git add * && git commit -am \"initial commit of $1\" && \
-                cp -r /home/aorthey/git/$1/.git /home/aorthey/git/$1.git && scp -r /home/aorthey/git/$1.git aorthey@trac.laas.fr:/git/jrl/paper/ && \
-                rm -rf /home/aorthey/git/$1.git && cd /home/aorthey/git/$1 && git remote add origin aorthey@trac.laas.fr:/git/jrl/paper/$1.git' -"
+  upload-nongit-folder-to-laas-server = "!sh -c 'cd /home/aorthey/git/$1 && git init --shared && \
+          git add * && git commit -am \"initial commit of $1\" && \
+          cp -r /home/aorthey/git/$1/.git /home/aorthey/git/$1.git && scp -r /home/aorthey/git/$1.git aorthey@trac.laas.fr:/git/jrl/paper/ && \
+          rm -rf /home/aorthey/git/$1.git && cd /home/aorthey/git/$1 && git remote add origin aorthey@trac.laas.fr:/git/jrl/paper/$1.git' -"
 
 [url "git://roboptim.git.sourceforge.net/gitroot/roboptim/"]
         insteadOf = roboptim:

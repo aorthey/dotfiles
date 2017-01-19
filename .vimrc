@@ -22,6 +22,7 @@ Bundle 'Yggdroot/indentLine'
 
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
 Bundle 'orthez/vim-snippets-additional'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'MarcWeber/vim-addon-mw-utils'
