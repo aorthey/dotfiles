@@ -243,10 +243,12 @@ djvu2pdf(){
 	tiff2pdf -j -o $FILE.pdf $FILE.tiff
 	rm -rf $FILE.tiff
 }
-#dependencies: sudo apt-get install librsvg2-bin
+#dependencies: 
+#sudo apt-get install librsvg2-bin
 svg2pdf(){
         FILE=`basename $1 .svg`
-        rsvg-convert -f pdf -o $FILE.pdf $1 && pdftrimwhite $FILE.pdf $FILE-trim.pdf
+        rsvg-convert -f pdf -o $FILE.pdf $1
+        echo "Output written to ${FILE}.pdf"
 }
 pts2mm(){
         echo "$1*0.3528" | bc -l
