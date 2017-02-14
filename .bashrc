@@ -306,6 +306,12 @@ converttrim(){
                 echo "$file -> $filename-trim.$extension"
         done
 }
+urdf2pdf(){
+  FILE=`basename $1 .urdf`
+  FILE_PDF="${FILE//[[:digit:]]/}".pdf
+  urdf_to_graphiz $1
+  apvlv ${FILE_PDF}
+}
 
 ds(){
         if [ -d $1 ]; then
