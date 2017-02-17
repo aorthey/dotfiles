@@ -313,6 +313,19 @@ urdf2pdf(){
   apvlv ${FILE_PDF}
 }
 
+youtube2mp3(){
+  sudo pip install --upgrade youtube-dl
+  RES=$(youtube-dl --extract-audio --audio-format mp3 $1 |tee /dev/tty)
+  if [[ ${RES} =~ ^.*(\[ffmpeg\]).*Destination:(.*mp3).*$ ]]; then
+    FILENAME="$(echo -e "${BASH_REMATCH[2]}" | sed -e 's/^[[:space:]]*//')"
+    printline
+    echo "Created file: "
+    ls "${FILENAME}"
+    touch "${FILENAME}"
+    printline
+  fi
+}
+
 ds(){
         if [ -d $1 ]; then
                 printline
@@ -340,7 +353,6 @@ alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
 alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
 alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
 alias cdwpi='cd ~/git/openrave/sandbox/WPI/'
-alias youtube2mp3="youtube-dl --extract-audio --audio-format mp3"
 
 
 # added by Anaconda 2.0.1 installer
