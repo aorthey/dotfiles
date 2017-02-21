@@ -326,6 +326,13 @@ youtube2mp3(){
   fi
 }
 
+gdbrun(){
+  gdb -ex 'set confirm off' -ex 'run' $1
+}
+makerun (){
+  make $1 && gdbrun $1
+}
+
 ds(){
         if [ -d $1 ]; then
                 printline
