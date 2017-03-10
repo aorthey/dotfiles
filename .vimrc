@@ -347,3 +347,6 @@ nnoremap gbl :BlogList<CR>
 
 let g:indentLine_char = '|'
 let g:indentLine_color_term = 239
+
+"cpph3xh3x
+nnoremap csc Istd::cout << <Esc>A << std::endl;<Esc>0

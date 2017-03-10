@@ -258,53 +258,53 @@ texgit(){
 	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
 }
 bmake(){
-        mkdir -p build
-        cd build 
-        cmake .. 
-        make -j5
-        sudo make install
+  mkdir -p build
+  cd build 
+  cmake .. 
+  make -j5
+  sudo make install
 }
 umake(){
-        if [ -d $1 ]; then
-                cd $1 
-                cd build && cmake .. && make && make install
-                cd ../..
-        fi
+  if [ -d $1 ]; then
+    cd $1 
+    cd build && cmake .. && make && make install
+    cd ../..
+  fi
 }
 uremake(){
-        if [ -d $1 ]; then
-                cd $1
-                cd build && cmake .. && make clean && make && make install
-                cd ../..
-        fi 
+  if [ -d $1 ]; then
+    cd $1
+    cd build && cmake .. && make clean && make && make install
+    cd ../..
+  fi 
 }
 
 ipstats(){
-        printline
-        echo 'TCP/UDP CONNECTIONS'
-        printline
-        netstat -anput 2>&1 | tail -n +5 | awk '{print $7}' | sort -k1,1 -k3,3 | sed 's#/# #' | column -t | uniq
+  printline
+  echo 'TCP/UDP CONNECTIONS'
+  printline
+  netstat -anput 2>&1 | tail -n +5 | awk '{print $7}' | sort -k1,1 -k3,3 | sed 's#/# #' | column -t | uniq
 }
 
 systemstats(){
-        printline
-        echo 'SYSTEM STATUS'
-        printline
-        lsb_release -dc
-        echo 'System      : '`uname -s`
-        echo 'Kernel      : '`uname -r`
-        echo 'Processor   : '`uname -p`
-        echo 'GCC         : '`gcc --version|head -n1`
+  printline
+  echo 'SYSTEM STATUS'
+  printline
+  lsb_release -dc
+  echo 'System      : '`uname -s`
+  echo 'Kernel      : '`uname -r`
+  echo 'Processor   : '`uname -p`
+  echo 'GCC         : '`gcc --version|head -n1`
 }
 
 converttrim(){
-        for file in "$@"
-        do
-                extension="${file##*.}"
-                filename=$(basename "$file" .$extension)
-                convert $file -trim $filename"-trim."$extension
-                echo "$file -> $filename-trim.$extension"
-        done
+  for file in "$@"
+  do
+    extension="${file##*.}"
+    filename=$(basename "$file" .$extension)
+    convert $file -trim $filename"-trim."$extension
+    echo "$file -> $filename-trim.$extension"
+  done
 }
 urdf2pdf(){
   FILE=`basename $1 .urdf`
@@ -356,11 +356,10 @@ export PYTHONSTARTUP="/home/orthez/.python.py"
 
 alias cdHpp='cd ~/devel/hpp-stable/src/hpp_tutorial/script/'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
-alias hppRosLaunch='roslaunch hpp_ros wall_ros.launch'
-alias cdIcs='cd ~/git/irreducible-configuration-space/scripts'
-alias hppServerLaunch='cd ~/git/irreducible-configuration-space/ && make restartserver'
-alias cdwpi='cd ~/git/openrave/sandbox/WPI/'
 
+export KLAMPT_DIR="/home/`whoami`/git/Klampt"
+export KRISLIB_DIR="${KLAMPT_DIR}/Library/KrisLibrary/"
+alias makekrislib="cd ${KRISLIB_DIR} && sudo make install && cd ${KLAMPT_DIR} && sudo make -j5 install && cd ${KRISLIB_DIR}"
 
 # added by Anaconda 2.0.1 installer
 export PATH="/home/aorthey/anaconda/bin:$PATH"
