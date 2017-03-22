@@ -349,4 +349,5 @@ let g:indentLine_char = '|'
 let g:indentLine_color_term = 239
 
 "cpph3xh3x
+"csc: given a line L surround it with cout << L << endl;
 nnoremap csc Istd::cout << <Esc>A << std::endl;<Esc>0
