@@ -133,15 +133,6 @@ export DISPLAY=':0.0'
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/:/usr/local/lib64/:/usr/lib/:/home/aorthey/devel/hpp-stable/install/lib/
 #export OSG_FILE_PATH=/home/aorthey/devel/hpp-stable/src/OpenSceneGraph-Data/Images/:/home/aorthey/devel/hpp-stable/src/OpenSceneGraph-Data/
 
-###############################################################################
-#### Bash Shell Header 
-###############################################################################
-w
-systemstats
-ipstats
-printline
-###############################################################################
-
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
@@ -349,3 +340,12 @@ ds(){
                 du -sh $1
         fi 
 }
+
+###############################################################################
+#### Bash Shell Header 
+###############################################################################
+w
+systemstats
+ipstats
+printline
+###############################################################################
