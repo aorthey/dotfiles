@@ -5,7 +5,10 @@
 # 'echo "' + "'" + 'hello' + "'" + '"'
 alias example='echo "'"'"'hello'"'"'"' #will write 'hallo' to console
 
+export NCORES="`grep \"^core id\" /proc/cpuinfo | sort -u | wc -l`"
+alias makej="make -j${NCORES}"
 alias printline='cat <(printf "%.0s-" {1..80}) <(echo)'
+
 alias dustats='ds' ##size-sorted subfolder output
 alias mv='mv -i'
 alias px='ps aux|grep '
@@ -15,7 +18,7 @@ alias fanwatch='watch -n 1 "cat /proc/acpi/ibm/fan|egrep '"'"'(status|speed|leve
 alias fandaemon='sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi'
 alias wanip='lynx --dump http://ipecho.net/plain'
 alias cwd='printf "%q\n" "$(pwd)"'
-alias makekrislib="cd ${KRISLIB_DIR} && sudo make install && cd ${KLAMPT_DIR} && sudo make -j5 install && cd ${KRISLIB_DIR}"
+alias makekrislib="cd ${KRISLIB_DIR} && sudo make install && cd ${KLAMPT_DIR} && sudo make -j${NCORES} install && cd ${KRISLIB_DIR}"
 alias undounzip='zipinfo -1 $1 | xargs rm '
 alias dishwasher="mplayer `locate DishWasher.mp3`"
 alias ifprograms='socklist|sort -u -k7,7 -r'
@@ -23,7 +26,7 @@ alias permfindwx='find . -perm /o=x -perm /o=w ! -path "/sys/*" -exec ls -ld {} 
 alias rot13='tr a-zA-Z n-za-mN-ZA-M' 
 
 alias aistBuild="cd ~/git/mc_contact_controller/build/ && make && sudo make install && cd ~/git/mc_vrep/build/ && ./src/mc_vrep ../etc/mc_vrep.conf"
-alias buildOrthoklampt="cd ~/git/orthoklampt/build/ && make -j5 && ./main"
+alias buildOrthoklampt="cd ~/git/orthoklampt/build/ && makej && ./main"
 alias ccbuild='mkdir -p build && cd build && cmake ..'
 
 TS='--color=auto --time-style='"'"'+|%d-%b-%Y -- %H:%M:%S|'"'"
