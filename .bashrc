@@ -325,8 +325,8 @@ youtube2mp3(){
   fi
 }
 
-gdbrun(){
-  gdb -ex 'set confirm off' -ex 'run' $1
+gdbrun (){
+  gdb -ex 'set confirm off' -ex 'run' --args $1
 }
 makerun (){
   make $1 && gdbrun $1
