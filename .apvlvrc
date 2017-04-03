@@ -2,10 +2,14 @@
 map <C-h> gT
 map <C-l> gt
 
-"map <s-h> 40h
-"map <s-l> 40l
-map <C-i> zizizizizizi
-map <C-o> zozozozozozo
+" zoom has 4 styles:
+" a float type number
+" fitwidth
+" fitheight
+" normal
+set zoom=fitwidth
+map zI zizizizizizi
+map zO zozozozozozo
 map zz :zoom 1<CR>
 map z1 :zoom 1<CR>
 map z2 :zoom 2<CR>
@@ -17,6 +21,8 @@ map z7 :zoom 7<CR>
 map z8 :zoom 8<CR>
 map z9 :zoom 9<CR>
 
+
+
 "copy current pdf file to a folder called 'important'
 "map zg :!ps ax &&cp `ps ax|sed -n 's/.*apvlv \(.*\.pdf\)/\1/p'|head -n1` important/<CR>
 
@@ -25,14 +31,6 @@ map zg :!echorize pwd<CR>
 
 " if start apvlv as fullscreen mode, default is no
 set fullscreen=yes
-
-" zoom value, default is fitwidth
-" zoom has 4 styles
-" a float type number
-" fitwidth
-" fitheight
-" normal
-set zoom=fitwidth
 
 " set window size
 set width=800

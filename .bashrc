@@ -240,6 +240,7 @@ djvu2pdf(){
 	ddjvu -format=tiff "$FILE.djvu" "$FILE.tiff"
 	tiff2pdf -j -o "$FILE.pdf" "$FILE.tiff"
 	rm -rf "$FILE.tiff"
+  echo "Output written to ${FILE}.pdf"
 }
 #dependencies: 
 #sudo apt-get install librsvg2-bin
