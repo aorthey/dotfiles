@@ -323,6 +323,7 @@ nmap <C-O> :tabnew
 nmap gw :!pdftotext %:p:r.pdf -enc UTF-8 - \| wc -m<CR>
 
 autocmd! Filetype * set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd! Filetype txt set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd! Filetype c,cc,cpp,h,hh,hpp set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd! Filetype py,xml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 

@@ -236,20 +236,20 @@ cp_p()
 
 #finger `whoami`
 djvu2pdf(){
-	FILE=`basename $1 .djvu`
-	ddjvu -format=tiff $1 $FILE.tiff
-	tiff2pdf -j -o $FILE.pdf $FILE.tiff
-	rm -rf $FILE.tiff
+	FILE=`basename "${1}" .djvu`
+	ddjvu -format=tiff "$FILE.djvu" "$FILE.tiff"
+	tiff2pdf -j -o "$FILE.pdf" "$FILE.tiff"
+	rm -rf "$FILE.tiff"
 }
 #dependencies: 
 #sudo apt-get install librsvg2-bin
 svg2pdf(){
-        FILE=`basename $1 .svg`
-        rsvg-convert -f pdf -o $FILE.pdf $1
-        echo "Output written to ${FILE}.pdf"
+  FILE=`basename "${1}" .svg`
+  rsvg-convert -f pdf -o "$FILE.pdf" "$1"
+  echo "Output written to ${FILE}.pdf"
 }
 pts2mm(){
-        echo "$1*0.3528" | bc -l
+  echo "$1*0.3528" | bc -l
 }
 texgit(){
 	rm -rf util-general.tex
@@ -264,8 +264,8 @@ bmake(){
   sudo make install
 }
 umake(){
-  if [ -d $1 ]; then
-    cd $1 
+  if [ -d "$1" ]; then
+    cd "$1"
     cd build && cmake .. && make && make install
     cd ../..
   fi
