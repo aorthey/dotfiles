@@ -157,3 +157,18 @@ let g:SrcExpl_updateTagsKey = "<F12>"
 " // Set "<F3>" key for displaying the previous definition in the jump list 
 let g:SrcExpl_prevDefKey = "<F5>" 
 let g:SrcExpl_nextDefKey = "<F6>" 
+
+"cpph3xh3x
+"csc: given a line L surround it with cout << L << endl;
+nnoremap csc Istd::cout << <Esc>A << std::endl;<Esc>0
+
+"##############################################################################
+" surround special commands
+"##############################################################################
+
+map s ys
+map swb sw<b>
+map ssb ss<b>
+map ssc Istd::cout << <Esc>A << std::endl;<Esc>0
+
+

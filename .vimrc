@@ -314,9 +314,6 @@ endfunction
 
 "inoremap <C-s> :call SaveSess()<CR>
 
-call Load("~/.vim/keymaps")
-call Load("~/.vim/statusline")
-
 let g:tex_conceal = ""
 nmap <C-O> :tabnew 
 
@@ -349,6 +346,7 @@ nnoremap gbl :BlogList<CR>
 let g:indentLine_char = '|'
 let g:indentLine_color_term = 239
 
-"cpph3xh3x
-"csc: given a line L surround it with cout << L << endl;
-nnoremap csc Istd::cout << <Esc>A << std::endl;<Esc>0
+
+call Load("~/.vim/keymaps")
+call Load("~/.vim/statusline")
+
