@@ -170,5 +170,6 @@ map s ys
 map swb sw<b>
 map ssb ss<b>
 map ssc Istd::cout << <Esc>A << std::endl;<Esc>0
+map swv eli><Esc>bistd::vector<<Esc>ww
 
 

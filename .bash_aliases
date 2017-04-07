@@ -24,6 +24,7 @@ alias dishwasher="mplayer `locate DishWasher.mp3`"
 alias ifprograms='socklist|sort -u -k7,7 -r'
 alias permfindwx='find . -perm /o=x -perm /o=w ! -path "/sys/*" -exec ls -ld {} \; -exec chmod o-w {} \; -exec ls -lad {} \;'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M' 
+alias grep2='grep -IRs'
 
 alias aistBuild="cd ~/git/mc_contact_controller/build/ && make && sudo make install && cd ~/git/mc_vrep/build/ && ./src/mc_vrep ../etc/mc_vrep.conf"
 alias buildOrthoklampt="cd ~/git/orthoklampt/build/ && makej && ./main"
