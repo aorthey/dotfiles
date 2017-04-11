@@ -347,6 +347,11 @@ let g:indentLine_char = '|'
 let g:indentLine_color_term = 239
 
 
+onoremap <silent> i$ :<c-u>normal! T$vt$<cr>
+onoremap <silent> a$ :<c-u>normal! T$hvt$l<cr>
+vnoremap i$ T$ot$
+vnoremap a$ T$hot$l
+
 call Load("~/.vim/keymaps")
 call Load("~/.vim/statusline")
 
