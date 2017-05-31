@@ -171,5 +171,19 @@ map swb sw<b>
 map ssb ss<b>
 map ssc Istd::cout << <Esc>A << std::endl;<Esc>0
 map swv eli><Esc>bistd::vector<<Esc>ww
+map swv eli><Esc>bistd::vector<<Esc>ww
 
+map gcc O<Esc>80i#<Esc>I//<Esc>0
 
+"##############################################################################
+" camelcasemotions
+"##############################################################################
+
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge

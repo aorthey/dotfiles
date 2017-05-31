@@ -8,6 +8,7 @@ call vundle#begin()
 "Bundle 'ivanov/vim-ipython'
 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'bkad/CamelCaseMotion'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'PotHix/Vimpress'
@@ -55,6 +56,7 @@ noremap ml L
 noremap mk $
 noremap mj 0
 
+set synmaxcol=120
 "turn on spell checking
 set spell spelllang=en_us
 set clipboard="unamedplus,autoselect,exclude:cons\|linux"

@@ -306,6 +306,14 @@ converttrim(){
     echo "$file -> $filename-trim.$extension"
   done
 }
+#take all ppm files in folder, convert to avi movie, remove all ppm files
+#input: name of movie file
+ppm2avi(){
+  for f in *.ppm; do convert -quality 100 $f  `basename $f .ppm`.jpg; done
+  mencoder "mf://*.jpg" -o $1 -ovc lavc 
+  rm -rf *.ppm
+  echo "Created movie $1 from ppm files."
+}
 urdf2pdf(){
   FILE=`basename $1 .urdf`
   FILE_PDF="${FILE//[[:digit:]]/}".pdf

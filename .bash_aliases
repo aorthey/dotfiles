@@ -36,8 +36,8 @@ alias lf='ls -alrhSF '$TS #all, listing, reverse, human-readable, sort-by-filesi
 alias lrf='ls -alhSF '$TS #all, listing, human-readable, sort-by-filesize, file-indicator
 alias ll='ls -alhF '$TS #all, listing, human-readable, file-indicator 
 alias lrl='ls -alrhF '$TS #all, listing, reverse, human-readable, file-indicator
-alias lt='ls -lAhFrt '$TS
-alias lrt='ls -lAhFt '$TS
+alias lt='ls -AlhFrt '$TS #almost-all, listing, human-readable, file-indicator, reverse, sort-by-time
+alias lrt='ls -AlhFt '$TS #almost-all, listing, human-readable, file-indicator, sort-by-time
 alias la='ls -A '$TS #almost-all
 alias l='ls -CF '$TS #file-indicator, column-style (non-listing only)
 
