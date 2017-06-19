@@ -35,6 +35,7 @@ filetype plugin indent on    " required
 "set path=
 ""always reload vimrc, if changed
 autocmd! bufwritepost .vimrc source %
+set autochdir
 "source ~/.vim/autoload/feraltogglecommentify.vim
 "
 
@@ -137,7 +138,6 @@ nmap gm :!cd ~/git/KlamptTests/build && make<CR>
 "nmap gdb :!rosmake feasibility && gdb -ex run ~/git/feasibility/bin/MainProject<CR>
 nmap gff :!g++ % -o %.exe && ./%.exe<CR>
 nmap gm :!make -j5<CR>
-"nmap gfc :!make clean && make && gdb -ex run ./x.exe<CR>
 "nmap gfr :!make run FILE=%<CR>
 "nmap gfm :!make all FILE=%<CR>
 "nmap gfm :!make all FILE=%<CR>
