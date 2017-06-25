@@ -1,6 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set nobackup
+set noswapfile
+
 set ft=txt
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
