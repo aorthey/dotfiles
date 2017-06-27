@@ -340,6 +340,9 @@ gdbrun (){
 makerun (){
   make $1 && gdbrun $1
 }
+makerunarg (){
+  make $1 && gdb -ex 'set confirm off' -ex 'run' --args $@
+}
 
 ds(){
         if [ -d $1 ]; then

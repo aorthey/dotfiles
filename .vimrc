@@ -257,6 +257,13 @@ map cf :call CopyFile()<CR>
 "reload vimrc
 nmap <F4> :source ~/.vimrc<CR>
 
+if has ('autocmd') " Remain compatible with earlier versions
+  augroup reload_vimrc
+    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+  augroup END
+endif
+
 "substitute all uml to their html code (&auml;&ouml;)
 function! UMLtoHTML(string)
 	if a:string =~# 'ä'
@@ -360,3 +367,4 @@ vnoremap a$ T$hot$l
 call Load("~/.vim/keymaps")
 call Load("~/.vim/statusline")
 
+noremap ; :

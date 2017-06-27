@@ -173,7 +173,7 @@ map ssc Istd::cout << <Esc>A << std::endl;<Esc>0
 map swv eli><Esc>bistd::vector<<Esc>ww
 map swv eli><Esc>bistd::vector<<Esc>ww
 
-map gcc O<Esc>80i#<Esc>I//<Esc>0
+map gcg O<Esc>80i#<Esc>I//<Esc>0
 
 "##############################################################################
 " camelcasemotions

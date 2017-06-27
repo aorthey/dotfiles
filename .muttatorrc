@@ -26,6 +26,6 @@ map <C-h> gT
 "map gx :goto gmx.de/Inbox<CR>G
 "map gs :goto laas.fr/Inbox<CR>G
 "map ga :goto gmail.com/Inbox<CR>G
-map ga :goto Andreas Orthey/Inbox<CR><S-J>
+"map ga :goto Andreas Orthey/Inbox<CR><S-J>
 
 map <C-r> :restart<CR>
