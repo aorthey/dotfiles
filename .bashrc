@@ -100,7 +100,6 @@ export BLAS="/home/aorthey/git/blas-src/"
 export LAPACK="/home/aorthey/git/lapack-src/lapack-3.5.0/liblapack.a"
 export PATH="/usr/local/MATLAB/R2013a/bin:$PATH"
 export MPP_PATH="/home/aorthey/devel/mpp/"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export PYTHONPATH=${PYTHONPATH}:"/home/aorthey/git/persistent-homology/Dionysus/build/bindings/python/"
 export MPP_PATH="/home/`whoami`/devel/mpp/"
 export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"
@@ -130,7 +129,9 @@ source $DEVEL_DIR/config.sh
 export ROS_PACKAGE_PATH=/home/`whoami`/git/hrp2/:$ROS_PACKAGE_PATH
 export ROS_PACKAGE_PATH=/home/`whoami`/devel/hpp-stable/src:$ROS_PACKAGE_PATH
 export DISPLAY=':0.0'
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/:/usr/local/lib64/:/usr/lib/:/home/aorthey/devel/hpp-stable/install/lib/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/:/usr/local/lib/:/usr/local/lib64/:/home/aorthey/devel/hpp-stable/install/lib/
+export SBL_DIR=$SBL_DIR:/usr/local/sbl/:/home/aorthey/git/sbl/
+export PATH=$PATH:/usr/local/bin
 #export OSG_FILE_PATH=/home/aorthey/devel/hpp-stable/src/OpenSceneGraph-Data/Images/:/home/aorthey/devel/hpp-stable/src/OpenSceneGraph-Data/
 
 if [ -f ~/.bash_aliases ]; then
@@ -257,6 +258,16 @@ texgit(){
 	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
 }
 
+kalkbrenning(){
+  cd ~/Music/
+  pwd
+  CLOUD="`find . -type f -iname \*cloud\ rider\* -not -iname \*mothertrucker\*`"
+  TRKR="`find . -iname \*mothertrucker\* -not -iname \*cloud\*`"
+  FEED="`find . -iname \*feed\ your\ head\* -not -iname \*mothertrucker\*`"
+  echo ${FEED} "${CLOUD}" "${TRKR}"
+  mplayer -loop 0 "${FEED}" "${CLOUD}" "${TRKR}"
+}
+
 bmake(){
   mkdir -p build
   cd build 
@@ -341,7 +352,7 @@ makerun (){
   make $1 && gdbrun $1
 }
 makerunarg (){
-  make $1 && gdb -ex 'set confirm off' -ex 'run' --args $@
+  make -j5 $1 && gdb -ex 'set confirm off' -ex 'run' --args $@
 }
 
 ds(){

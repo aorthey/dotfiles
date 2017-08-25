@@ -8,7 +8,6 @@ set ft=txt
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 "Bundle 'vim-scripts/ctags.vim'
-"Bundle 'ivanov/vim-ipython'
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bkad/CamelCaseMotion'

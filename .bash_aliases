@@ -20,7 +20,10 @@ alias wanip='lynx --dump http://ipecho.net/plain'
 alias cwd='printf "%q\n" "$(pwd)"'
 alias makekrislib="cd ${KRISLIB_DIR} && sudo make install && cd ${KLAMPT_DIR} && sudo make -j${NCORES} install && cd ${KRISLIB_DIR}"
 alias undounzip='zipinfo -1 $1 | xargs rm '
+
 alias dishwasher="mplayer `locate DishWasher.mp3`"
+
+
 alias ifprograms='socklist|sort -u -k7,7 -r'
 alias permfindwx='find . -perm /o=x -perm /o=w ! -path "/sys/*" -exec ls -ld {} \; -exec chmod o-w {} \; -exec ls -lad {} \;'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M' 
