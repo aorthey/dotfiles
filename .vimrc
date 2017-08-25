@@ -366,4 +366,4 @@ vnoremap a$ T$hot$l
 call Load("~/.vim/keymaps")
 call Load("~/.vim/statusline")
 
-noremap ; :
+nnoremap ; :
