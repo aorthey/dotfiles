@@ -259,12 +259,18 @@ texgit(){
 }
 
 kalkbrenning(){
+  ## load all kalkbrenner songs in Music folder and play them on loop
   cd ~/Music/
   pwd
   CLOUD="`find . -type f -iname \*cloud\ rider\* -not -iname \*mothertrucker\*`"
   TRKR="`find . -iname \*mothertrucker\* -not -iname \*cloud\*`"
   FEED="`find . -iname \*feed\ your\ head\* -not -iname \*mothertrucker\*`"
-  echo ${FEED} "${CLOUD}" "${TRKR}"
+  printline
+  echo "Found Songs:"
+  echo "${FEED}" 
+  echo "${CLOUD}" 
+  echo "${TRKR}"
+  printline
   mplayer -loop 0 "${FEED}" "${CLOUD}" "${TRKR}"
 }
 
