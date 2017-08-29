@@ -66,6 +66,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ,  ((modm .|. shiftMask, xK_g), spawn "gimp")
     ,  ((modm .|. shiftMask, xK_w), spawn "gksudo virtualbox")
     ,  ((modm .|. shiftMask, xK_p), spawn "pkill ipython")
+    ,  ((modm .|. shiftMask, xK_l), spawn "pkill -u `id -u -n`")
 		--,	((modm .|. shiftMask, xK_p     ), spawn "gmrun")
  
     , ((modm , xK_d     ), kill)
