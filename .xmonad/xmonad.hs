@@ -67,6 +67,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ,  ((modm .|. shiftMask, xK_w), spawn "gksudo virtualbox")
     ,  ((modm .|. shiftMask, xK_p), spawn "pkill ipython")
     ,  ((modm .|. shiftMask, xK_l), spawn "pkill -u `id -u -n`")
+    ,  ((modm .|. shiftMask, xK_k), spawn "shutdown -h now")
 		--,	((modm .|. shiftMask, xK_p     ), spawn "gmrun")
  
     , ((modm , xK_d     ), kill)
@@ -88,7 +89,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_comma ), sendMessage MirrorExpand)
     , ((modm .|. shiftMask, xK_period), sendMessage MirrorShrink)
     , ((modm .|. shiftMask, xK_b     ), spawn "gnome-session-quit --power-off --no-prompt --force")
-    , ((modm .|. shiftMask, xK_p     ), spawn "gnome-screensaver-command -l")
 
     , ((modm              , xK_Up    ), spawn "amixer -D pulse sset Master 5%+")
     , ((modm              , xK_Down  ), spawn "amixer -D pulse sset Master 5%-")
