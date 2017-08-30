@@ -3,7 +3,7 @@
 	email = andreas.orthey@gmx.de
         editor = vim
 [alias]
-	st = "!sh -c 'git status --untracked-files=no' -"
+	st = "!sh -c 'git status' -"
   brname = "!sh -c 'git rev-parse --abbrev-ref HEAD' -"
         #todo: add mod/del/add label to the output counter
         #todo: remove counter from commited changes
