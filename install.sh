@@ -1,8 +1,19 @@
 #!/bin/bash
+
+ubuntu_version=`lsb_release -rs | sed 's/\.//'`
+if [ $ubuntu_version == "1404" ];then
+  echo "Install script Ubuntu 14.04"
+else
+  echo "This install script is for Ubuntu 14.04"
+  echo "but version is $ubuntu_version"
+  return 0
+fi
+
 echo "Installing the bare essentials..."
-sudo apt-get install -q=2 vim cmake mplayer
+sudo apt-get install -q=2 vim cmake mplayer apvlv
 sudo apt-get install -q=2 nautilus-dropbox
 dropbox start
+sudo apt-get install -q=2 octave
 
 mkdir -p ~/git/
 cd ~/git
@@ -55,9 +66,24 @@ megasync
 
 echo "FIREFOX: install vimperator | noscript | adblockplus"
 
-
 echo 'Installing programming environment'
+
+#sudo apt-get install doxygen libode-dev libtinyxml-dev libassimp-dev libglpk-dev
+#libglui-dev mesa-utils freeglut3-dev libboost-all-dev qt4-qmake
+
 echo "Logout and LOGIN to Gnome with XMONAD"
-#opengl
-#glut
-#boost
+
+echo "Make KLAMPT"
+sudo apt-get install g++ cmake git libboost-system-dev libboost-thread-dev freeglut3 freeglut3-dev libglpk-dev python-dev python-opengl libxmu-dev libxi-dev libqt4-dev
+sudo apt-get install libassimp-dev
+
+echo "Make OMPL"
+
+echo "Make orthoklampt"
+sudo apt-get install libcgal-dev libeigen3-dev
+
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update
+sudo apt-get install gcc-5 g++-5
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+
