@@ -10,10 +10,10 @@ else
 fi
 
 echo "Installing the bare essentials..."
-sudo apt-get install -q=2 vim cmake mplayer apvlv
-sudo apt-get install -q=2 nautilus-dropbox
+sudo apt-get install -qq vim cmake mplayer apvlv
+sudo apt-get install -qq nautilus-dropbox
 dropbox start
-sudo apt-get install -q=2 octave
+sudo apt-get install -qq octave ipython
 
 mkdir -p ~/git/
 cd ~/git
@@ -31,7 +31,7 @@ sudo mkdir /root/.bash
 sudo cp -p ~/.bash/apt_tab_completion /root/.bash
 mkdir -p .vim/bundle/
 ################################################################
-sudo apt-get install vlc htop nautilus-open-terminal curl libmp3lame0 \
+sudo apt-get install -qq vlc htop nautilus-open-terminal curl libmp3lame0 \
 cmake-curses-gui silversearcher-ag youtube-dl xmonad libghc-xmonad-dev \
 libghc-xmonad-contrib-dev xmobar xcompmgr nitrogen stalonetray moreutils \
 consolekit ssh-askpass-gnome thunar terminator remmina gnome-panel \
@@ -53,7 +53,7 @@ echo "disabling keypad"
 echo "run xinput list; xinput set-prop 12 "Device Enabled" 0"
 
 echo "Installing LATEX essentials"
-sudo apt-get install texlive-full 
+sudo apt-get install -qq texlive-full 
 
 echo "Displaying date in time indicator"
 gsettings set com.canonical.indicator.datetime show-clock true
@@ -73,17 +73,29 @@ echo 'Installing programming environment'
 
 echo "Logout and LOGIN to Gnome with XMONAD"
 
-echo "Make KLAMPT"
-sudo apt-get install g++ cmake git libboost-system-dev libboost-thread-dev freeglut3 freeglut3-dev libglpk-dev python-dev python-opengl libxmu-dev libxi-dev libqt4-dev
-sudo apt-get install libassimp-dev
-
 echo "Make OMPL"
+cd ~/Downloads
+wget http://ompl.kavrakilab.org/install-ompl-ubuntu.sh
+./install-ompl-ubuntu.sh --app
+
+echo "Make KLAMPT"
+sudo apt-get install -qq g++ cmake git libboost-system-dev libboost-thread-dev freeglut3 freeglut3-dev libglpk-dev python-dev python-opengl libxmu-dev libxi-dev libqt4-dev
+sudo apt-get install -qq libassimp-dev
+cd ~/git/
+git clone https://github.com/orthez/Klampt
 
 echo "Make orthoklampt"
 sudo apt-get install libcgal-dev libeigen3-dev
+git clone https://github.com/orthez/orthoklampt
 
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt-get update
-sudo apt-get install gcc-5 g++-5
+sudo apt-get install -qq gcc-5 g++-5
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+
+### misc
+
+sudo apt-get install -qq liburdfdom-tools #urdf2pdf
+sudo pip install trimesh #trimesh python
+
 
