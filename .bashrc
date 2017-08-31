@@ -163,6 +163,11 @@ rotn(){
 	echo "-----------------------------------"
 	echo "ROT[${N}]="`echo $2 | tr ${SET1} ${SET2}`
 }
+
+version(){
+  return `lsb_release -rs | sed 's/\.//'`
+}
+
 reverse(){
 	echo `echo $1 | sed '/\n/!G;s/\(.\)\(.*\n\)/&\2\1/;//D;s/.//'`
 }
