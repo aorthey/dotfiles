@@ -375,6 +375,41 @@ ds(){
         fi 
 }
 
+
+###############################################################################
+#### gitpaperclone: clone a particular single branch from a git repo
+#### _comp_git_clonepaper: allow <Tab> to make a query to determine all
+####    available branches. Then cache them and return them to cmd line
+###############################################################################
+gitpaperclone()
+{
+  git clone --single-branch -b $1 --recursive git@bitbucket.org:aorthey/papers.git $1
+}
+_comp_git_clonepaper()
+{
+  local cur prev 
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+  if [ -z "$_gitclonepaper_complete_goals" ]; then
+    opts=`git ls-remote --heads git@bitbucket.org:aorthey/papers.git`
+    opts=$(echo $opts | tr ' ' "\n")
+    opts=($(echo $opts |  awk -F' ' ' { for (i = 2; i <= NF; i+=2) print $i; exit } '))
+    for (( i = 0 ; i < ${#opts[@]} ; i++ )) do 
+      opts[i]=`basename ${opts[$i]}`
+    done
+    _gitclonepaper_complete_goals=`echo ${opts[@]}`
+  fi
+
+  if [[ ${cur} == * ]] ; then
+      COMPREPLY=( $(compgen -W "${_gitclonepaper_complete_goals}" -- ${cur}) )
+      return 0
+  fi
+  return 0
+}
+complete -F _comp_git_clonepaper gitpaperclone
+
 ###############################################################################
 #### Bash Shell Header 
 ###############################################################################

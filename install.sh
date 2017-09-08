@@ -14,10 +14,6 @@ sudo apt-get install -qq vim cmake mplayer apvlv
 sudo apt-get install -qq nautilus-dropbox
 dropbox start
 sudo apt-get install -qq octave ipython
-
-mkdir -p ~/git/
-cd ~/git
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ################################################################
 cp -Rp .* ~
 cd ~
@@ -31,6 +27,10 @@ sudo mkdir /root/.bash
 sudo cp -p ~/.bash/apt_tab_completion /root/.bash
 mkdir -p .vim/bundle/
 ################################################################
+mkdir -p ~/git/
+cd ~/git
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 sudo apt-get install -qq vlc htop nautilus-open-terminal curl libmp3lame0 \
 cmake-curses-gui silversearcher-ag youtube-dl xmonad libghc-xmonad-dev \
 libghc-xmonad-contrib-dev xmobar xcompmgr nitrogen stalonetray moreutils \

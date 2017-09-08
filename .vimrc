@@ -9,6 +9,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 "Bundle 'vim-scripts/ctags.vim'
 
+Plugin 'junegunn/vim-slash'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bkad/CamelCaseMotion'
 Bundle 'scrooloose/nerdtree'
@@ -367,3 +368,4 @@ call Load("~/.vim/keymaps")
 call Load("~/.vim/statusline")
 
 nnoremap ; :
+noremap <plug>(slash-after) zz

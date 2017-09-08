@@ -27,7 +27,6 @@
                 && echo \"--------------------------\nmpp-path-planner\n--------------------------\n\" \
                 && git status --untracked-files=no \
                 ' -"
-
 	hist = log --graph \
 		--pretty=format:'%C(red)%h%Creset%C(yellow)%d%Creset \
 		%s %C(bold blue)<%an>%Creset%C(green)(%ad)' \
