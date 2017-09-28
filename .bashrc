@@ -278,6 +278,18 @@ kalkbrenning(){
   printline
   mplayer -loop 0 "${FEED}" "${CLOUD}" "${TRKR}"
 }
+flowlp(){
+  ## load all lp songs in Music folder and play them on loop
+  cd ~/Music/
+  pwd
+  #CLOUD="`find . -type f -iname \*Linkin\ park\*`"
+  #printline
+  #echo "Found Songs:"
+  #echo "${CLOUD}" 
+  #CLOUD=$(echo "${CLOUD}" | tr "\n" " ")
+  #CLOUD=$(echo "${CLOUD}" |  sed 's/3\ \.\//3" "/ig')
+  printline
+}
 
 bmake(){
   mkdir -p build

@@ -22,7 +22,7 @@ alias makekrislib="cd ${KRISLIB_DIR} && sudo make install && cd ${KLAMPT_DIR} &&
 alias undounzip='zipinfo -1 $1 | xargs rm '
 
 alias dishwasher="mplayer `locate DishWasher.mp3`"
-
+alias lplayer="mplayer -loop 0"
 
 alias ifprograms='socklist|sort -u -k7,7 -r'
 alias permfindwx='find . -perm /o=x -perm /o=w ! -path "/sys/*" -exec ls -ld {} \; -exec chmod o-w {} \; -exec ls -lad {} \;'
