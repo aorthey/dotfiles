@@ -10,10 +10,15 @@ else
 fi
 
 echo "Installing the bare essentials..."
-sudo apt-get install -qq vim cmake mplayer apvlv
+sudo apt-get install -qq vim cmake mplayer vlc apvlv htop
+xdg-mime default apvlv.desktop image/vnd.djvu
+xdg-mime default apvlv.desktop application/pdf
+
 sudo apt-get install -qq nautilus-dropbox
 dropbox start
-sudo apt-get install -qq octave ipython
+sudo apt-get install -qq octave 
+sudo apt-get install -qq ipython
+sudo apt-get install -qq doxygen
 ################################################################
 cp -Rp .* ~
 cd ~
@@ -42,15 +47,15 @@ etoolbox python-pip gfortran \
 exuberant-ctags \
 python-matplotlib python-pip 
 ################################################################
-echo "Installing Python packages"
+echo "Installing Essential Python packages"
 sudo pip install networkx
 sudo pip install cvxpy
+sudo pip install trimesh
 echo 'import numpy as np' >> $(ipython locate profile default)/startup/00_imports.py
 echo 'import matplotlib.pyplot as plt' >> $(ipython locate profile default)/startup/00_imports.py
 
-
-echo "disabling keypad"
-echo "run xinput list; xinput set-prop 12 "Device Enabled" 0"
+#echo "disabling keypad"
+#echo "run xinput list; xinput set-prop 12 "Device Enabled" 0"
 
 echo "Installing LATEX essentials"
 sudo apt-get install -qq texlive-full 
@@ -59,6 +64,8 @@ echo "Displaying date in time indicator"
 gsettings set com.canonical.indicator.datetime show-clock true
 gsettings set com.canonical.indicator.datetime show-day true
 gsettings set com.canonical.indicator.datetime show-date true
+
+
 cd ~/Downloads
 wget https://mega.nz/linux/MEGAsync/xUbuntu_14.04/amd64/megasync-xUbuntu_14.04_amd64.deb
 sudo dpkg -i megasync-xUbuntu_14.04_amd64.deb
@@ -66,36 +73,46 @@ megasync
 
 echo "FIREFOX: install vimperator | noscript | adblockplus"
 
-echo 'Installing programming environment'
-
 #sudo apt-get install doxygen libode-dev libtinyxml-dev libassimp-dev libglpk-dev
 #libglui-dev mesa-utils freeglut3-dev libboost-all-dev qt4-qmake
 
-echo "Logout and LOGIN to Gnome with XMONAD"
+sudo apt-get install libboost1.55-dev 
+sudo apt-get install -qq libboost1.55-all-dev
+sudo apt-get install -qq libboost1.55-tools-dev
 
-echo "Make OMPL"
-cd ~/Downloads
-wget http://ompl.kavrakilab.org/install-ompl-ubuntu.sh
-./install-ompl-ubuntu.sh --app
 
-echo "Make KLAMPT"
-sudo apt-get install -qq g++ cmake git libboost-system-dev libboost-thread-dev freeglut3 freeglut3-dev libglpk-dev python-dev python-opengl libxmu-dev libxi-dev libqt4-dev
+sudo apt-get install -qq g++ cmake git libboost-dev libboost-system-dev libboost-thread-dev freeglut3 freeglut3-dev libglpk-dev python-dev python-opengl libxmu-dev libxi-dev libqt4-dev
 sudo apt-get install -qq libassimp-dev
-cd ~/git/
-git clone https://github.com/orthez/Klampt
-
-echo "Make orthoklampt"
-sudo apt-get install libcgal-dev libeigen3-dev
-git clone https://github.com/orthez/orthoklampt
+sudo apt-get install -qq blender
+sudo apt-get install -qq libcgal-dev 
+sudo apt-get install -qq libeigen3-dev
+sudo apt-get install -qq liburdfdom-tools #urdf2pdf
+#git clone https://github.com/orthez/orthoklampt
+sudo apt-get install -qq libflann-dev
 
 sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 sudo apt-get update
 sudo apt-get install -qq gcc-5 g++-5
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60 --slave /usr/bin/g++ g++ /usr/bin/g++-5
 
-### misc
+### to be automated
+### thunderbird -> muttator and autoscript
+### firefox ->vimperator
+### git clone git@github.com:vimperator/vimperator-labs.git
+#echo "Make OMPL"
+#cd ~/Downloads
+#wget http://ompl.kavrakilab.org/install-ompl-ubuntu.sh
+#./install-ompl-ubuntu.sh --app
+#cd ~/git/
+#git clone https://github.com/orthez/Klampt
+#cd Klampt/Library; make unpack-deps; make deps
 
-sudo apt-get install -qq liburdfdom-tools #urdf2pdf
-sudo pip install trimesh #trimesh python
+
+echo "Starting firefox about:config"
+echo "please change the following entry:"
+echo "xpinstall.signatures.required;false"
+firefox about:config
 
 
+echo "End of Install Script"
+echo "Logout and LOGIN to Gnome with XMONAD"
