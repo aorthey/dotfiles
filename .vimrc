@@ -9,6 +9,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 "Bundle 'vim-scripts/ctags.vim'
 
+"Plugin 'dhruvasagar/vim-open-url'
+Plugin 'vim-scripts/openurl.vim'
 Plugin 'junegunn/vim-slash'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bkad/CamelCaseMotion'
@@ -369,3 +371,8 @@ call Load("~/.vim/statusline")
 
 nnoremap ; :
 noremap <plug>(slash-after) zz
+let g:netrw_browsex_viewer="firefox"
+let g:open_url_browser_default="firefox"
+let g:open_url_browser="firefox"
+
+"command! OpenUrl :call OpenUrl()
