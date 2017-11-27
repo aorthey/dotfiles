@@ -386,8 +386,38 @@ ds(){
                 du -sh $1
         fi 
 }
+
 grepcpp(){
-  grep -Rs --include \*.cpp $1 .
+  grep -Rs --include \*.cpp --include \*.h --include \*.hpp --include \*.ipp $1 .
+}
+grepcppheader(){
+  grep -Rs --include \*.h --include \*.hpp --include \*.ipp $1 .
+}
+
+dae2stl(){
+  if [ ${1: -4} == ".dae" ]; then
+    FOUT=`basename $1 .dae`.stl
+    ctmconv $1 $FOUT
+  else
+    echo "Not a dae file"
+  fi
+}
+dae2tri(){
+  if [ ${1: -4} == ".dae" ]; then
+    FOUT=`basename $1 .dae`.stl
+    ctmconv $1 $FOUT
+    converter.py -i $FOUT -e tri
+    rm -rf $FOUT
+  else
+    echo "Not a dae file"
+  fi
+}
+stl2tri(){
+  if [ ${1: -4} == ".stl" ]; then
+    converter.py -i $1 -e tri
+  else
+    echo "Not a stl file"
+  fi
 }
 
 

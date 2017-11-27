@@ -376,3 +376,4 @@ let g:open_url_browser_default="firefox"
 let g:open_url_browser="firefox"
 
 "command! OpenUrl :call OpenUrl()
+let NERDTreeWinSize = 38
