@@ -258,6 +258,11 @@ svg2pdf(){
 pts2mm(){
   echo "$1*0.3528" | bc -l
 }
+pdf2png(){
+  FILE=`basename "${1}" .pdf`
+  convert -density 150 "$FILE.pdf" -trim -quality 100 "$FILE.png"
+  echo "converted $FILE.pdf to $FILE.png"
+}
 texgit(){
 	rm -rf util-general.tex
 	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
@@ -278,17 +283,14 @@ kalkbrenning(){
   printline
   mplayer -loop 0 "${FEED}" "${CLOUD}" "${TRKR}"
 }
-flowlp(){
-  ## load all lp songs in Music folder and play them on loop
+
+rvim(){
+  IFILE="https://ia600403.us.archive.org/18/items/RockyThemeSong/Rocky%20theme%20song.ogg"
   cd ~/Music/
-  pwd
-  #CLOUD="`find . -type f -iname \*Linkin\ park\*`"
-  #printline
-  #echo "Found Songs:"
-  #echo "${CLOUD}" 
-  #CLOUD=$(echo "${CLOUD}" | tr "\n" " ")
-  #CLOUD=$(echo "${CLOUD}" |  sed 's/3\ \.\//3" "/ig')
-  printline
+  wget -nc $IFILE
+  FILE=$(basename "$IFILE")
+  mplayer -loop 0 "${FILE//%20/ }" </dev/null &>/dev/null&
+  vim
 }
 
 bmake(){
