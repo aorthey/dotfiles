@@ -47,7 +47,7 @@ noremap cy <silent> y:youtubedl <C-v><CR>
 :qmark f facebook.com
 :qmark t tagesschau.de
 :qmark g google.com
-:qmark n lemonde.fr|bbc.co.uk|foxnews.com
+:qmark n https://news.google.com/news/?ned=us&hl=en
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Language Tools
