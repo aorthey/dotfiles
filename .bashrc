@@ -95,41 +95,41 @@ gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#
 export PYTHONSTARTUP="/home/orthez/.python.py"
 export KLAMPT_DIR="/home/`whoami`/git/Klampt"
 export KRISLIB_DIR="${KLAMPT_DIR}/Library/KrisLibrary/"
-export PATH="/home/aorthey/anaconda/bin:$PATH"
-export BLAS="/home/aorthey/git/blas-src/"
-export LAPACK="/home/aorthey/git/lapack-src/lapack-3.5.0/liblapack.a"
-export PATH="/usr/local/MATLAB/R2013a/bin:$PATH"
-export MPP_PATH="/home/aorthey/devel/mpp/"
-export PYTHONPATH=${PYTHONPATH}:"/home/aorthey/git/persistent-homology/Dionysus/build/bindings/python/"
-export MPP_PATH="/home/`whoami`/devel/mpp/"
-export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"
-source `openrave-config --share-dir`/openrave.bash
-source `openrave-config --share-dir`/openrave_completion.bash
-export PYTHONPATH=$PYTHONPATH:`openrave-config --python-dir`
-export PYTHONPATH=$PYTHONPATH:"/home/aorthey/catkin/install/lib/python2.7/dist-packages/"
-export MPP_PATH="/home/`whoami`/devel/mpp/"
+#export PATH="/home/aorthey/anaconda/bin:$PATH"
+#export BLAS="/home/aorthey/git/blas-src/"
+#export LAPACK="/home/aorthey/git/lapack-src/lapack-3.5.0/liblapack.a"
+#export PATH="/usr/local/MATLAB/R2013a/bin:$PATH"
+#export MPP_PATH="/home/aorthey/devel/mpp/"
+#export PYTHONPATH=${PYTHONPATH}:"/home/aorthey/git/persistent-homology/Dionysus/build/bindings/python/"
+#export MPP_PATH="/home/`whoami`/devel/mpp/"
+#export DEVEL_DIR="/home/`whoami`/devel/hpp-stable"
+#source `openrave-config --share-dir`/openrave.bash
+#source `openrave-config --share-dir`/openrave_completion.bash
+#export PYTHONPATH=$PYTHONPATH:`openrave-config --python-dir`
+#export PYTHONPATH=$PYTHONPATH:"/home/aorthey/catkin/install/lib/python2.7/dist-packages/"
+#export MPP_PATH="/home/`whoami`/devel/mpp/"
 export COIN_FULL_INDIRECT_RENDERING=1
 export PATH="/usr/local/bin:$PATH"
 
-source /usr/local/setup.bash
-export OPENRAVE_PLUGINS=$OPENRAVE_PLUGINS:"/home/aorthey/catkin/install/share/openrave-0.9/plugins/"
-export OPENRAVE_WPI_PATH="/home/`whoami`/git/openrave/sandbox/WPI/"
-export ROS_DISTRO=indigo
-source /home/aorthey/catkin_ws/devel/setup.bash
-source /opt/ros/indigo/setup.bash
+#source /usr/local/setup.bash
+#export OPENRAVE_PLUGINS=$OPENRAVE_PLUGINS:"/home/aorthey/catkin/install/share/openrave-0.9/plugins/"
+#export OPENRAVE_WPI_PATH="/home/`whoami`/git/openrave/sandbox/WPI/"
+#export ROS_DISTRO=indigo
+#source /home/aorthey/catkin_ws/devel/setup.bash
+#source /opt/ros/indigo/setup.bash
 ###AIST
 export LD_LIBRARY_PATH=/home/aorthey/git/Klampt/Library/ode-0.11.1/ode/src/.libs/:$LD_LIBRARY_PATH
-export PATH=/home/aorthey/workspace//bin:$PATH
-export LD_LIBRARY_PATH=/home/aorthey/workspace//lib:$LD_LIBRARY_PATH
-export PKG_CONFIG_PATH=/home/aorthey/workspace//lib/pkgconfig:$PKG_CONFIG_PATH
-export PKG_CONFIG_PATH=/home/aorthey/git/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH
+#export PATH=/home/aorthey/workspace//bin:$PATH
+#export LD_LIBRARY_PATH=/home/aorthey/workspace//lib:$LD_LIBRARY_PATH
+#export PKG_CONFIG_PATH=/home/aorthey/workspace//lib/pkgconfig:$PKG_CONFIG_PATH
+#export PKG_CONFIG_PATH=/home/aorthey/git/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH
 export PYTHONPATH=/home/aorthey/workspace//lib/python2.7/site-packages:$PYTHONPATH
 
-source $DEVEL_DIR/config.sh
-export ROS_PACKAGE_PATH=/home/`whoami`/git/hrp2/:$ROS_PACKAGE_PATH
-export ROS_PACKAGE_PATH=/home/`whoami`/devel/hpp-stable/src:$ROS_PACKAGE_PATH
-export DISPLAY=':0.0'
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/:/usr/local/lib/:/usr/local/lib64/:/home/aorthey/devel/hpp-stable/install/lib/
+#source $DEVEL_DIR/config.sh
+#export ROS_PACKAGE_PATH=/home/`whoami`/git/hrp2/:$ROS_PACKAGE_PATH
+#export ROS_PACKAGE_PATH=/home/`whoami`/devel/hpp-stable/src:$ROS_PACKAGE_PATH
+#export DISPLAY=':0.0'
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/:/usr/local/lib/:/usr/local/lib64/:/home/aorthey/devel/hpp-stable/install/lib/
 export SBL_DIR=$SBL_DIR:/usr/local/sbl/:/home/aorthey/git/sbl/
 export PATH=$PATH:/usr/local/bin
 #export OSG_FILE_PATH=/home/aorthey/devel/hpp-stable/src/OpenSceneGraph-Data/Images/:/home/aorthey/devel/hpp-stable/src/OpenSceneGraph-Data/

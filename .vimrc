@@ -369,3 +369,5 @@ call Load("~/.vim/statusline")
 
 nnoremap ; :
 noremap <plug>(slash-after) zz
+nnoremap n nzz
+nnoremap N Nzz
