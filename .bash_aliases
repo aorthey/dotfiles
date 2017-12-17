@@ -36,11 +36,11 @@ alias ccbuild='mkdir -p build && cd build && cmake ..'
 
 TS='--color=auto --time-style='"'"'+|%d-%b-%Y -- %H:%M:%S|'"'"
 alias lf='ls -alrhSF '$TS #all, listing, reverse, human-readable, sort-by-filesize, file-indicator
-alias lrf='ls -alhSF '$TS #all, listing, human-readable, sort-by-filesize, file-indicator
+alias lfr='ls -alhSF '$TS #all, listing, human-readable, sort-by-filesize, file-indicator
 alias ll='ls -alhF '$TS #all, listing, human-readable, file-indicator 
-alias lrl='ls -alrhF '$TS #all, listing, reverse, human-readable, file-indicator
+alias llr='ls -alrhF '$TS #all, listing, reverse, human-readable, file-indicator
 alias lt='ls -AlhFrt '$TS #almost-all, listing, human-readable, file-indicator, reverse, sort-by-time
-alias lrt='ls -AlhFt '$TS #almost-all, listing, human-readable, file-indicator, sort-by-time
+alias ltr='ls -AlhFt '$TS #almost-all, listing, human-readable, file-indicator, sort-by-time
 alias la='ls -A '$TS #almost-all
 alias l='ls -CF '$TS #file-indicator, column-style (non-listing only)
 

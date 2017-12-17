@@ -371,13 +371,13 @@ youtube2mp3(){
 }
 
 gdbrun (){
-  gdb -ex 'set confirm off' -ex 'run' --args $1
+  gdb -q -ex 'set confirm off' -ex 'run' --args $@
 }
 makerun (){
   make $1 && gdbrun $1
 }
 makerunarg (){
-  make -j5 $1 && gdb -ex 'set confirm off' -ex 'run' --args $@
+  make -j5 $1 && gdbrun $@
 }
 
 ds(){
