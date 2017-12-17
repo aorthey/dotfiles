@@ -46,6 +46,8 @@ alias l='ls -CF '$TS #file-indicator, column-style (non-listing only)
 
 alias vbn='vim +BlogNew'
 alias vbl='vim +BlogList'
+alias vbn2='vim +BlogSwitch 1 +BlogNew'
+alias vbl2='vim +BlogSwitch 1 +BlogList'
 alias cdOpenHRP='cd /opt/grx/HRP2LAAS/bin/'
 alias cdpaper='cd ~/git/papers/'
 alias cdwork='cd ~/git/openrave/sandbox/WPI/'
