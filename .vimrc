@@ -353,7 +353,7 @@ nmap <C-U> <C-U>zz
 autocmd FileType c,cc,cpp,h,hh,hpp setlocal commentstring=//%s
 
 "convert all math equations for wordpress as $$ -> $latex$
-:command! Blog2LatexWordpress :%s/\$\(latex \)\?\(\_.\{-}\)\$/\$latex \2\$/ig
+:command! Blog2LatexWordpress :%s/\$\(latex\_.\)\?\(\_.\{-}\)\$/\$\1\2\$/ig
 
 nnoremap gp :Blog2LatexWordpress<CR>:BlogSave publish<CR>
 nnoremap gbp :BlogSave publish<CR>
