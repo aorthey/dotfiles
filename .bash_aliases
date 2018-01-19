@@ -27,7 +27,7 @@ alias lplayer="mplayer -loop 0"
 alias ifprograms='socklist|sort -u -k7,7 -r'
 alias permfindwx='find . -perm /o=x -perm /o=w ! -path "/sys/*" -exec ls -ld {} \; -exec chmod o-w {} \; -exec ls -lad {} \;'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M' 
-alias grep2='grep -IRs'
+alias grep='egrep --line-number --no-messages --recursive --binary-files=without-match'
 alias cp_noperm='cp -r --no-preserve=mode,ownership'
 
 alias aistBuild="cd ~/git/mc_contact_controller/build/ && make && sudo make install && cd ~/git/mc_vrep/build/ && ./src/mc_vrep ../etc/mc_vrep.conf"
@@ -48,6 +48,11 @@ alias vbn='vim +BlogNew'
 alias vbl='vim +BlogList'
 alias vbn2='vim +BlogSwitch 1 +BlogNew'
 alias vbl2='vim +BlogSwitch 1 +BlogList'
+alias vbn3='vim +BlogSwitch 2 +BlogNew'
+alias vbl3='vim +BlogSwitch 2 +BlogList'
+alias vbn4='vim +BlogSwitch 3 +BlogNew'
+alias vbl4='vim +BlogSwitch 3 +BlogList'
+
 alias cdOpenHRP='cd /opt/grx/HRP2LAAS/bin/'
 alias cdpaper='cd ~/git/papers/'
 alias cdwork='cd ~/git/openrave/sandbox/WPI/'

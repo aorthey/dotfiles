@@ -284,6 +284,8 @@ function! UMLtoHTML(string)
 		return '&szlig;'
 	endif
 endfunction
+
+"convert all umlaute to html language
 :command! Huml :%s/[ÄÖÜäöüß]/\=UMLtoHTML(submatch(0))/g
 
 map ;g é
@@ -350,7 +352,10 @@ nmap <C-U> <C-U>zz
 
 autocmd FileType c,cc,cpp,h,hh,hpp setlocal commentstring=//%s
 
-nnoremap gp :BlogSave publish<CR>
+"convert all math equations for wordpress as $$ -> $latex$
+:command! Blog2LatexWordpress :%s/\$\(latex \)\?\(\_.\{-}\)\$/\$latex \2\$/ig
+
+nnoremap gp :Blog2LatexWordpress<CR>:BlogSave publish<CR>
 nnoremap gbp :BlogSave publish<CR>
 nnoremap gbn :BlogNew<CR>
 nnoremap gbx :BlogSave publish<CR>:BlogList<CR>
