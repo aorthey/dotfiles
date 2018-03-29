@@ -61,6 +61,7 @@ alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
 alias cdkl='cd ${HOME}/git/Klampt/Library/KrisLibrary/'
 alias cdk='cd ${HOME}/git/Klampt'
 alias cdo='cd ${HOME}/git/orthoklampt'
+alias cdod='cd ${HOME}/git/orthoklampt/data'
 alias cdob='cd ${HOME}/git/orthoklampt/build'
 alias 2..="cd ../.."
 alias 3..="cd ../../.."

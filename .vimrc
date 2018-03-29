@@ -137,12 +137,12 @@ set pastetoggle=<F11>
 
 "short cmds to quickly invoke make file commands, % displays filename,
 " %:r "display filename without file extension
-nmap gm :!cd ~/git/KlamptTests/build && make<CR>
+"nmap gm :!cd ~/git/KlamptTests/build && make<CR>
 "nmap grl :!cd ~/git/fastReplanning/build && make -j5 && sudo make install<CR>
 "nmap gr :!rosmake feasibility && rosrun feasibility MainProject<CR>
 "nmap gdb :!rosmake feasibility && gdb -ex run ~/git/feasibility/bin/MainProject<CR>
 nmap gff :!g++ % -o %.exe && ./%.exe<CR>
-nmap gm :!make -j5<CR>
+"nmap gm :!make -j5<CR>
 "nmap gfr :!make run FILE=%<CR>
 "nmap gfm :!make all FILE=%<CR>
 "nmap gfm :!make all FILE=%<CR>
@@ -164,6 +164,7 @@ nmap vif viww%
 
 nmap gk O<Esc>j
 nmap gj o<Esc>k
+nmap gm O<Esc>78i#<Esc>I//<Esc>yyo<Esc>I//<Esc>p
 
 
 "reload vimrc

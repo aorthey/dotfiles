@@ -98,6 +98,8 @@ export KLAMPT_DIR="/home/`whoami`/git/Klampt"
 export KRISLIB_DIR="${KLAMPT_DIR}/Library/KrisLibrary/"
 export COIN_FULL_INDIRECT_RENDERING=1
 export PATH="/usr/local/bin:$PATH"
+export PATH="/home/`whoami`/git/mosek/8/tools/platform/linux64x86/bin:$PATH"
+
 
 export LD_LIBRARY_PATH=/home/aorthey/git/Klampt/Library/ode-0.11.1/ode/src/.libs/:$LD_LIBRARY_PATH
 export PYTHONPATH=/home/aorthey/workspace//lib/python2.7/site-packages:$PYTHONPATH
@@ -219,6 +221,9 @@ djvu2pdf(){
 	rm -rf "$FILE.tiff"
   echo "Output written to ${FILE}.pdf"
 }
+gv2pdf(){
+  dot -Tpdf $1 -o ${1%%gv}pdf
+}
 #dependencies: 
 #sudo apt-get install librsvg2-bin
 svg2pdf(){
@@ -323,9 +328,11 @@ ppm2avi(){
 }
 urdf2pdf(){
   FILE=`basename $1 .urdf`
-  FILE_PDF="${FILE//[[:digit:]]/}".pdf
+  #FILE_PDF="${FILE//[[:digit:]]/}".pdf
+  FILE_PDF="${FILE//@(_*)/}.pdf"
+  rm -rf $FILE_PDF
   urdf_to_graphiz $1
-  apvlv ${FILE_PDF}
+  apvlv $FILE_PDF
 }
 
 youtube2mp3(){
@@ -391,6 +398,11 @@ stl2tri(){
   else
     echo "Not a stl file"
   fi
+}
+db2png(){
+  ~/git/orthoklampt/scripts/ompl_benchmark_statistics_simple.py $1 -p benchmark.pdf
+  convert -density 150 benchmark.pdf -trim -quality 100 benchmark.png
+  apvlv benchmark.pdf
 }
 
 
