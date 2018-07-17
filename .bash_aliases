@@ -27,7 +27,7 @@ alias lplayer="mplayer -loop 0"
 alias ifprograms='socklist|sort -u -k7,7 -r'
 alias permfindwx='find . -perm /o=x -perm /o=w ! -path "/sys/*" -exec ls -ld {} \; -exec chmod o-w {} \; -exec ls -lad {} \;'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M' 
-alias grep='egrep --line-number --no-messages --recursive --binary-files=without-match'
+alias fgrep='egrep --line-number --no-messages --recursive --binary-files=without-match'
 alias cp_noperm='cp -r --no-preserve=mode,ownership'
 
 alias aistBuild="cd ~/git/mc_contact_controller/build/ && make && sudo make install && cd ~/git/mc_vrep/build/ && ./src/mc_vrep ../etc/mc_vrep.conf"
@@ -66,3 +66,5 @@ alias cdob='cd ${HOME}/git/orthoklampt/build'
 alias 2..="cd ../.."
 alias 3..="cd ../../.."
 alias 4..="cd ../../../.."
+
+alias mps="sudo docker run -v /dev/snd:/dev/snd -it --rm --privileged --name mpsyt mpsyt"

@@ -266,7 +266,9 @@ rvim(){
   wget -nc $IFILE
   FILE=$(basename "$IFILE")
   mplayer -loop 0 "${FILE//%20/ }" </dev/null &>/dev/null&
+  cd -
   vim
+  pkill mplayer
 }
 
 bmake(){
@@ -382,6 +384,7 @@ dae2stl(){
     echo "Not a dae file"
   fi
 }
+
 dae2tri(){
   if [ ${1: -4} == ".dae" ]; then
     FOUT=`basename $1 .dae`.stl
@@ -392,13 +395,24 @@ dae2tri(){
     echo "Not a dae file"
   fi
 }
+
 stl2tri(){
   if [ ${1: -4} == ".stl" ]; then
     converter.py -i $1 -e tri
   else
-    echo "Not a stl file"
+    echo "Not an STL file"
   fi
 }
+
+stl2off(){
+  if [ ${1: -4} == ".stl" ]; then
+    FOUT=`basename $1 .stl`.off
+    meshlabserver -i $1 -o $FOUT
+  else
+    echo "Not an STL file"
+  fi
+}
+
 db2png(){
   ~/git/orthoklampt/scripts/ompl_benchmark_statistics_simple.py $1 -p benchmark.pdf
   convert -density 150 benchmark.pdf -trim -quality 100 benchmark.png
