@@ -403,6 +403,9 @@ stl2tri(){
     echo "Not an STL file"
   fi
 }
+pdf2words(){
+  echo "This PDF has $(pdftotext "$1" - | tr -d '.' | wc -w) words"
+}
 
 stl2off(){
   if [ ${1: -4} == ".stl" ]; then
