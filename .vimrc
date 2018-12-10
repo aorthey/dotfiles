@@ -16,7 +16,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bkad/CamelCaseMotion'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/taglist.vim'
-Bundle 'PotHix/Vimpress'
+"Bundle 'PotHix/Vimpress'
+Bundle 'MrPeterLee/VimWordpress'
+"Bundle 'vim-scripts/VimRepress'
+"Bundle 'iyf/vimrepress'
 Bundle 'Shougo/neocomplcache' 
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
@@ -182,8 +185,8 @@ nmap <C-L> :tabn<CR>
 nmap <C-H> :tabp<CR>
 nmap <C-A> :buffers<CR>
 
-nnoremap <silent> <S-H> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <S-L> :execute 'silent! tabmove ' . tabpagenr()<CR>
+nnoremap <silent> <S-H> :tabp<CR>
+nnoremap <silent> <S-L> :tabn<CR>
 
 "some easier folding commands
 "nmap z<C-j> zczjzo 
