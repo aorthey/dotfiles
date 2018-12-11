@@ -185,8 +185,28 @@ nmap <C-L> :tabn<CR>
 nmap <C-H> :tabp<CR>
 nmap <C-A> :buffers<CR>
 
-nnoremap <silent> <S-H> :tabp<CR>
-nnoremap <silent> <S-L> :tabn<CR>
+"nnoremap <silent> <S-H> :tabp<CR>
+"nnoremap <silent> <S-L> :tabn<CR>
+
+" Shortcuts to move between tabs with Ctrl+Shift+Left/Right
+function! TabLeft()
+   if tabpagenr() == 1
+      execute "tabm"
+   else
+      execute "tabm -1"
+   endif
+endfunction
+
+function! TabRight()
+   if tabpagenr() == tabpagenr('$')
+      execute "tabm" 0
+   else
+      execute "tabm +1"
+   endif
+endfunction
+
+nmap <silent><S-H> :execute TabLeft()<CR>
+nmap <silent><S-L> :execute TabRight()<CR>
 
 "some easier folding commands
 "nmap z<C-j> zczjzo 
