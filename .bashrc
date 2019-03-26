@@ -239,6 +239,32 @@ pdf2png(){
   convert -density 150 "$FILE.pdf" -trim -quality 100 "$FILE.png"
   echo "converted $FILE.pdf to $FILE.png"
 }
+png2pdf(){
+  for var in "$@"
+  do
+    FILE=`basename "${var}" .png`
+    convert "$FILE.png" -trim -quality 100 "$FILE.pdf"
+    pdfcrop "$FILE.pdf" --margin 5 "$FILE.pdf" &>/dev/null
+    echo "converted $FILE.png to $FILE.pdf"
+  done
+}
+pdfcrop_multi(){
+  for var in "$@"
+  do
+    FILE=`basename "${var}" .pdf`
+    pdfcrop "$FILE.pdf" --margin 5 "$FILE.pdf" &>/dev/null
+    echo "pdfcrop $FILE.pdf to $FILE.pdf"
+  done
+}
+png2pdfmargin(){
+  for var in "$@"
+  do
+    FILE=`basename "${var}" .png`
+    convert "$FILE.png" -quality 100 "$FILE.pdf"
+    pdfcrop "$FILE.pdf" --margin "0 -270 0 -150" "$FILE.pdf" &>/dev/null
+    echo "converted $FILE.png to $FILE.pdf"
+  done
+}
 texgit(){
 	rm -rf util-general.tex
 	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
@@ -396,6 +422,19 @@ dae2tri(){
   fi
 }
 
+off2tri(){
+  for file in "$@"
+  do
+    # extension="${file##*.}"
+    # filename=$(basename "$file" .$extension)
+    # convert $file -trim $filename"-trim."$extension
+    # echo "$file -> $filename-trim.$extension"
+    if [ ${file: -4} == ".off" ]; then
+      FOUT=`basename ${file} .off`.stl
+      ctmconv ${file} $FOUT && stl2tri $FOUT
+    fi
+  done
+}
 stl2tri(){
   if [ ${1: -4} == ".stl" ]; then
     converter.py -i $1 -e tri
@@ -465,3 +504,6 @@ systemstats
 ipstats
 printline
 ###############################################################################
+source /opt/ros/melodic/setup.bash
+source /home/`whoami`/catkin_ws/devel/setup.bash
+

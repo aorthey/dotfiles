@@ -20,6 +20,7 @@ alias wanip='lynx --dump http://ipecho.net/plain'
 alias cwd='printf "%q\n" "$(pwd)"'
 alias makekrislib="cd ${KRISLIB_DIR} && sudo make install && cd ${KLAMPT_DIR} && sudo make -j${NCORES} install && cd ${KRISLIB_DIR}"
 alias undounzip='zipinfo -1 $1 | xargs rm '
+alias ipython='ipython --no-confirm-exit'
 
 alias dishwasher="mplayer `locate DishWasher.mp3`"
 alias lplayer="mplayer -loop 0"
