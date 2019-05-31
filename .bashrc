@@ -234,6 +234,19 @@ svg2pdf(){
 pts2mm(){
   echo "$1*0.3528" | bc -l
 }
+pdf2png_multi(){
+  for var in "$@"
+  do
+    if [ ${var: -4} == ".pdf" ]; then
+      FILE=`basename "${var}" .pdf`
+      convert -density 150 "$FILE.pdf" -trim -quality 100 "$FILE.png"
+      echo "converted $FILE.pdf to $FILE.png"
+    else
+      echo "Ignored file ${var}"
+    fi
+
+  done
+}
 pdf2png(){
   FILE=`basename "${1}" .pdf`
   convert -density 150 "$FILE.pdf" -trim -quality 100 "$FILE.png"
@@ -261,7 +274,7 @@ png2pdfmargin(){
   do
     FILE=`basename "${var}" .png`
     convert "$FILE.png" -quality 100 "$FILE.pdf"
-    pdfcrop "$FILE.pdf" --margin "0 -270 0 -150" "$FILE.pdf" &>/dev/null
+    pdfcrop "$FILE.pdf" --margin "0 -250 0 -150" "$FILE.pdf" &>/dev/null
     echo "converted $FILE.png to $FILE.pdf"
   done
 }
