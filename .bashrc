@@ -234,6 +234,14 @@ svg2pdf(){
 pts2mm(){
   echo "$1*0.3528" | bc -l
 }
+multicrop_png(){
+  for var in "$@"
+  do
+    FILE=`basename "${var}" .png`
+    convert "$FILE.png" -trim "$FILE.png" &>/dev/null
+    echo "trim $FILE.png to $FILE.png"
+  done
+}
 pdf2png_multi(){
   for var in "$@"
   do
@@ -520,3 +528,7 @@ printline
 source /opt/ros/melodic/setup.bash
 source /home/`whoami`/catkin_ws/devel/setup.bash
 
+export WINEARCH=win32
+export WINEPREFIX=~/.wine32
+
+source ~/ws_moveit/devel/setup.bash

@@ -401,9 +401,10 @@ nnoremap ; :
 noremap <plug>(slash-after) zz
 nnoremap n nzz
 nnoremap N Nzz
-let g:netrw_browsex_viewer="firefox"
-let g:open_url_browser_default="firefox"
-let g:open_url_browser="firefox"
+
+let g:netrw_browsex_viewer="google-chrome"
+let g:open_url_browser_default="google-chrome"
+let g:open_url_browser="google-chrome"
 
 "command! OpenUrl :call OpenUrl()
 let NERDTreeWinSize = 38
