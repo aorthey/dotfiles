@@ -106,6 +106,7 @@ export PYTHONPATH=/home/aorthey/workspace//lib/python2.7/site-packages:$PYTHONPA
 
 export SBL_DIR=$SBL_DIR:/usr/local/sbl/:/home/aorthey/git/sbl/
 export PATH=$PATH:/usr/local/bin
+export BLENDER_USER_CONFIG="/home/`whoami`/.config/2.79/Config/"
 
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
@@ -248,6 +249,14 @@ png2pdf(){
     echo "converted $FILE.png to $FILE.pdf"
   done
 }
+ppm2png(){
+  for var in "$@"
+  do
+    FILE=`basename "${var}" .ppm`
+    convert "$FILE.ppm" -trim -quality 100 "$FILE.png"
+    echo "converted $FILE.ppm to $FILE.png"
+  done
+}
 pdfcrop_multi(){
   for var in "$@"
   do
@@ -364,7 +373,7 @@ urdf2pdf(){
 }
 
 youtube2mp3(){
-  sudo pip install --upgrade youtube-dl
+  pip install --user --upgrade youtube-dl
   RES=$(youtube-dl --extract-audio --audio-format mp3 $1 |tee /dev/tty)
   if [[ ${RES} =~ ^.*(\[ffmpeg\]).*Destination:(.*mp3).*$ ]]; then
     FILENAME="$(echo -e "${BASH_REMATCH[2]}" | sed -e 's/^[[:space:]]*//')"
@@ -506,4 +515,3 @@ printline
 ###############################################################################
 source /opt/ros/melodic/setup.bash
 source /home/`whoami`/catkin_ws/devel/setup.bash
-

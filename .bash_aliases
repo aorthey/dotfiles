@@ -64,6 +64,7 @@ alias cdk='cd ${HOME}/git/Klampt'
 alias cdo='cd ${HOME}/git/orthoklampt'
 alias cdod='cd ${HOME}/git/orthoklampt/data'
 alias cdob='cd ${HOME}/git/orthoklampt/build'
+alias cdq='cd ${HOME}/git/ompl/src/ompl/geometric/planners/quotientspace/'
 alias 2..="cd ../.."
 alias 3..="cd ../../.."
 alias 4..="cd ../../../.."

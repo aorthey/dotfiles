@@ -24,6 +24,7 @@ set statusline+=%{MyMessage()}
 set statusline+=%20.F
 set statusline+=%10.y
 set statusline+=%*
+set statusline+=c:\ %c
 
 function! MyMessage()
 	return "<<< VIMERIZE >>> "

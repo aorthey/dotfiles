@@ -97,8 +97,8 @@ set wildmenu
 set wildmode=list:longest
 
 "forward tab completion
-function! TabComplete(dir)
-	if pumvisible()
+function! TabComplete(dir) 
+  if pumvisible()
 		if "up" == a:dir
 			return "\<C-P>"
 		else
@@ -407,3 +407,11 @@ let g:open_url_browser="firefox"
 
 "command! OpenUrl :call OpenUrl()
 let NERDTreeWinSize = 38
+
+function! TwoSpaceToFourSpace()
+  set ts=2 sts=2 noet
+  retab!
+  set ts=4 sts=4 et
+  retab
+  set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+endfunction
