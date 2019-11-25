@@ -32,7 +32,6 @@ alias fgrep='egrep --line-number --no-messages --recursive --binary-files=withou
 alias cp_noperm='cp -r --no-preserve=mode,ownership'
 
 alias aistBuild="cd ~/git/mc_contact_controller/build/ && make && sudo make install && cd ~/git/mc_vrep/build/ && ./src/mc_vrep ../etc/mc_vrep.conf"
-alias buildOrthoklampt="cd ~/git/orthoklampt/build/ && makej && ./main"
 alias ccbuild='mkdir -p build && cd build && cmake ..'
 
 TS='--color=auto --time-style='"'"'+|%d-%b-%Y -- %H:%M:%S|'"'"
@@ -61,10 +60,10 @@ alias cdHpp='cd ~/devel/hpp-stable/src/hpp_tutorial/script/'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
 alias cdkl='cd ${HOME}/git/Klampt/Library/KrisLibrary/'
 alias cdk='cd ${HOME}/git/Klampt'
-alias cdo='cd ${HOME}/git/orthoklampt'
+alias cdo='cd ${HOME}/git/MotionPlanningExplorerGUI'
 alias cdompl='cd ${HOME}/git/ompl/src/ompl/geometric/planners/quotientspace/'
-alias cdod='cd ${HOME}/git/orthoklampt/data'
-alias cdob='cd ${HOME}/git/orthoklampt/build'
+alias cdod='cd ${HOME}/git/MotionPlanningExplorerGUI/data'
+alias cdob='cd ${HOME}/git/MotionPlanningExplorerGUI/build'
 alias cdq='cd ${HOME}/git/ompl/src/ompl/geometric/planners/quotientspace/'
 alias 2..="cd ../.."
 alias 3..="cd ../../.."

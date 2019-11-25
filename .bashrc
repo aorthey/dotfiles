@@ -486,7 +486,7 @@ stl2off(){
 }
 
 db2png(){
-  ~/git/orthoklampt/scripts/ompl_benchmark_statistics_simple.py $1 -p benchmark.pdf
+  ~/git/MotionPlanningExplorerGUI/scripts/ompl_benchmark_statistics_simple.py $1 -p benchmark.pdf
   convert -density 150 benchmark.pdf -trim -quality 100 benchmark.png
   apvlv benchmark.pdf
 }
