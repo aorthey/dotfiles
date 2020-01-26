@@ -59,16 +59,15 @@ alias cdwork='cd ~/git/openrave/sandbox/WPI/'
 alias cdHpp='cd ~/devel/hpp-stable/src/hpp_tutorial/script/'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
 
-alias cdk='cd ${HOME}/git/Klampt'
-alias cdkl='cd ${HOME}/git/Klampt/Library/KrisLibrary/'
 
 alias cdm='cd ${HOME}/git/MotionPlanningExplorerGUI'
-alias cdmd='cd ${HOME}/git/MotionPlanningExplorerGUI/data'
-alias cdmb='cd ${HOME}/git/MotionPlanningExplorerGUI/build'
-
-alias cdo='cd ${HOME}/git/ompl/src/ompl/'
-alias cdob='cd ${HOME}/git/ompl/build/'
-alias cdoq='cd ${HOME}/git/ompl/src/ompl/geometric/planners/quotientspace/'
+alias cdmd='cdm && cd data/'
+alias cdmb='cdm && cd build/'
+alias cdo='cdm && cd libs/ompl/src/ompl/'
+alias cdob='cdm && cd libs/ompl/build/'
+alias cdoq='cdo && cd geometric/planners/quotientspace/'
+alias cdk='cdm && cd libs/Klampt'
+alias cdkl='cdk && cd Library/KrisLibrary/'
 
 alias 2..="cd ../.."
 alias 3..="cd ../../.."
