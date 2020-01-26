@@ -58,13 +58,18 @@ alias cdpaper='cd ~/git/papers/'
 alias cdwork='cd ~/git/openrave/sandbox/WPI/'
 alias cdHpp='cd ~/devel/hpp-stable/src/hpp_tutorial/script/'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
-alias cdkl='cd ${HOME}/git/Klampt/Library/KrisLibrary/'
+
 alias cdk='cd ${HOME}/git/Klampt'
-alias cdo='cd ${HOME}/git/MotionPlanningExplorerGUI'
-alias cdompl='cd ${HOME}/git/ompl/src/ompl/geometric/planners/quotientspace/'
-alias cdod='cd ${HOME}/git/MotionPlanningExplorerGUI/data'
-alias cdob='cd ${HOME}/git/MotionPlanningExplorerGUI/build'
-alias cdq='cd ${HOME}/git/ompl/src/ompl/geometric/planners/quotientspace/'
+alias cdkl='cd ${HOME}/git/Klampt/Library/KrisLibrary/'
+
+alias cdm='cd ${HOME}/git/MotionPlanningExplorerGUI'
+alias cdmd='cd ${HOME}/git/MotionPlanningExplorerGUI/data'
+alias cdmb='cd ${HOME}/git/MotionPlanningExplorerGUI/build'
+
+alias cdo='cd ${HOME}/git/ompl/src/ompl/'
+alias cdob='cd ${HOME}/git/ompl/build/'
+alias cdoq='cd ${HOME}/git/ompl/src/ompl/geometric/planners/quotientspace/'
+
 alias 2..="cd ../.."
 alias 3..="cd ../../.."
 alias 4..="cd ../../../.."
