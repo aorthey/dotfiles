@@ -43,6 +43,8 @@ alias lt='ls -AlhFrt '$TS #almost-all, listing, human-readable, file-indicator, 
 alias ltr='ls -AlhFt '$TS #almost-all, listing, human-readable, file-indicator, sort-by-time
 alias la='ls -A '$TS #almost-all
 alias l='ls -CF '$TS #file-indicator, column-style (non-listing only)
+alias bwine='wine /home/aorthey/.wine32/drive_c/Program\ Files/Battle.net/Battle.net.exe'
+alias cdwine='cd /home/aorthey/.wine32/drive_c/Program\ Files/'
 
 alias vbn='vim +BlogNew'
 alias vbl='vim +BlogList'
@@ -58,13 +60,22 @@ alias cdpaper='cd ~/git/papers/'
 alias cdwork='cd ~/git/openrave/sandbox/WPI/'
 alias cdHpp='cd ~/devel/hpp-stable/src/hpp_tutorial/script/'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
-alias cdkl='cd ${HOME}/git/Klampt/Library/KrisLibrary/'
-alias cdk='cd ${HOME}/git/Klampt'
-alias cdo='cd ${HOME}/git/MotionPlanningExplorerGUI'
-alias cdompl='cd ${HOME}/git/ompl/src/ompl/geometric/planners/quotientspace/'
-alias cdod='cd ${HOME}/git/MotionPlanningExplorerGUI/data'
-alias cdob='cd ${HOME}/git/MotionPlanningExplorerGUI/build'
-alias cdq='cd ${HOME}/git/ompl/src/ompl/geometric/planners/quotientspace/'
+alias cdm='cd ${HOME}/git/MotionPlanningExplorerGUI'
+alias cdmd='cdm && cd data'
+alias cdmb='cdm && cd build'
+alias cdk='cdm && cd libs/Klampt'
+alias cdkl='cdm && cd libs/Klampt/Library/KrisLibrary/'
+alias cdo='cdm && cd libs/ompl/src/ompl/'
+alias cdob='cdm && cd libs/ompl/build/'
+alias cdq='cdm && cd libs/ompl/src/ompl/geometric/planners/quotientspace/'
+alias cdm='cd ${HOME}/git/MotionPlanningExplorerGUI'
+alias explorerGUI='cdmb && cd ../libs/ompl/build && \
+  cmake .. && make -j `nproc` && sudo make install && cdmb && makerunarg planner_gui'
+alias explorerGUI_standalone='cdmb && cd ../libs/ompl/build && \
+  cmake .. && make -j `nproc` && sudo make install && cdmb && makerunarg planner_standalone'
+alias explorerGUI_debug='cdmb && cd ../libs/ompl/build/Debug && \
+  cmake .. && make -j `nproc` && sudo make install && cdmb && makerunarg planner_standalone'
+
 alias 2..="cd ../.."
 alias 3..="cd ../../.."
 alias 4..="cd ../../../.."
