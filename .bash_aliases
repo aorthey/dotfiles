@@ -60,6 +60,7 @@ alias cdpaper='cd ~/git/papers/'
 alias cdwork='cd ~/git/openrave/sandbox/WPI/'
 alias cdHpp='cd ~/devel/hpp-stable/src/hpp_tutorial/script/'
 alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
+
 alias cdm='cd ${HOME}/git/MotionPlanningExplorerGUI'
 alias cdmd='cdm && cd data'
 alias cdmb='cdm && cd build'
