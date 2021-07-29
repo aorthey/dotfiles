@@ -57,17 +57,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
     ++
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-    , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
     ,  ((modm .|. shiftMask, xK_f), spawn "firefox")
     ,  ((modm .|. shiftMask, xK_r), spawn "google-chrome")
     ,  ((modm .|. shiftMask, xK_v), spawn "vlc")
     ,  ((modm .|. shiftMask, xK_n), spawn "nautilus")
     ,  ((modm .|. shiftMask, xK_t), spawn "thunderbird")
-    ,  ((modm .|. shiftMask, xK_s), spawn "skype")
+    ,  ((modm .|. shiftMask, xK_o), spawn "gnome-panel; systemctl --user start indicator-power.service indicator-keyboard.service indicator-sound.service indicator-datetime.service indicator-session.service indicator-application.service indicator-bluetooth.service")
+    ,  ((modm .|. shiftMask, xK_s), spawn "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center")
     ,  ((modm .|. shiftMask, xK_g), spawn "gimp")
+    ,  ((modm, xK_Print), spawn "gnome-screenshot")
     ,  ((modm .|. shiftMask, xK_b), spawn "systemctl suspend")
-		--,	((modm .|. shiftMask, xK_p     ), spawn "gmrun")
- 
+    ,  ((modm .|. shiftMask, xK_q), spawn "pkill -u `whoami`")
+    ,  ((modm .|. shiftMask, xK_x), spawn "shutdown -h now")
     , ((modm , xK_d     ), kill)
  
      -- Rotate through the available layout algorithms
@@ -89,6 +90,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     , ((modm              , xK_Up    ), spawn "amixer -D pulse sset Master 5%+")
     , ((modm              , xK_Down  ), spawn "amixer -D pulse sset Master 5%-")
+
+    , ((modm .|. shiftMask, xK_Up), spawn "xrandr --output `xrandr -q | grep \" connected\" | sed -e 's| .*||'` --brightness 1.0")
+    , ((modm .|. shiftMask, xK_Down), spawn "xrandr --output `xrandr -q | grep \" connected\" | sed -e 's| .*||'` --brightness 0.5")
 
     -- Push window back into tiling
     --, ((modm, xK_f), withFocused $ windows . W.shiftMaster)

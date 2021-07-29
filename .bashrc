@@ -535,9 +535,20 @@ ipstats
 printline
 ###############################################################################
 source /opt/ros/melodic/setup.bash
-source /home/`whoami`/catkin_ws/devel/setup.bash
+#source /home/`whoami`/catkin_ws/devel/setup.bash
 
-export WINEARCH=win32
-export WINEPREFIX=~/.wine32
+#export WINEARCH=win32
+#export WINEPREFIX=~/.wine32
 
-source ~/ws_moveit/devel/setup.bash
+#source ~/ws_moveit/devel/setup.bash
+source ~/git/rapidplan/devel/setup.bash
+
+alias rapidplan_webapp="cd ~/git/rapidplan/ && gnome-terminal -- roscore && sleep 2 && gnome-terminal -- ./devel/lib/rtr_appliance_app/rtr_appliance_app && sleep 2 && cd build/rtr_appliance_webapp/server && node start.js"
+alias rapidplan="cd ~/git/rapidplan/ && catkin build rtr_toolkit -DCMAKE_BUILD_TYPE=RELWITHDEBINFO && rosrun rtr_toolkit rtr_toolkit"
+
+export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}
+
+xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Profile Enabled" 1, 0
+xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" -1.0
+
+alias rapidtest="cd ~/git/rapidplan/ && catkin run_tests rtr_planning --no-deps && rosrun rtr_planning CostFunctionTest"

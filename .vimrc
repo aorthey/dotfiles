@@ -10,6 +10,7 @@ call vundle#begin()
 "Bundle 'vim-scripts/ctags.vim'
 
 "Plugin 'dhruvasagar/vim-open-url'
+Plugin 'universal-ctags/ctags'
 Plugin 'vim-scripts/openurl.vim'
 Plugin 'junegunn/vim-slash'
 Plugin 'gmarik/Vundle.vim'
@@ -38,6 +39,8 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+set tags=./tags,tags;$HOME "set tag dir
+
 "path to current software project
 "set path=
 ""always reload vimrc, if changed
@@ -58,11 +61,11 @@ let g:Tex_UseSimpleLabelSearch=1
 let g:Tex_BIBINPUTS="."
 let g:tex_flavor='latex'
 
-noremap mm M
-noremap mh H
-noremap ml L
-noremap mk $
-noremap mj 0
+"noremap mm M
+"noremap mh H
+"noremap ml L
+"noremap mk $
+"noremap mj 0
 
 set synmaxcol=120
 "turn on spell checking
@@ -401,6 +404,8 @@ nnoremap ; :
 noremap <plug>(slash-after) zz
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap gn <C-]>
+nnoremap gN <C-T>
 
 let g:netrw_browsex_viewer="google-chrome"
 let g:open_url_browser_default="google-chrome"
