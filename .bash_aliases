@@ -55,13 +55,7 @@ alias vbl3='vim +BlogSwitch 2 +BlogList'
 alias vbn4='vim +BlogSwitch 3 +BlogNew'
 alias vbl4='vim +BlogSwitch 3 +BlogList'
 
-alias cdOpenHRP='cd /opt/grx/HRP2LAAS/bin/'
-alias cdpaper='cd ~/git/papers/'
-alias cdwork='cd ~/git/openrave/sandbox/WPI/'
-alias cdHpp='cd ~/devel/hpp-stable/src/hpp_tutorial/script/'
-alias cdMpp='cd ~/devel/mpp/mpp-path-planner'
-
-alias cdm='cd ${HOME}/git/MotionPlanningExplorerGUI'
+alias cdm='cd ${HOME}/git/MotionExplorer'
 alias cdmd='cdm && cd data'
 alias cdmb='cdm && cd build'
 alias cdk='cdm && cd libs/Klampt'
@@ -69,7 +63,7 @@ alias cdkl='cdm && cd libs/Klampt/Library/KrisLibrary/'
 alias cdo='cdm && cd libs/ompl/src/ompl/'
 alias cdob='cdm && cd libs/ompl/build/'
 alias cdq='cdm && cd libs/ompl/src/ompl/geometric/planners/quotientspace/'
-alias cdm='cd ${HOME}/git/MotionPlanningExplorerGUI'
+alias cdm='cd ${HOME}/git/MotionExplorer'
 alias explorerGUI='cdmb && cd ../libs/ompl/build && \
   cmake .. && make -j `nproc` && sudo make install && cdmb && makerunarg planner_gui'
 alias explorerGUI_standalone='cdmb && cd ../libs/ompl/build && \

@@ -404,8 +404,8 @@ nnoremap ; :
 noremap <plug>(slash-after) zz
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap gn <C-]>
-nnoremap gN <C-T>
+nnoremap gn <C-]>zz
+nnoremap gN <C-T>zz
 
 let g:netrw_browsex_viewer="google-chrome"
 let g:open_url_browser_default="google-chrome"
