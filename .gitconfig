@@ -31,9 +31,10 @@
 		--pretty=format:'%C(red)%h%Creset%C(yellow)%d%Creset \
 		%s %C(bold blue)<%an>%Creset%C(green)(%ad)' \
 		--abbrev-commit --date=short --all
-	br = branch -av
-        #git dm N : diff modified will show the diffs of the Nth modified file (not yet
-        #commited)
+	l = log --oneline
+  br = !~/.gitconfig_branchscript.sh
+  #git dm N : diff modified will show the diffs of the Nth modified file (not yet
+  #commited)
 	dm = "!sh -c 'git ls-files -m| head -n $1 \
 		| tail -1 | xargs git diff ' -"
 	addm = "!sh -c 'git ls-files -m| head -n $1 \

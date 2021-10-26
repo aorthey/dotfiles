@@ -7,34 +7,48 @@ set noswapfile
 set ft=txt
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-"Bundle 'vim-scripts/ctags.vim'
 
-"Plugin 'dhruvasagar/vim-open-url'
-Plugin 'universal-ctags/ctags'
-Plugin 'vim-scripts/openurl.vim'
-Plugin 'junegunn/vim-slash'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'bkad/CamelCaseMotion'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdtree-project-plugin'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'MrPeterLee/VimWordpress'
-Bundle 'Shougo/neocomplcache' 
+
+" Plugin 'vim-scripts/openurl.vim'
+
+" Improved search
+Bundle 'junegunn/vim-slash'
+
+"Snippet support
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
+Bundle 'aorthey/vim-snippets-additional'
 
+"Tree based file browser
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdtree-project-plugin'
 Bundle 'jistr/vim-nerdtree-tabs'
-" Bundle 'orthez/vim-nerdtree-tabs'
-" Bundle 'orthez/nerdtree-ag'
-Bundle 'rking/ag.vim'
-Bundle 'Yggdroot/indentLine'
 
+"Better movement between variable names
+Bundle 'bkad/CamelCaseMotion'
+
+" Bundle 'xavierd/clang_complete'
+" Bundle 'rking/ag.vim'
+
+"Vertical lines ofr idented code
+Bundle 'Yggdroot/indentLine' 
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat'
-Bundle 'orthez/vim-snippets-additional'
-Bundle 'Lokaltog/vim-easymotion'
+
+Bundle 'universal-ctags/ctags'
+Bundle 'preservim/tagbar'
+
+"INSTALL AGAIN:
+Bundle 'vim-scripts/taglist.vim'
+" Bundle 'MrPeterLee/VimWordpress'
 Bundle 'MarcWeber/vim-addon-mw-utils'
+
+"DO NOT INSTALL AGAIN:
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'orthez/vim-nerdtree-tabs'
+Bundle 'Shougo/neocomplcache' 
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -55,7 +69,6 @@ set autochdir
 
 "set autoindent
 set timeoutlen=300 "timeout for key combinations
-
 
 let g:Tex_UseSimpleLabelSearch=1
 let g:Tex_BIBINPUTS="."
@@ -99,29 +112,29 @@ set completeopt=menuone,longest
 set wildmenu
 set wildmode=list:longest
 
-"forward tab completion
-function! TabComplete(dir) 
-  if pumvisible()
-		if "up" == a:dir
-			return "\<C-P>"
-		else
-			return "\<C-N>"
-		endif
-	endif
-	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-		return "\<Tab>"
-	elseif exists('&omnifunc') && &omnifunc != ''
-		return "\<C-X>\<C-O>"
-	else
-		if "up" == a:dir
-			return "\<C-P>"
-		else
-			return "\<C-N>"
-		endif
-	endif
-endfunction
-inoremap <S-Tab> <C-R>=TabComplete("up")<CR>
-inoremap <Tab> <C-R>=TabComplete("down")<CR>
+""forward tab completion
+"function! TabComplete(dir) 
+"  if pumvisible()
+"		if "up" == a:dir
+"			return "\<C-P>"
+"		else
+"			return "\<C-N>"
+"		endif
+"	endif
+"	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+"		return "\<Tab>"
+"	elseif exists('&omnifunc') && &omnifunc != ''
+"		return "\<C-X>\<C-O>"
+"	else
+"		if "up" == a:dir
+"			return "\<C-P>"
+"		else
+"			return "\<C-N>"
+"		endif
+"	endif
+"endfunction
+"inoremap <S-Tab> <C-R>=TabComplete("up")<CR>
+"inoremap <Tab> <C-R>=TabComplete("down")<CR>
 
 "jump directly to search result, as you type!
 set incsearch
@@ -147,12 +160,6 @@ set pastetoggle=<F11>
 "nmap gr :!rosmake feasibility && rosrun feasibility MainProject<CR>
 "nmap gdb :!rosmake feasibility && gdb -ex run ~/git/feasibility/bin/MainProject<CR>
 nmap gff :!g++ % -o %.exe && ./%.exe<CR>
-"nmap gm :!make -j5<CR>
-"nmap gfr :!make run FILE=%<CR>
-"nmap gfm :!make all FILE=%<CR>
-"nmap gfm :!make all FILE=%<CR>
-"nmap gfm :!make && make debug<CR>
-"nmap gfc :!make all FILE=% && make run FILE=%<CR>
 nmap gfb :!rm -rf *~ *.log *.aux *.dvi *.toc %:r.pdf *.bbl *.blg && pdflatex % && bibtex %:r && pdflatex % && pdflatex % && apvlv %:r.pdf&<CR><CR>
 nmap gfv :!rm -rf *~ *.log *.aux *.dvi *.toc %:r.pdf *.bbl *.blg && pdflatex % && bibtex %:r && latex % && pdflatex % && apvlv %:r.pdf<CR>
 nmap gfc :!rm -rf *~ *.log *.aux *.dvi *.toc %:r.pdf *.bbl *.blg && pdflatex % && apvlv %:r.pdf<CR>
@@ -167,10 +174,9 @@ nmap cif diwc%
 nmap dif diwd%
 nmap vif viww%
 
-nmap gk O<Esc>j
-nmap gj o<Esc>k
-nmap gm O<Esc>78i#<Esc>I//<Esc>yyo<Esc>I//<Esc>p
-
+" nmap gk O<Esc>j
+" nmap gj o<Esc>k
+" nmap gm O<Esc>78i#<Esc>I//<Esc>yyo<Esc>I//<Esc>p
 
 "reload vimrc
 nmap <S-A-r> :source $MYVIMRC<CR>
@@ -404,8 +410,15 @@ nnoremap ; :
 noremap <plug>(slash-after) zz
 nnoremap n nzz
 nnoremap N Nzz
-nnoremap gn <C-]>zz
+
+"Options to use ctags
+"nnoremap bn <C-]>zz
+nnoremap gn <C-W><C-]><C-W>Tzz
 nnoremap gN <C-T>zz
+nnoremap tn :tnext<CR>
+nnoremap tN :tprevious<CR>
+"nnoremap <leader>. :CtrlPTag<cr>
+
 
 let g:netrw_browsex_viewer="google-chrome"
 let g:open_url_browser_default="google-chrome"
@@ -421,3 +434,38 @@ function! TwoSpaceToFourSpace()
   retab
   set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 endfunction
+
+nmap <F8> :TagbarToggle<CR>
+
+"let g:clang_library_path='/usr/lib/llvm-10/lib/'
+"let g:clang_complete_copen=1
+"let g:clang_complete_auto = 1
+"let g:clang_hl_errors=1
+"let g:clang_snippets = 1
+"let g:clang_snippets_engine = 'clang_complete'
+"let g:clang_user_options='|| exit 0'
+
+"let g:clang_library_path = '/usr/lib/x86_64-linux-gnu'
+"let g:clang_c_options = '-std=gnu11'
+"let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+"let g:clang_complete = 0 "automatically selects the first entry in the popup menu
+"let g:clang_snippets = 0 "do some snippets magic on code placehorlders like funcion argument, template parameters, etc.
+"let g:clang_close_preview = 1
+"let g:clang_use_library = 1
+
+"if !exists('g:neocomplcache_force_omni_patterns')
+"    let g:neocomplcache_force_omni_patterns = {}
+"endif
+"let g:neocomplcache_force_overwrite_completefunc = 1
+"let g:neocomplcache_force_omni_patterns.c =
+"            \ '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplcache_force_omni_patterns.cpp =
+"            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"let g:neocomplcache_force_omni_patterns.objc =
+"            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"let g:neocomplcache_force_omni_patterns.objcpp =
+"            \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+""let g:clang_complete_auto = 0
+""let g:clang_auto_select = 0
+
+

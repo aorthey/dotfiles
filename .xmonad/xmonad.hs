@@ -67,7 +67,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ,  ((modm .|. shiftMask, xK_g), spawn "gimp")
     ,  ((modm, xK_Print), spawn "gnome-screenshot")
     ,  ((modm .|. shiftMask, xK_b), spawn "systemctl suspend")
-    ,  ((modm .|. shiftMask, xK_q), spawn "pkill -u `whoami`")
+    ,  ((modm .|. shiftMask, xK_p), spawn "pkill -u `whoami`")
     ,  ((modm .|. shiftMask, xK_x), spawn "shutdown -h now")
     , ((modm , xK_d     ), kill)
  

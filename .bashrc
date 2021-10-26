@@ -93,7 +93,7 @@ gconftool-2 --set /apps/gnome-terminal/profiles/Default/bold_color --type string
 gconftool-2 --set /apps/gnome-terminal/profiles/Default/palette --type string "#000B13:#E89393:#4E4E4E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#EFEFEF:#000B13:#E89393:#9ECE9E:#F0DFAF:#8CD0D3:#C0BED1:#DFAF8F:#FFFFFF"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-export PYTHONSTARTUP="/home/orthez/.python.py"
+export PYTHONSTARTUP="/home/`whoami`/.python.py"
 export KLAMPT_DIR="/home/`whoami`/git/Klampt"
 export KRISLIB_DIR="${KLAMPT_DIR}/Library/KrisLibrary/"
 export COIN_FULL_INDIRECT_RENDERING=1
@@ -295,10 +295,6 @@ png2pdfmargin(){
     echo "converted $FILE.png to $FILE.pdf"
   done
 }
-texgit(){
-	rm -rf util-general.tex
-	wget https://raw.github.com/orthez/latex-utils/master/util-general.tex
-}
 
 kalkbrenning(){
   ## load all kalkbrenner songs in Music folder and play them on loop
@@ -497,10 +493,6 @@ db2png(){
 #### _comp_git_clonepaper: allow <Tab> to make a query to determine all
 ####    available branches. Then cache them and return them to cmd line
 ###############################################################################
-gitpaperclone()
-{
-  git clone --single-branch -b $1 --recursive git@bitbucket.org:aorthey/papers.git $1
-}
 _comp_git_clonepaper()
 {
   local cur prev 
@@ -534,13 +526,6 @@ systemstats
 ipstats
 printline
 ###############################################################################
-source /opt/ros/melodic/setup.bash
-#source /home/`whoami`/catkin_ws/devel/setup.bash
-
-#export WINEARCH=win32
-#export WINEPREFIX=~/.wine32
-
-#source ~/ws_moveit/devel/setup.bash
 source ~/git/rapidplan/devel/setup.bash
 
 alias rapidplan_webapp="cd ~/git/rapidplan/ && gnome-terminal -- roscore && sleep 2 && gnome-terminal -- ./devel/lib/rtr_appliance_app/rtr_appliance_app && sleep 2 && cd build/rtr_appliance_webapp/server && node start.js"
@@ -552,3 +537,37 @@ xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Profile Enabled" 1, 0
 xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" -1.0
 
 alias rapidtest="cd ~/git/rapidplan/ && catkin run_tests rtr_planning --no-deps && rosrun rtr_planning CostFunctionTest"
+alias cdr="cd ~/git/rapidplan/"
+alias cds="cd ~/git/rapidplan/src/components/ && vim rtr_app_layer/src/AutoConnect/AutoConnectPlanner.cpp"
+export RTR_ROBOT_MODELS_MASTER_TOKEN=20249334ee4f61224ec3deedb0b4ae71e5aa3c557e3930a3
+
+alias cbr='colcon build --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo'
+alias cbrp='colcon build --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select rtr_app_layer'
+#alias cbrp='colcon build --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select rtr_app_layer'
+alias cbrp='cd ~/git/rapidplan/ && colcon build --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select rtr_app_layer rtr_rp_create'
+alias ctrp='cd ~/git/rapidplan/ && colcon test --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select rtr_app_layer --event-handlers console_direct+'
+alias build_rp_create='cbrp && ./build/rtr_rp_create/rtr_rp_create'
+
+test_auto_connect ()
+{
+  cd ~/git/rapidplan/ && \
+  colcon build --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select rtr_app_layer && \
+  colcon test --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select rtr_app_layer --event-handlers console_direct+
+}
+
+test_rtr_planning ()
+{
+  cd ~/git/rapidplan/ && \
+  colcon build --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select rtr_planning && \
+  colcon test --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select rtr_planning --event-handlers console_direct+
+}
+
+test_rtr ()
+{
+  cd ~/git/rapidplan/ && \
+  colcon build --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select $1 && \
+  colcon test --base-paths src --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo --packages-select $1 --event-handlers console_direct+
+}
+
+
+source /opt/ros/foxy/setup.sh
